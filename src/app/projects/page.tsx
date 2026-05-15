@@ -25,15 +25,15 @@ export default function ProjectsPage() {
       <Section spacing="lg" className="overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 grid-bg [mask-image:radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-30"
+          className="pointer-events-none absolute inset-0 -z-10 grid-bg mask-[radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-30"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[520px] w-[520px] -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.22),transparent_60%)] blur-3xl"
+          className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-130 w-130 -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.22),transparent_60%)] blur-3xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute top-10 right-[12%] -z-10 h-[320px] w-[320px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.16),transparent_60%)] blur-3xl"
+          className="pointer-events-none absolute top-10 right-[12%] -z-10 h-80 w-80 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.16),transparent_60%)] blur-3xl"
           style={{ animationDelay: "-6s" }}
         />
         <Container>
@@ -80,12 +80,12 @@ export default function ProjectsPage() {
                     />
                     <div
                       className={cn(
-                        "relative aspect-[16/10] overflow-hidden bg-gradient-to-br",
+                        "relative aspect-16/10 overflow-hidden bg-linear-to-br",
                         project.cover
                       )}
                     >
                       <div className="absolute inset-0 grid-bg opacity-30" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/15 to-transparent" />
                       <div className="absolute left-5 top-5 flex flex-wrap items-center gap-2">
                         <Badge tone="neutral" size="sm">
                           {project.industry}
@@ -119,7 +119,7 @@ export default function ProjectsPage() {
                       <p className="text-[15px] leading-relaxed text-foreground-muted">
                         {project.tagline}
                       </p>
-                      <div className="mt-7 grid grid-cols-2 gap-4 border-t border-white/[0.06] pt-6 sm:grid-cols-4">
+                      <div className="mt-7 grid grid-cols-2 gap-4 border-t border-white/6 pt-6 sm:grid-cols-4">
                         {project.metrics.map((m) => (
                           <div key={m.label}>
                             <div className="tabular text-[18px] font-semibold tracking-[-0.02em] text-white">
@@ -135,13 +135,13 @@ export default function ProjectsPage() {
                         {project.stack.slice(0, 6).map((s) => (
                           <span
                             key={s}
-                            className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-foreground-muted"
+                            className="rounded-full border border-white/10 bg-white/3 px-2.5 py-1 text-[11px] text-foreground-muted"
                           >
                             {s}
                           </span>
                         ))}
                         {project.stack.length > 6 && (
-                          <span className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-foreground-subtle">
+                          <span className="rounded-full border border-white/10 bg-white/3 px-2.5 py-1 text-[11px] text-foreground-subtle">
                             +{project.stack.length - 6}
                           </span>
                         )}

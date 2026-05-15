@@ -10,7 +10,7 @@ type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
 
 const tones: Record<Tone, string> = {
   neutral:
-    "bg-white/[0.04] text-foreground-muted border-white/10 backdrop-blur",
+    "bg-white/4 text-foreground-muted border-white/10 backdrop-blur",
   brand: "bg-accent/10 text-accent border-accent/25 backdrop-blur",
   success: "bg-success/10 text-success border-success/25 backdrop-blur",
   warning: "bg-warning/10 text-warning border-warning/25 backdrop-blur",

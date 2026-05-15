@@ -25,7 +25,7 @@ export function Process() {
         <div className="relative mt-12 grid gap-4 sm:mt-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-6 top-[58px] -z-10 hidden h-px bg-gradient-to-r from-transparent via-white/15 to-transparent lg:block"
+            className="pointer-events-none absolute inset-x-6 top-14.5 -z-10 hidden h-px bg-linear-to-r from-transparent via-white/15 to-transparent lg:block"
           />
           {processSteps.map((step, i) => {
             const Icon = iconMap[step.icon] ?? Compass;
@@ -33,7 +33,7 @@ export function Process() {
               <Reveal key={step.step} delay={i * 0.06}>
                 <div className="glass-card group relative h-full rounded-2xl p-6 transition-all duration-500 hover:-translate-y-0.5 hover:border-white/15 sm:p-7">
                   <div className="flex items-center justify-between">
-                    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] text-white shadow-[0_1px_0_rgba(255,255,255,0.06)_inset] transition-all duration-500 group-hover:border-accent/30 group-hover:from-accent/15 group-hover:text-accent">
+                    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-linear-to-br from-white/6 to-white/2 text-white shadow-[0_1px_0_rgba(255,255,255,0.06)_inset] transition-all duration-500 group-hover:border-accent/30 group-hover:from-accent/15 group-hover:text-accent">
                       <Icon className="h-5 w-5" />
                     </div>
                     <span className="tabular font-mono text-[11px] text-foreground-subtle">

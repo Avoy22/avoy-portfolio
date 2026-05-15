@@ -33,7 +33,7 @@ export function About() {
             <Badge tone="brand" size="md" dot>
               About Avoy
             </Badge>
-            <h2 className="mt-5 text-balance text-[28px] font-semibold leading-[1.06] tracking-[-0.025em] text-gradient sm:text-[36px] lg:text-[44px] xl:text-[48px]">
+            <h2 className="mt-5 text-balance text-[28px] font-semibold leading-[1.06] tracking-tight text-gradient sm:text-[36px] lg:text-[44px] xl:text-[48px]">
               An engineer who treats your business like a product.
             </h2>
             <p className="mt-6 text-[15px] leading-relaxed text-foreground-muted sm:text-[17px]">
@@ -49,11 +49,11 @@ export function About() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 text-sm text-foreground-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12.5px]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-[12.5px]">
                 <MapPin className="h-3.5 w-3.5 text-foreground-subtle" />
                 {site.location}
               </div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-success/20 bg-success/[0.06] px-3 py-1.5 text-[12.5px]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-success/20 bg-success/6 px-3 py-1.5 text-[12.5px]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />

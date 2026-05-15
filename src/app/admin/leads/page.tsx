@@ -31,11 +31,11 @@ export default function LeadsPage() {
               notes, update status, export.
             </p>
           </div>
-          <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/[0.08] bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium text-foreground-muted backdrop-blur sm:self-end">
+          <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/8 bg-white/3 px-3.5 py-1.5 text-[11px] font-medium text-foreground-muted backdrop-blur sm:self-end">
             <span className="font-mono uppercase tracking-[0.18em] text-foreground-subtle">
               source
             </span>
-            <span className="h-3 w-px bg-white/[0.08]" />
+            <span className="h-3 w-px bg-white/8" />
             <span className="text-white">Supabase</span>
             <span className="text-foreground-subtle">(placeholder)</span>
           </div>

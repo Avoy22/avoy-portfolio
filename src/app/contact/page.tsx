@@ -40,15 +40,15 @@ export default function ContactPage() {
     <Section spacing="lg" className="overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 grid-bg [mask-image:radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-25"
+        className="pointer-events-none absolute inset-0 -z-10 grid-bg mask-[radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-25"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 right-[8%] -z-10 h-[520px] w-[520px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.2),transparent_60%)] blur-3xl"
+        className="pointer-events-none absolute -top-32 right-[8%] -z-10 h-130 w-130 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.2),transparent_60%)] blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/2 -left-32 -z-10 h-[360px] w-[360px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.14),transparent_60%)] blur-3xl"
+        className="pointer-events-none absolute top-1/2 -left-32 -z-10 h-90 w-90 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.14),transparent_60%)] blur-3xl"
         style={{ animationDelay: "-6s" }}
       />
       <Container>
@@ -71,10 +71,10 @@ export default function ContactPage() {
             <div className="mt-9 space-y-3">
               <a
                 href={site.social.email}
-                className="glass-card group flex items-center justify-between rounded-2xl p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05]"
+                className="glass-card group flex items-center justify-between rounded-2xl p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/5"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white transition group-hover:border-accent/30 group-hover:bg-accent/10 group-hover:text-accent">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-white transition group-hover:border-accent/30 group-hover:bg-accent/10 group-hover:text-accent">
                     <Mail className="h-4 w-4" />
                   </div>
                   <div>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 </div>
               </a>
               <div className="glass-card flex items-center gap-3 rounded-2xl p-5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-white">
                   <Calendar className="h-4 w-4" />
                 </div>
                 <div>

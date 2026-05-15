@@ -46,15 +46,15 @@ export default function ServicesPage() {
       <Section spacing="lg" className="overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 grid-bg [mask-image:radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-30"
+          className="pointer-events-none absolute inset-0 -z-10 grid-bg mask-[radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-30"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[520px] w-[520px] -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.2),transparent_60%)] blur-3xl"
+          className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-130 w-130 -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.2),transparent_60%)] blur-3xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute top-20 right-[8%] -z-10 h-[340px] w-[340px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.14),transparent_60%)] blur-3xl"
+          className="pointer-events-none absolute top-20 right-[8%] -z-10 h-85 w-85 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.14),transparent_60%)] blur-3xl"
           style={{ animationDelay: "-6s" }}
         />
         <Container>
@@ -89,7 +89,7 @@ export default function ServicesPage() {
                       className="pointer-events-none absolute -inset-px rounded-3xl bg-[radial-gradient(120%_60%_at_50%_-10%,rgba(109,140,255,0.18),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     />
                     <div className="relative flex items-start justify-between gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] text-white shadow-[0_1px_0_rgba(255,255,255,0.06)_inset] transition-all duration-500 group-hover:border-accent/30 group-hover:from-accent/15 group-hover:text-accent">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-linear-to-br from-white/6 to-white/2 text-white shadow-[0_1px_0_rgba(255,255,255,0.06)_inset] transition-all duration-500 group-hover:border-accent/30 group-hover:from-accent/15 group-hover:text-accent">
                         <Icon className="h-5 w-5" />
                       </div>
                       {service.startingAt && (
@@ -120,7 +120,7 @@ export default function ServicesPage() {
                       </ul>
                     </div>
 
-                    <div className="relative mt-7 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition group-hover:border-white/15 group-hover:bg-white/[0.04]">
+                    <div className="relative mt-7 rounded-xl border border-white/6 bg-white/2 p-4 transition group-hover:border-white/15 group-hover:bg-white/4">
                       <div className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-foreground-subtle">
                         Ideal for
                       </div>
@@ -154,7 +154,7 @@ export default function ServicesPage() {
           <div className="relative mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-x-6 top-[42px] -z-10 hidden h-px bg-gradient-to-r from-transparent via-white/15 to-transparent lg:block"
+              className="pointer-events-none absolute inset-x-6 top-10.5 -z-10 hidden h-px bg-linear-to-r from-transparent via-white/15 to-transparent lg:block"
             />
             {processSteps.map((step, i) => (
               <Reveal key={step.step} delay={i * 0.06}>
@@ -180,11 +180,11 @@ export default function ServicesPage() {
           <div className="glass-strong relative overflow-hidden rounded-3xl p-10 sm:p-16">
             <div
               aria-hidden
-              className="pointer-events-none absolute -top-24 right-0 h-[360px] w-[360px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.2),transparent_60%)] blur-3xl"
+              className="pointer-events-none absolute -top-24 right-0 h-90 w-90 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.2),transparent_60%)] blur-3xl"
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute -bottom-24 left-[5%] h-[300px] w-[300px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.16),transparent_60%)] blur-3xl"
+              className="pointer-events-none absolute -bottom-24 left-[5%] h-75 w-75 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.16),transparent_60%)] blur-3xl"
               style={{ animationDelay: "-6s" }}
             />
             <div className="relative grid gap-8 md:grid-cols-2 md:items-center md:gap-12">
@@ -212,7 +212,7 @@ export default function ServicesPage() {
                   </span>
                   <span
                     aria-hidden
-                    className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-gradient-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
+                    className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
                   />
                 </Link>
               </div>

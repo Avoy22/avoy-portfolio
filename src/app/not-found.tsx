@@ -7,11 +7,11 @@ export default function NotFound() {
     <Container className="relative flex min-h-[70vh] flex-col items-center justify-center text-center">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 grid-bg [mask-image:radial-gradient(ellipse_50%_40%_at_50%_50%,black,transparent_75%)] opacity-30"
+        className="pointer-events-none absolute inset-0 -z-10 grid-bg mask-[radial-gradient(ellipse_50%_40%_at_50%_50%,black,transparent_75%)] opacity-30"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.18),transparent_60%)] blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-105 w-105 -translate-x-1/2 -translate-y-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.18),transparent_60%)] blur-3xl"
       />
       <div className="tabular text-[11px] font-mono uppercase tracking-[0.18em] text-foreground-subtle">
         404 · Not found
@@ -25,7 +25,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="group mt-8 inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 text-sm text-white backdrop-blur transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.06]"
+        className="group mt-8 inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/3 px-5 text-sm text-white backdrop-blur transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/6"
       >
         <ArrowLeft className="h-4 w-4 transition group-hover:-translate-x-0.5" />
         Back to home

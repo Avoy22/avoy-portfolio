@@ -57,11 +57,11 @@ export default async function ProjectCaseStudyPage({
       <Section spacing="md" className="overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 grid-bg [mask-image:radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-25"
+          className="pointer-events-none absolute inset-0 -z-10 grid-bg mask-[radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-25"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-32 right-0 -z-10 h-[480px] w-[480px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.18),transparent_60%)] blur-3xl"
+          className="pointer-events-none absolute -top-32 right-0 -z-10 h-120 w-120 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.18),transparent_60%)] blur-3xl"
         />
         <Container>
           <Link
@@ -104,7 +104,7 @@ export default async function ProjectCaseStudyPage({
                     </span>
                     <span
                       aria-hidden
-                      className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-gradient-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
+                      className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
                     />
                   </a>
                 )}
@@ -113,7 +113,7 @@ export default async function ProjectCaseStudyPage({
                     href={project.links.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 text-[13px] font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]"
+                    className="inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/3 px-5 text-[13px] font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/6"
                   >
                     <GithubIcon size={15} />
                     Repository
@@ -145,12 +145,12 @@ export default async function ProjectCaseStudyPage({
         <Container>
           <div
             className={cn(
-              "relative aspect-[21/9] overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br ring-glow",
+              "relative aspect-21/9 overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br ring-glow",
               project.cover
             )}
           >
             <div className="absolute inset-0 grid-bg opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-3 py-1.5 text-xs text-white backdrop-blur">
               <Sparkles className="h-3.5 w-3.5 text-accent" />
               Cover preview · {project.title}
@@ -213,7 +213,7 @@ export default async function ProjectCaseStudyPage({
                     {project.outcomes.map((o) => (
                       <li
                         key={o}
-                        className="flex items-start gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition hover:border-white/15 hover:bg-white/[0.04]"
+                        className="flex items-start gap-3 rounded-xl border border-white/6 bg-white/2 p-4 transition hover:border-white/15 hover:bg-white/4"
                       >
                         <CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                         <span className="text-[14.5px] leading-relaxed text-foreground-muted">
@@ -253,7 +253,7 @@ export default async function ProjectCaseStudyPage({
                     {project.stack.map((s) => (
                       <li
                         key={s}
-                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[12px] text-foreground-muted"
+                        className="rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-[12px] text-foreground-muted"
                       >
                         {s}
                       </li>
@@ -282,12 +282,12 @@ export default async function ProjectCaseStudyPage({
                   <div className="glass-card group overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-white/15">
                     <div
                       className={cn(
-                        "relative aspect-[4/3] overflow-hidden bg-gradient-to-br",
+                        "relative aspect-4/3 overflow-hidden bg-linear-to-br",
                         g.placeholder
                       )}
                     >
                       <div className="absolute inset-0 grid-bg opacity-30" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                       <div
                         aria-hidden
                         className="pointer-events-none absolute -inset-1 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -295,7 +295,7 @@ export default async function ProjectCaseStudyPage({
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15),transparent_60%)]" />
                       </div>
                     </div>
-                    <div className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 text-[12.5px] text-foreground-muted">
+                    <div className="border-t border-white/6 bg-white/2 px-4 py-3 text-[12.5px] text-foreground-muted">
                       {g.caption}
                     </div>
                   </div>
@@ -309,14 +309,14 @@ export default async function ProjectCaseStudyPage({
       {/* CTA */}
       <Section spacing="md">
         <Container>
-          <div className="relative overflow-hidden rounded-3xl border border-white/[0.1] bg-gradient-to-br from-white/[0.07] via-white/[0.02] to-transparent p-8 sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-white/7 via-white/2 to-transparent p-8 sm:p-12">
             <div
               aria-hidden
-              className="pointer-events-none absolute -top-32 left-1/2 h-[300px] w-[600px] -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.2),transparent_60%)] blur-3xl"
+              className="pointer-events-none absolute -top-32 left-1/2 h-75 w-150 -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.2),transparent_60%)] blur-3xl"
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute -bottom-24 right-[10%] h-[280px] w-[280px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.14),transparent_60%)] blur-3xl"
+              className="pointer-events-none absolute -bottom-24 right-[10%] h-70 w-70 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.14),transparent_60%)] blur-3xl"
               style={{ animationDelay: "-6s" }}
             />
             <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
@@ -338,7 +338,7 @@ export default async function ProjectCaseStudyPage({
                 </span>
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-gradient-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
+                  className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
                 />
               </Link>
             </div>
@@ -362,7 +362,7 @@ export default async function ProjectCaseStudyPage({
                 <div
                   aria-hidden
                   className={cn(
-                    "absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t opacity-30",
+                    "absolute inset-x-0 bottom-0 h-24 bg-linear-to-t opacity-30",
                     p.cover
                   )}
                 />

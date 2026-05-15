@@ -47,7 +47,7 @@ export function ContactForm() {
       <div className="glass-card relative overflow-hidden rounded-3xl p-10 text-center sm:p-12">
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-24 left-1/2 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(52,211,153,0.18),transparent_60%)] blur-3xl"
+          className="pointer-events-none absolute -top-24 left-1/2 h-75 w-75 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(52,211,153,0.18),transparent_60%)] blur-3xl"
         />
         <div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-success/30 bg-success/10 text-success">
           <CircleCheck className="h-7 w-7" />
@@ -168,7 +168,7 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div className="mt-8 flex flex-col items-stretch justify-between gap-4 border-t border-white/[0.06] pt-7 sm:flex-row sm:items-center">
+      <div className="mt-8 flex flex-col items-stretch justify-between gap-4 border-t border-white/6 pt-7 sm:flex-row sm:items-center">
         <p className="text-[12px] leading-relaxed text-foreground-subtle">
           By submitting, you agree to be contacted about your inquiry.
           <br className="hidden sm:block" />
@@ -198,7 +198,7 @@ export function ContactForm() {
           {!isSubmitting && (
             <span
               aria-hidden
-              className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-gradient-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
+              className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
             />
           )}
         </button>

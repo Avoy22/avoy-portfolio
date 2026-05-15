@@ -39,13 +39,13 @@ export function Services() {
             return (
               <Reveal key={service.slug} delay={(index % 3) * 0.06}>
                 <Link href="/services" className="group block h-full">
-                  <article className="glass-card relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/15 hover:bg-white/[0.05] hover:shadow-[0_24px_60px_-24px_rgba(109,140,255,0.4)] sm:p-7">
+                  <article className="glass-card relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/15 hover:bg-white/5 hover:shadow-[0_24px_60px_-24px_rgba(109,140,255,0.4)] sm:p-7">
                     <div
                       aria-hidden
                       className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(120%_60%_at_50%_-10%,rgba(109,140,255,0.18),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                     />
                     <div className="relative flex items-start justify-between">
-                      <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] text-white shadow-[0_1px_0_rgba(255,255,255,0.06)_inset] transition-all duration-500 group-hover:border-accent/30 group-hover:from-accent/15 group-hover:text-accent">
+                      <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-linear-to-br from-white/6 to-white/2 text-white shadow-[0_1px_0_rgba(255,255,255,0.06)_inset] transition-all duration-500 group-hover:border-accent/30 group-hover:from-accent/15 group-hover:text-accent">
                         <Icon className="h-5 w-5" />
                       </div>
                       <ArrowUpRight className="h-4 w-4 -translate-y-1 translate-x-1 text-foreground-subtle opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-white group-hover:opacity-100" />

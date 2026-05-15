@@ -29,7 +29,7 @@ export function SectionHeader({
           {eyebrow}
         </Badge>
       )}
-      <h2 className="max-w-3xl text-balance text-[28px] font-semibold leading-[1.06] tracking-[-0.025em] text-gradient sm:text-[36px] lg:text-[44px] xl:text-[48px]">
+      <h2 className="max-w-3xl text-balance text-[28px] font-semibold leading-[1.06] tracking-tight text-gradient sm:text-[36px] lg:text-[44px] xl:text-[48px]">
         {title}
       </h2>
       {description && (

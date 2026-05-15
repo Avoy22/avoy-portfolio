@@ -27,7 +27,7 @@ export function FeaturedProjects() {
           />
           <Link
             href="/projects"
-            className="group hidden shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm text-white backdrop-blur transition hover:border-white/25 hover:bg-white/[0.06] sm:inline-flex"
+            className="group hidden shrink-0 items-center gap-2 rounded-full border border-white/10 bg-white/3 px-5 py-2.5 text-sm text-white backdrop-blur transition hover:border-white/25 hover:bg-white/6 sm:inline-flex"
           >
             View all projects
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -48,12 +48,12 @@ export function FeaturedProjects() {
                   />
                   <div
                     className={cn(
-                      "relative aspect-[16/10] overflow-hidden bg-gradient-to-br",
+                      "relative aspect-16/10 overflow-hidden bg-linear-to-br",
                       project.cover
                     )}
                   >
                     <div className="absolute inset-0 grid-bg opacity-30" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/15 to-transparent" />
                     <div
                       aria-hidden
                       className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
@@ -90,7 +90,7 @@ export function FeaturedProjects() {
                     <p className="text-[15px] leading-relaxed text-foreground-muted">
                       {project.tagline}
                     </p>
-                    <div className="mt-6 grid grid-cols-3 gap-x-4 gap-y-3 border-t border-white/[0.06] pt-6">
+                    <div className="mt-6 grid grid-cols-3 gap-x-4 gap-y-3 border-t border-white/6 pt-6">
                       {project.metrics.slice(0, 3).map((m) => (
                         <div key={m.label}>
                           <div className="tabular text-[18px] font-semibold tracking-[-0.02em] text-white">
@@ -106,13 +106,13 @@ export function FeaturedProjects() {
                       {project.stack.slice(0, 5).map((s) => (
                         <span
                           key={s}
-                          className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-foreground-muted"
+                          className="rounded-full border border-white/10 bg-white/3 px-2.5 py-1 text-[11px] text-foreground-muted"
                         >
                           {s}
                         </span>
                       ))}
                       {project.stack.length > 5 && (
-                        <span className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-foreground-subtle">
+                        <span className="rounded-full border border-white/10 bg-white/3 px-2.5 py-1 text-[11px] text-foreground-subtle">
                           +{project.stack.length - 5}
                         </span>
                       )}
@@ -127,7 +127,7 @@ export function FeaturedProjects() {
         <div className="mt-10 flex justify-center sm:hidden">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm text-white transition hover:border-white/25 hover:bg-white/[0.06]"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-5 py-2.5 text-sm text-white transition hover:border-white/25 hover:bg-white/6"
           >
             View all projects
             <ArrowUpRight className="h-4 w-4" />

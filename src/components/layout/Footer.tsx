@@ -6,24 +6,24 @@ import { site } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 overflow-hidden border-t border-white/[0.06] bg-background-soft/40">
+    <footer className="relative mt-24 overflow-hidden border-t border-white/6 bg-background-soft/40">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/15 to-transparent"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(109,140,255,0.1),transparent_60%)] blur-2xl"
+        className="pointer-events-none absolute -top-40 left-1/2 h-105 w-205 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(109,140,255,0.1),transparent_60%)] blur-2xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-32 right-[10%] h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.08),transparent_60%)] blur-3xl"
+        className="pointer-events-none absolute -bottom-32 right-[10%] h-75 w-75 rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.08),transparent_60%)] blur-3xl"
       />
       <Container className="relative py-16 sm:py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Link href="/" className="group inline-flex items-center gap-2.5">
-              <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent via-accent-2 to-accent-3 text-black shadow-[0_8px_24px_-8px_rgba(109,140,255,0.5)] transition-transform duration-300 group-hover:scale-105">
+              <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-accent via-accent-2 to-accent-3 text-black shadow-[0_8px_24px_-8px_rgba(109,140,255,0.5)] transition-transform duration-300 group-hover:scale-105">
                 <Sparkles className="h-4 w-4" strokeWidth={2.5} />
               </span>
               <span className="text-[15px] font-semibold tracking-[-0.01em] text-white">
@@ -125,7 +125,7 @@ export function Footer() {
             <p className="mt-3 text-xs leading-relaxed text-foreground-subtle">
               {site.location}
             </p>
-            <p className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-success/20 bg-success/[0.06] px-2.5 py-1 text-[11px] text-foreground-muted">
+            <p className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-success/20 bg-success/6 px-2.5 py-1 text-[11px] text-foreground-muted">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-success" />
@@ -135,7 +135,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/[0.06] pt-7 sm:flex-row sm:items-center">
+        <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/6 pt-7 sm:flex-row sm:items-center">
           <p className="text-xs text-foreground-subtle">
             © {new Date().getFullYear()} {site.name}. Crafted with Next.js,
             TypeScript &amp; Tailwind.
@@ -165,7 +165,7 @@ function SocialLink({
       aria-label={label}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-foreground-muted transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.06] hover:text-white hover:shadow-[0_8px_20px_-8px_rgba(109,140,255,0.45)]"
+      className="group inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/3 text-foreground-muted transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/6 hover:text-white hover:shadow-[0_8px_20px_-8px_rgba(109,140,255,0.45)]"
     >
       {children}
     </a>

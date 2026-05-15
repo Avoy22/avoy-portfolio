@@ -17,10 +17,10 @@ export default function AdminLayout({
 }) {
   return (
     <div className="min-h-screen">
-      <div className="sticky top-[64px] z-30 border-b border-white/[0.06] bg-background/80 backdrop-blur-xl sm:top-[72px]">
+      <div className="sticky top-16 z-30 border-b border-white/6 bg-background/80 backdrop-blur-xl sm:top-18">
         <Container className="flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent via-accent-2 to-accent-3 text-black shadow-[0_8px_24px_-8px_rgba(109,140,255,0.55)]">
+            <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-accent via-accent-2 to-accent-3 text-black shadow-[0_8px_24px_-8px_rgba(109,140,255,0.55)]">
               <Sparkles className="h-4 w-4" strokeWidth={2.5} />
             </div>
             <div>
@@ -36,10 +36,10 @@ export default function AdminLayout({
             <Badge tone="success" dot>
               Connected
             </Badge>
-            <nav className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur">
+            <nav className="flex items-center gap-1 rounded-full border border-white/10 bg-white/3 p-1 backdrop-blur">
               <Link
                 href="/admin/leads"
-                className="inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-3.5 py-1.5 text-xs font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]"
+                className="inline-flex items-center gap-2 rounded-full bg-white/8 px-3.5 py-1.5 text-xs font-medium text-white shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]"
               >
                 <Inbox className="h-3.5 w-3.5" />
                 Leads

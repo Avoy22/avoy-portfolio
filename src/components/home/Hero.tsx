@@ -12,20 +12,20 @@ export function Hero() {
     <section className="relative overflow-hidden pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-28 lg:pb-36">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 grid-bg [mask-image:radial-gradient(ellipse_60%_50%_at_50%_30%,black,transparent_75%)] opacity-40"
+        className="pointer-events-none absolute inset-0 -z-10 grid-bg mask-[radial-gradient(ellipse_60%_50%_at_50%_30%,black,transparent_75%)] opacity-40"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[720px] w-[720px] -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.24),transparent_60%)] blur-3xl"
+        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-180 w-180 -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.24),transparent_60%)] blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-20 right-[8%] -z-10 h-[420px] w-[420px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.2),transparent_60%)] blur-3xl"
+        className="pointer-events-none absolute -top-20 right-[8%] -z-10 h-105 w-105 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.2),transparent_60%)] blur-3xl"
         style={{ animationDelay: "-8s" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/3 -left-20 -z-10 h-[360px] w-[360px] animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.14),transparent_60%)] blur-3xl"
+        className="pointer-events-none absolute top-1/3 -left-20 -z-10 h-90 w-90 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.14),transparent_60%)] blur-3xl"
         style={{ animationDelay: "-4s" }}
       />
 
@@ -81,12 +81,12 @@ export function Hero() {
               </span>
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-0 z-0 w-[40%] -translate-x-full bg-gradient-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
+                className="pointer-events-none absolute inset-y-0 left-0 z-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
               />
             </Link>
             <Link
               href="/projects"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-7 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/[0.06]"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/3 px-7 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/6"
             >
               View case studies
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -159,13 +159,13 @@ export function Hero() {
               The stack I ship with
             </div>
             <div className="relative">
-              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent sm:w-28" />
-              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent sm:w-28" />
+              <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-background to-transparent sm:w-28" />
+              <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-background to-transparent sm:w-28" />
               <div className="flex w-max animate-marquee gap-3">
                 {[...PROOF, ...PROOF].map((p, i) => (
                   <span
                     key={`${p}-${i}`}
-                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-xs font-medium text-foreground-muted backdrop-blur"
+                    className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/8 bg-white/3 px-4 py-1.5 text-xs font-medium text-foreground-muted backdrop-blur"
                   >
                     <span className="h-1 w-1 rounded-full bg-accent/70" />
                     {p}
@@ -200,13 +200,13 @@ function HeroProductPreview() {
     <div className="relative mx-auto w-full max-w-5xl">
       <div className="absolute -inset-x-8 -top-12 -bottom-12 -z-10 rounded-[40px] bg-[radial-gradient(ellipse_at_center,rgba(109,140,255,0.22),transparent_70%)] blur-3xl" />
       <div className="glass-strong ring-glow overflow-hidden rounded-2xl">
-        <div className="flex items-center gap-2 border-b border-white/[0.06] bg-white/[0.02] px-4 py-3">
+        <div className="flex items-center gap-2 border-b border-white/6 bg-white/2 px-4 py-3">
           <div className="flex gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
           </div>
-          <div className="ml-3 flex h-6 flex-1 items-center gap-2 truncate rounded-md bg-white/[0.04] px-3 text-[11px] text-foreground-subtle">
+          <div className="ml-3 flex h-6 flex-1 items-center gap-2 truncate rounded-md bg-white/4 px-3 text-[11px] text-foreground-subtle">
             <span className="opacity-60">https://</span>
             avoydas.com
             <span className="opacity-50">/</span>
@@ -216,7 +216,7 @@ function HeroProductPreview() {
           </div>
         </div>
         <div className="grid grid-cols-12 gap-0">
-          <aside className="col-span-3 hidden border-r border-white/[0.06] bg-white/[0.015] p-4 text-xs text-foreground-muted md:block">
+          <aside className="col-span-3 hidden border-r border-white/6 bg-white/1.5 p-4 text-xs text-foreground-muted md:block">
             <div className="mb-4 flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-accent" />
               <span className="text-[10.5px] uppercase tracking-[0.14em] text-foreground-subtle">
@@ -230,8 +230,8 @@ function HeroProductPreview() {
                     key={item}
                     className={`rounded-md px-2 py-1.5 transition ${
                       i === 1
-                        ? "bg-white/[0.06] text-white"
-                        : "hover:bg-white/[0.03]"
+                        ? "bg-white/6 text-white"
+                        : "hover:bg-white/3"
                     }`}
                   >
                     {item}
@@ -263,7 +263,7 @@ function HeroProductPreview() {
               ].map((k) => (
                 <div
                   key={k.l}
-                  className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3"
+                  className="rounded-xl border border-white/6 bg-white/2 p-3"
                 >
                   <div className="text-[10.5px] uppercase tracking-[0.14em] text-foreground-subtle">
                     {k.l}
@@ -282,10 +282,10 @@ function HeroProductPreview() {
               ].map((row) => (
                 <div
                   key={row.n}
-                  className="flex items-center justify-between rounded-xl border border-white/[0.05] bg-white/[0.015] px-3 py-2.5 text-xs transition hover:bg-white/[0.03]"
+                  className="flex items-center justify-between rounded-xl border border-white/5 bg-white/1.5 px-3 py-2.5 text-xs transition hover:bg-white/3"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-accent/40 to-accent-2/40 text-[10px] font-semibold text-white ring-1 ring-white/10">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-linear-to-br from-accent/40 to-accent-2/40 text-[10px] font-semibold text-white ring-1 ring-white/10">
                       {row.n
                         .split(" ")
                         .map((p) => p[0])

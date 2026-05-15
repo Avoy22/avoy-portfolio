@@ -38,9 +38,9 @@ export function TechStack() {
                         item.level === "Core" &&
                           "border-accent/30 bg-accent/10 text-white shadow-[0_0_0_1px_rgba(109,140,255,0.05)_inset]",
                         item.level === "Daily" &&
-                          "border-white/10 bg-white/[0.04] text-foreground-muted",
+                          "border-white/10 bg-white/4 text-foreground-muted",
                         item.level === "Familiar" &&
-                          "border-white/[0.06] bg-white/[0.02] text-foreground-subtle"
+                          "border-white/6 bg-white/2 text-foreground-subtle"
                       )}
                     >
                       {item.name}

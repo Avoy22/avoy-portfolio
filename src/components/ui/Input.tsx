@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
 const baseField =
-  "w-full rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3 text-[14.5px] text-foreground placeholder:text-foreground-subtle outline-none transition-all duration-200 hover:border-white/20 hover:bg-white/[0.04] focus:border-accent/60 focus:bg-white/[0.05] focus:ring-4 focus:ring-accent/15 focus:shadow-[0_0_0_1px_rgba(109,140,255,0.12)_inset] disabled:opacity-50 disabled:cursor-not-allowed";
+  "w-full rounded-xl bg-white/3 border border-white/10 px-4 py-3 text-[14.5px] text-foreground placeholder:text-foreground-subtle outline-none transition-all duration-200 hover:border-white/20 hover:bg-white/4 focus:border-accent/60 focus:bg-white/5 focus:ring-4 focus:ring-accent/15 focus:shadow-[0_0_0_1px_rgba(109,140,255,0.12)_inset] disabled:opacity-50 disabled:cursor-not-allowed";
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 

@@ -116,7 +116,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
 
   return (
     <div className="glass-card overflow-hidden rounded-2xl">
-      <div className="flex flex-col gap-4 border-b border-white/[0.06] p-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 border-b border-white/6 p-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-1 items-center gap-3">
           <div className="relative w-full max-w-md">
             <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground-subtle" />
@@ -124,7 +124,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search by name, email, company, service…"
-              className="w-full rounded-xl border border-white/10 bg-white/[0.03] py-2.5 pl-10 pr-9 text-sm text-foreground placeholder:text-foreground-subtle transition hover:border-white/20 focus:border-accent/60 focus:bg-white/[0.05] focus:outline-none focus:ring-4 focus:ring-accent/10"
+              className="w-full rounded-xl border border-white/10 bg-white/3 py-2.5 pl-10 pr-9 text-sm text-foreground placeholder:text-foreground-subtle transition hover:border-white/20 focus:border-accent/60 focus:bg-white/5 focus:outline-none focus:ring-4 focus:ring-accent/10"
             />
             {query && (
               <button
@@ -136,7 +136,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
               </button>
             )}
           </div>
-          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur sm:inline-flex">
+          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/3 p-1 backdrop-blur sm:inline-flex">
             <SlidersHorizontal className="ml-2 h-3.5 w-3.5 text-foreground-subtle" />
             {statusOrder.map((s) => (
               <button
@@ -145,7 +145,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
                 className={cn(
                   "rounded-full px-3 py-1 text-xs capitalize transition",
                   statusFilter === s
-                    ? "bg-white/[0.09] text-white shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]"
+                    ? "bg-white/9 text-white shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]"
                     : "text-foreground-muted hover:text-white"
                 )}
               >
@@ -156,7 +156,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
         </div>
         <button
           onClick={exportCsv}
-          className="inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 text-xs font-medium text-white backdrop-blur transition hover:border-white/25 hover:bg-white/[0.06]"
+          className="inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/3 px-4 text-xs font-medium text-white backdrop-blur transition hover:border-white/25 hover:bg-white/6"
         >
           <Download className="h-4 w-4" />
           Export CSV ({filtered.length})
@@ -172,7 +172,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
               className={cn(
                 "shrink-0 rounded-full px-3 py-1.5 text-xs capitalize transition",
                 statusFilter === s
-                  ? "bg-white/[0.09] text-white"
+                  ? "bg-white/9 text-white"
                   : "border border-white/10 text-foreground-muted"
               )}
             >
@@ -185,7 +185,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead>
-            <tr className="border-b border-white/[0.06] text-left text-[10.5px] uppercase tracking-[0.16em] text-foreground-subtle">
+            <tr className="border-b border-white/6 text-left text-[10.5px] uppercase tracking-[0.16em] text-foreground-subtle">
               <th className="px-5 py-3.5 font-semibold">Lead</th>
               <th className="px-5 py-3.5 font-semibold">Service</th>
               <th className="px-5 py-3.5 font-semibold">Budget</th>
@@ -209,14 +209,14 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
             {filtered.map((lead) => (
               <tr
                 key={lead.id}
-                className="border-b border-white/[0.04] transition hover:bg-white/[0.02]"
+                className="border-b border-white/4 transition hover:bg-white/2"
               >
                 <td className="px-5 py-4">
                   <button
                     onClick={() => setActiveLead(lead)}
                     className="flex items-center gap-3 text-left"
                   >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent/40 to-accent-2/40 text-[11px] font-semibold text-white ring-1 ring-white/10">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-accent/40 to-accent-2/40 text-[11px] font-semibold text-white ring-1 ring-white/10">
                       {lead.name
                         .split(" ")
                         .map((p) => p[0])
@@ -254,7 +254,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: Lead[] }) {
                 <td className="px-5 py-4 text-right">
                   <button
                     onClick={() => setActiveLead(lead)}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-white backdrop-blur transition hover:border-white/25 hover:bg-white/[0.06]"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-xs text-white backdrop-blur transition hover:border-white/25 hover:bg-white/6"
                   >
                     <StickyNote className="h-3.5 w-3.5" />
                     Open
@@ -330,8 +330,8 @@ function LeadDrawer({
         onClick={onClose}
         className="flex-1 bg-black/65 backdrop-blur-sm"
       />
-      <aside className="flex w-full max-w-xl flex-col border-l border-white/[0.06] bg-background-soft shadow-[-30px_0_80px_-30px_rgba(0,0,0,0.6)]">
-        <div className="flex items-center justify-between border-b border-white/[0.06] p-5">
+      <aside className="flex w-full max-w-xl flex-col border-l border-white/6 bg-background-soft shadow-[-30px_0_80px_-30px_rgba(0,0,0,0.6)]">
+        <div className="flex items-center justify-between border-b border-white/6 p-5">
           <div>
             <div className="text-[10.5px] uppercase tracking-[0.16em] text-foreground-subtle">
               Lead details
@@ -342,7 +342,7 @@ function LeadDrawer({
           </div>
           <button
             onClick={onClose}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-foreground-muted transition hover:border-white/25 hover:bg-white/[0.06] hover:text-white"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/3 text-foreground-muted transition hover:border-white/25 hover:bg-white/6 hover:text-white"
             aria-label="Close drawer"
           >
             <X className="h-4 w-4" />
@@ -384,7 +384,7 @@ function LeadDrawer({
                     "rounded-full border px-3 py-1.5 text-xs capitalize transition",
                     lead.status === s
                       ? "border-accent/50 bg-accent/10 text-white shadow-[0_0_0_3px_rgba(109,140,255,0.08)]"
-                      : "border-white/10 bg-white/[0.03] text-foreground-muted hover:border-white/25 hover:text-white"
+                      : "border-white/10 bg-white/3 text-foreground-muted hover:border-white/25 hover:text-white"
                   )}
                 >
                   {statusLabel[s]}
@@ -397,7 +397,7 @@ function LeadDrawer({
             <div className="text-[10.5px] uppercase tracking-[0.16em] text-foreground-subtle">
               Message
             </div>
-            <div className="mt-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-[14px] leading-relaxed text-foreground-muted">
+            <div className="mt-3 rounded-xl border border-white/6 bg-white/2 p-4 text-[14px] leading-relaxed text-foreground-muted">
               {lead.message}
             </div>
           </div>
@@ -414,12 +414,12 @@ function LeadDrawer({
               value={lead.notes ?? ""}
               onChange={(e) => onNotesChange(e.target.value)}
               placeholder="Add a note for the team…"
-              className="mt-3 min-h-32 w-full resize-y rounded-xl border border-white/10 bg-white/[0.03] p-3.5 text-[14px] leading-relaxed text-foreground placeholder:text-foreground-subtle transition hover:border-white/20 focus:border-accent/60 focus:bg-white/[0.05] focus:outline-none focus:ring-4 focus:ring-accent/10"
+              className="mt-3 min-h-32 w-full resize-y rounded-xl border border-white/10 bg-white/3 p-3.5 text-[14px] leading-relaxed text-foreground placeholder:text-foreground-subtle transition hover:border-white/20 focus:border-accent/60 focus:bg-white/5 focus:outline-none focus:ring-4 focus:ring-accent/10"
             />
           </div>
         </div>
 
-        <div className="border-t border-white/[0.06] p-4">
+        <div className="border-t border-white/6 p-4">
           <a
             href={`mailto:${lead.email}?subject=Re: your inquiry`}
             className="group inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-white text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_10px_28px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
@@ -441,7 +441,7 @@ function DetailCell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5">
+    <div className="rounded-xl border border-white/6 bg-white/2 p-3.5">
       <div className="text-[10px] uppercase tracking-[0.16em] text-foreground-subtle">
         {label}
       </div>

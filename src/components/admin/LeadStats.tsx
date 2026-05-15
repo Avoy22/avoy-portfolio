@@ -16,42 +16,42 @@ const config: Record<
     icon: Inbox,
     tint: "text-white",
     ring: "ring-white/10",
-    bg: "from-white/[0.06] to-white/[0.02]",
+    bg: "from-white/6 to-white/2",
   },
   new: {
     label: "New",
     icon: Sparkles,
     tint: "text-accent-3",
     ring: "ring-accent-3/25",
-    bg: "from-accent-3/15 to-accent-3/[0.02]",
+    bg: "from-accent-3/15 to-accent-3/2",
   },
   contacted: {
     label: "Contacted",
     icon: MessageSquare,
     tint: "text-accent",
     ring: "ring-accent/25",
-    bg: "from-accent/15 to-accent/[0.02]",
+    bg: "from-accent/15 to-accent/2",
   },
   qualified: {
     label: "Qualified",
     icon: Sparkles,
     tint: "text-accent-2",
     ring: "ring-accent-2/25",
-    bg: "from-accent-2/15 to-accent-2/[0.02]",
+    bg: "from-accent-2/15 to-accent-2/2",
   },
   won: {
     label: "Won",
     icon: Trophy,
     tint: "text-success",
     ring: "ring-success/25",
-    bg: "from-success/15 to-success/[0.02]",
+    bg: "from-success/15 to-success/2",
   },
   lost: {
     label: "Lost",
     icon: CircleX,
     tint: "text-foreground-subtle",
     ring: "ring-white/10",
-    bg: "from-white/[0.04] to-white/[0.01]",
+    bg: "from-white/4 to-white/1",
   },
 };
 
@@ -85,7 +85,7 @@ export function LeadStats({ leads }: { leads: Lead[] }) {
           >
             <div
               aria-hidden
-              className={`pointer-events-none absolute -top-12 -right-12 h-28 w-28 rounded-full bg-gradient-to-br ${c.bg} blur-2xl opacity-70`}
+              className={`pointer-events-none absolute -top-12 -right-12 h-28 w-28 rounded-full bg-linear-to-br ${c.bg} blur-2xl opacity-70`}
             />
             <div className="relative flex items-start justify-between">
               <div>
@@ -99,7 +99,7 @@ export function LeadStats({ leads }: { leads: Lead[] }) {
                 </div>
               </div>
               <div
-                className={`flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.04] ring-1 ${c.ring} ${c.tint}`}
+                className={`flex h-9 w-9 items-center justify-center rounded-xl bg-white/4 ring-1 ${c.ring} ${c.tint}`}
               >
                 <Icon className="h-4 w-4" />
               </div>
