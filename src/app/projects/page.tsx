@@ -21,6 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const industryCount = new Set(projects.map((project) => project.industry))
+    .size;
+
   return (
     <>
       <Section spacing="lg" className="overflow-hidden">
@@ -59,7 +62,9 @@ export default function ProjectsPage() {
               <span className="h-1 w-1 rounded-full bg-foreground-subtle/60" />
               <span className="text-foreground-subtle">2024 — 2026</span>
               <span className="h-1 w-1 rounded-full bg-foreground-subtle/60" />
-              <span className="text-foreground-subtle">8 industries</span>
+              <span className="text-foreground-subtle">
+                {industryCount} {industryCount === 1 ? "industry" : "industries"}
+              </span>
             </div>
           </div>
         </Container>
