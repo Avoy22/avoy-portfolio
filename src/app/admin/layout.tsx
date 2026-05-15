@@ -33,8 +33,8 @@ export default function AdminLayout({
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Badge tone="success" dot>
-              Connected
+            <Badge tone="neutral" dot>
+              Mock data
             </Badge>
             <nav className="flex items-center gap-1 rounded-full border border-white/10 bg-white/3 p-1 backdrop-blur">
               <Link

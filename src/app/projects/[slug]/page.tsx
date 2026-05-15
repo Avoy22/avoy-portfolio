@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
@@ -91,7 +92,7 @@ export default async function ProjectCaseStudyPage({
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
-                {project.links?.live && (
+                {project.links?.live && project.links.live !== "#" && (
                   <a
                     href={project.links.live}
                     target="_blank"
@@ -107,6 +108,16 @@ export default async function ProjectCaseStudyPage({
                       className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
                     />
                   </a>
+                )}
+                {project.links?.live === "#" && (
+                  <span
+                    aria-disabled="true"
+                    title="Placeholder link - live URL pending"
+                    className="inline-flex h-11 cursor-not-allowed items-center gap-2 rounded-full border border-white/15 bg-white/3 px-5 text-[13px] font-medium text-foreground-muted backdrop-blur"
+                  >
+                    Live link pending
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </span>
                 )}
                 {project.links?.repo && (
                   <a
@@ -266,6 +277,38 @@ export default async function ProjectCaseStudyPage({
         </Container>
       </Section>
 
+      {/* SCREENSHOTS */}
+      {(project.fullPageScreenshot || project.gallery?.some((g) => g.src)) && (
+        <Section spacing="sm">
+          <Container>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+              Screenshots
+            </div>
+            <h2 className="mt-3 text-[26px] font-semibold tracking-[-0.02em] text-white sm:text-[32px]">
+              Product in production
+            </h2>
+
+            {project.fullPageScreenshot && (
+              <figure className="mt-9 overflow-hidden rounded-3xl border border-white/10 bg-white/3 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.75)]">
+                <div className="max-h-[760px] overflow-y-auto bg-background-soft">
+                  <Image
+                    src={project.fullPageScreenshot.src}
+                    alt={project.fullPageScreenshot.alt}
+                    width={project.fullPageScreenshot.width}
+                    height={project.fullPageScreenshot.height}
+                    sizes="100vw"
+                    className="h-auto w-full"
+                  />
+                </div>
+                <figcaption className="border-t border-white/6 px-5 py-3 text-[12.5px] text-foreground-muted">
+                  {project.fullPageScreenshot.caption}
+                </figcaption>
+              </figure>
+            )}
+          </Container>
+        </Section>
+      )}
+
       {/* GALLERY */}
       {project.gallery && project.gallery.length > 0 && (
         <Section spacing="sm">
@@ -280,21 +323,34 @@ export default async function ProjectCaseStudyPage({
               {project.gallery.map((g, i) => (
                 <Reveal key={g.caption} delay={i * 0.05}>
                   <div className="glass-card group overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-white/15">
-                    <div
-                      className={cn(
-                        "relative aspect-4/3 overflow-hidden bg-linear-to-br",
-                        g.placeholder
-                      )}
-                    >
-                      <div className="absolute inset-0 grid-bg opacity-30" />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute -inset-1 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                      >
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15),transparent_60%)]" />
+                    {g.src && g.alt && g.width && g.height ? (
+                      <div className="relative aspect-4/3 overflow-hidden bg-background-soft">
+                        <Image
+                          src={g.src}
+                          alt={g.alt}
+                          width={g.width}
+                          height={g.height}
+                          sizes="(min-width: 768px) 33vw, 100vw"
+                          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        />
                       </div>
-                    </div>
+                    ) : (
+                      <div
+                        className={cn(
+                          "relative aspect-4/3 overflow-hidden bg-linear-to-br",
+                          g.placeholder
+                        )}
+                      >
+                        <div className="absolute inset-0 grid-bg opacity-30" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
+                        <div
+                          aria-hidden
+                          className="pointer-events-none absolute -inset-1 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        >
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15),transparent_60%)]" />
+                        </div>
+                      </div>
+                    )}
                     <div className="border-t border-white/6 bg-white/2 px-4 py-3 text-[12.5px] text-foreground-muted">
                       {g.caption}
                     </div>

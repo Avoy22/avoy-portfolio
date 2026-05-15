@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -84,7 +85,17 @@ export default function ProjectsPage() {
                         project.cover
                       )}
                     >
-                      <div className="absolute inset-0 grid-bg opacity-30" />
+                      {project.thumbnail ? (
+                        <Image
+                          src={project.thumbnail.src}
+                          alt={project.thumbnail.alt}
+                          fill
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          className="object-cover transition duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 grid-bg opacity-30" />
+                      )}
                       <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/15 to-transparent" />
                       <div className="absolute left-5 top-5 flex flex-wrap items-center gap-2">
                         <Badge tone="neutral" size="sm">

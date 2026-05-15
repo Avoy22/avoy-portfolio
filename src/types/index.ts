@@ -20,7 +20,25 @@ export type Project = {
   role: string;
   duration: string;
   links?: { live?: string; repo?: string };
-  gallery?: { caption: string; placeholder: string }[];
+  thumbnail?: {
+    src: string;
+    alt: string;
+  };
+  fullPageScreenshot?: {
+    src: string;
+    alt: string;
+    caption: string;
+    width: number;
+    height: number;
+  };
+  gallery?: {
+    caption: string;
+    placeholder?: string;
+    src?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+  }[];
   featured: boolean;
 };
 
