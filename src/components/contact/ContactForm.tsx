@@ -3,37 +3,81 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight, CircleCheck, LoaderCircle } from "lucide-react";
-import { Field, Input, Textarea } from "@/components/ui/Input";
-import { contactSchema, type ContactInput } from "@/lib/validations/contact";
+import { ArrowRight, CircleCheck, LoaderCircle, TriangleAlert } from "lucide-react";
+import { Field, Input, Select, Textarea } from "@/components/ui/Input";
+import {
+  budgetOptions,
+  contactSchema,
+  serviceOptions,
+  type ContactInput,
+} from "@/lib/validations/contact";
 import { cn } from "@/lib/utils";
+
+type ApiResponse = {
+  ok: boolean;
+  error?: string;
+  fieldErrors?: Record<string, string[] | undefined>;
+};
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    setError,
   } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
       company: "",
+      service: undefined,
+      budget: "",
       message: "",
       website: "",
     },
   });
 
   async function onSubmit(values: ContactInput) {
-    await new Promise((r) => setTimeout(r, 600));
-    if (process.env.NODE_ENV !== "production") {
-      console.log("Contact submission:", values);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const data = (await res.json().catch(() => ({}))) as ApiResponse;
+
+      if (!res.ok || !data.ok) {
+        if (data.fieldErrors) {
+          for (const [field, messages] of Object.entries(data.fieldErrors)) {
+            if (messages && messages.length > 0) {
+              setError(field as keyof ContactInput, {
+                type: "server",
+                message: messages[0],
+              });
+            }
+          }
+        }
+        setSubmitError(
+          data.error ?? "Something went wrong. Please try again in a moment."
+        );
+        return;
+      }
+
+      setSubmitted(true);
+      reset();
+    } catch {
+      setSubmitError(
+        "Network error — check your connection and try again."
+      );
     }
-    setSubmitted(true);
-    reset();
   }
 
   if (submitted) {
@@ -102,18 +146,50 @@ export function ContactForm() {
             {...register("email")}
           />
         </Field>
+        <Field
+          label="Company"
+          htmlFor="company"
+          error={errors.company?.message}
+        >
+          <Input
+            id="company"
+            placeholder="Optional"
+            autoComplete="organization"
+            {...register("company")}
+          />
+        </Field>
+        <Field
+          label="Service"
+          required
+          htmlFor="service"
+          error={errors.service?.message}
+        >
+          <Select id="service" defaultValue="" {...register("service")}>
+            <option value="" disabled>
+              Pick one…
+            </option>
+            {serviceOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </Select>
+        </Field>
         <div className="sm:col-span-2">
           <Field
-            label="Company"
-            htmlFor="company"
-            error={errors.company?.message}
+            label="Budget"
+            htmlFor="budget"
+            error={errors.budget?.message}
+            hint="Optional — helps me scope the right approach."
           >
-            <Input
-              id="company"
-              placeholder="Optional"
-              autoComplete="organization"
-              {...register("company")}
-            />
+            <Select id="budget" defaultValue="" {...register("budget")}>
+              <option value="">No preference</option>
+              {budgetOptions.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </Select>
           </Field>
         </div>
         <div className="sm:col-span-2">
@@ -133,6 +209,16 @@ export function ContactForm() {
           </Field>
         </div>
       </div>
+
+      {submitError && (
+        <div
+          role="alert"
+          className="mt-6 flex items-start gap-3 rounded-2xl border border-danger/30 bg-danger/10 p-4 text-[13.5px] text-danger"
+        >
+          <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>{submitError}</span>
+        </div>
+      )}
 
       <div className="mt-8 flex flex-col items-stretch justify-between gap-4 border-t border-white/6 pt-7 sm:flex-row sm:items-center">
         <p className="text-[12px] leading-relaxed text-foreground-subtle">
