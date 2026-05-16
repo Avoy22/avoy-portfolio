@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, Sparkles, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
@@ -38,18 +39,25 @@ export function Navbar() {
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:h-18 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="group relative flex items-center gap-2.5"
-          aria-label={`${site.name} home`}
+          className="group relative flex min-w-0 items-center gap-2.5"
+          aria-label="Avoy Systems home"
         >
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-accent via-accent-2 to-accent-3 text-black shadow-[0_8px_24px_-8px_rgba(109,140,255,0.5)] transition-transform duration-300 group-hover:scale-105">
-            <Sparkles className="h-4 w-4" strokeWidth={2.5} />
+          <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl shadow-[0_10px_28px_-10px_rgba(34,211,238,0.7)] transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10">
+            <Image
+              src="/brand/automation-flow-icon.svg"
+              alt="Avoy Systems automation flow icon"
+              width={40}
+              height={40}
+              priority
+              className="h-full w-full rounded-xl"
+            />
           </span>
-          <div className="leading-tight">
+          <div className="min-w-0 leading-tight">
             <div className="text-[15px] font-semibold tracking-[-0.01em] text-white">
-              {site.name}
+              Avoy Systems
             </div>
             <div className="text-[10px] uppercase tracking-[0.18em] text-foreground-subtle">
-              Web · Automation
+              AI Automation &amp; Web Apps
             </div>
           </div>
         </Link>

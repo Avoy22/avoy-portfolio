@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Avoy Systems automation flow icon</title>
+  <desc id="desc">A dark rounded square icon with connected workflow nodes, a data-flow line, and an upward growth signal.</desc>
+  <defs>
+    <linearGradient id="base" x1="8" y1="6" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111827" />
+      <stop offset="0.55" stop-color="#070B14" />
+      <stop offset="1" stop-color="#02040A" />
+    </linearGradient>
+    <linearGradient id="edge" x1="10" y1="5" x2="54" y2="59" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#60A5FA" stop-opacity="0.55" />
+      <stop offset="0.52" stop-color="#22D3EE" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0.45" />
+    </linearGradient>
+    <linearGradient id="flow" x1="14" y1="42" x2="51" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE" />
+      <stop offset="0.52" stop-color="#60A5FA" />
+      <stop offset="1" stop-color="#A78BFA" />
+    </linearGradient>
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#05070D" />
+  <rect x="5" y="5" width="54" height="54" rx="14" fill="url(#base)" />
+  <rect x="5.5" y="5.5" width="53" height="53" rx="13.5" fill="none" stroke="url(#edge)" />
+  <path d="M15.5 40.5C21.5 30.5 28.5 31 34 36.5C39.5 42 44.5 31.5 49 20.5" fill="none" stroke="url(#flow)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+  <path d="M39.5 44.5L45.5 38.5L50 41.5L55 31" fill="none" stroke="url(#flow)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+  <path d="M49.5 20.5L49 27.5M49.5 20.5L43 22.5" fill="none" stroke="#C4B5FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="16" cy="40" r="5.2" fill="#07111D" stroke="#22D3EE" stroke-width="2.6" />
+  <circle cx="33.5" cy="36" r="5.2" fill="#08101F" stroke="#60A5FA" stroke-width="2.6" />
+  <circle cx="49" cy="21" r="5.2" fill="#0D0B1B" stroke="#A78BFA" stroke-width="2.6" />
+  <circle cx="16" cy="40" r="1.8" fill="#CFFAFE" />
+  <circle cx="33.5" cy="36" r="1.8" fill="#DBEAFE" />
+  <circle cx="49" cy="21" r="1.8" fill="#EDE9FE" />
+</svg>
