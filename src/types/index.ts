@@ -56,11 +56,9 @@ export type TechItem = {
   name: string;
   category:
     | "Frontend"
-    | "Backend"
-    | "Database"
-    | "AI & Automation"
-    | "DevOps"
-    | "Tooling";
+    | "Backend & Database"
+    | "Automation & Tools"
+    | "Deployment";
   level: "Core" | "Daily" | "Familiar";
 };
 
