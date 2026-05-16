@@ -131,7 +131,7 @@ export default async function ProjectCaseStudyPage({
           <Container>
             <div
               className={cn(
-                "relative aspect-16/9 overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br",
+                "relative aspect-16/9 overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br shadow-[0_24px_70px_-32px_rgba(0,0,0,0.75)]",
                 project.cover
               )}
             >
@@ -237,7 +237,7 @@ export default async function ProjectCaseStudyPage({
               Product in production
             </h2>
 
-            <figure className="mt-9 overflow-hidden rounded-3xl border border-white/10 bg-white/3">
+            <figure className="mt-9 overflow-hidden rounded-3xl border border-white/10 bg-white/3 shadow-[0_24px_70px_-32px_rgba(0,0,0,0.75)]">
               <div className="max-h-[760px] overflow-y-auto bg-background-soft">
                 <Image
                   src={project.fullPageScreenshot.src}

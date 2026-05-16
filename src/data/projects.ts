@@ -136,6 +136,17 @@ export const projects: Project[] = [
       live: "https://business-expense-sales-dashboard.vercel.app",
       repo: "https://github.com/Avoy22/business-expense-sales-dashboard",
     },
+    thumbnail: {
+      src: "/screenshots/business-dashboard-thumbnail.png",
+      alt: "Business Expense and Sales Dashboard screenshot",
+    },
+    fullPageScreenshot: {
+      src: "/screenshots/business-dashboard-full.png",
+      alt: "Business Expense and Sales Dashboard screenshot",
+      caption: "Full dashboard screenshot",
+      width: 750,
+      height: 7980,
+    },
     featured: true,
   },
 ];
