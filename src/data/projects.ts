@@ -149,6 +149,61 @@ export const projects: Project[] = [
     },
     featured: true,
   },
+  {
+    slug: "ai-lead-tracker-crm",
+    title: "AI Lead Tracker CRM",
+    tagline:
+      "A lightweight CRM dashboard for tracking business leads, managing follow-ups, and organizing sales opportunities.",
+    client: "Freelancers and small businesses",
+    industry: "CRM / Sales Operations",
+    year: 2025,
+    status: "case-study",
+    cover: "from-sky-500/30 via-emerald-500/20 to-amber-500/20",
+    accent: "#38bdf8",
+    summary:
+      "AI Lead Tracker CRM helps freelancers and small businesses organize leads, track outreach status, manage follow-ups, and keep potential clients in one simple dashboard.",
+    problem:
+      "Freelancers and small businesses often lose potential clients because leads are tracked manually across notes, spreadsheets, messages, and inboxes.",
+    solution:
+      "This CRM gives users a central dashboard to store leads, update status, add notes, search/filter records, and manage follow-up work.",
+    outcomes: [
+      "Helped users stay organized around every active sales opportunity.",
+      "Made it faster to respond to prospects and plan next follow-ups.",
+      "Reduced lost opportunities caused by scattered notes and inbox threads.",
+      "Gave small teams a more professional way to manage potential clients.",
+    ],
+    metrics: [
+      { label: "Lead records", value: "Centralized" },
+      { label: "Follow-ups", value: "Trackable" },
+      { label: "Status workflow", value: "CRM-ready" },
+      { label: "Data structure", value: "Sheets or DB" },
+    ],
+    features: [
+      "Lead capture and tracking",
+      "CRM-style dashboard",
+      "Lead status management",
+      "Search and filtering",
+      "Lead notes",
+      "Follow-up tracking",
+      "Responsive UI",
+      "Google Sheets or database-ready structure",
+    ],
+    stack: ["React", "Tailwind CSS", "Google Sheets", "Apps Script", "Vercel"],
+    role: "Sole engineer - dashboard UI, lead workflow, data structure, deploy",
+    duration: "1 week",
+    thumbnail: {
+      src: "/screenshots/ai-lead-tracker-thumbnail.png",
+      alt: "AI Lead Tracker CRM dashboard screenshot",
+    },
+    fullPageScreenshot: {
+      src: "/screenshots/ai-lead-tracker-full.png",
+      alt: "AI Lead Tracker CRM dashboard screenshot",
+      caption: "Full CRM dashboard screenshot",
+      width: 984,
+      height: 7098,
+    },
+    featured: true,
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {

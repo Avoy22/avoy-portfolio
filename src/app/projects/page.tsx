@@ -33,7 +33,7 @@ export default function ProjectsPage() {
               Selected projects
             </h1>
             <p className="mt-6 text-pretty text-[15px] leading-relaxed text-foreground-muted sm:text-[17px]">
-              A short list of recent work. Click any project for the full
+              Browse selected recent work. Click any project for the full
               write-up — the problem, the build, and the outcome.
             </p>
           </div>

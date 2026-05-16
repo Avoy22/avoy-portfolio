@@ -19,7 +19,7 @@ export function FeaturedProjects() {
           <SectionHeader
             eyebrow="Selected projects"
             title="Real systems I've built"
-            description="A short list of recent projects, with the problem, the build, and the outcome."
+            description="Selected recent projects, with the problem, the build, and the outcome."
           />
           <Link
             href="/projects"
