@@ -136,20 +136,6 @@ export const projects: Project[] = [
       live: "https://business-expense-sales-dashboard.vercel.app",
       repo: "https://github.com/Avoy22/business-expense-sales-dashboard",
     },
-    gallery: [
-      {
-        caption: "Owner overview with KPIs",
-        placeholder: "from-emerald-500/40 to-teal-500/30",
-      },
-      {
-        caption: "Expense entry flow",
-        placeholder: "from-teal-500/30 to-cyan-500/30",
-      },
-      {
-        caption: "Weekly summary email",
-        placeholder: "from-cyan-500/30 to-emerald-500/30",
-      },
-    ],
     featured: true,
   },
 ];

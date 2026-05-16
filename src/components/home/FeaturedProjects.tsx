@@ -15,16 +15,11 @@ export function FeaturedProjects() {
   return (
     <Section id="projects">
       <Container>
-        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeader
-            eyebrow="Selected work"
-            title={
-              <>
-                Production systems,
-                <br className="hidden sm:block" /> not concept decks.
-              </>
-            }
-            description="A selection of recent client projects where I owned the strategy, design, engineering, and deploy. Every one is shipped, used daily, and measurable."
+            eyebrow="Selected projects"
+            title="Real systems I've built"
+            description="A short list of recent projects, with the problem, the build, and the outcome."
           />
           <Link
             href="/projects"
@@ -42,11 +37,7 @@ export function FeaturedProjects() {
                 href={`/projects/${project.slug}`}
                 className="group block h-full"
               >
-                <article className="glass-card relative h-full overflow-hidden rounded-3xl transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/15 hover:shadow-[0_30px_80px_-30px_rgba(109,140,255,0.4),0_10px_30px_-10px_rgba(0,0,0,0.5)]">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -inset-px rounded-3xl bg-[radial-gradient(120%_60%_at_50%_-10%,rgba(109,140,255,0.22),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  />
+                <article className="glass-card relative h-full overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15">
                   <div
                     className={cn(
                       "relative aspect-16/10 overflow-hidden bg-linear-to-br",
@@ -59,18 +50,12 @@ export function FeaturedProjects() {
                         alt={project.thumbnail.alt}
                         fill
                         sizes="(min-width: 768px) 50vw, 100vw"
-                        className="object-cover transition duration-700 group-hover:scale-105"
+                        className="object-cover transition duration-500 group-hover:scale-[1.02]"
                       />
                     ) : (
                       <div className="absolute inset-0 grid-bg opacity-30" />
                     )}
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/15 to-transparent" />
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                    >
-                      <div className="absolute -inset-1 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),transparent_60%)]" />
-                    </div>
                     <div className="absolute left-5 top-5 flex flex-wrap items-center gap-2">
                       <Badge tone="neutral" size="sm">
                         {project.industry}
@@ -81,38 +66,16 @@ export function FeaturedProjects() {
                         </Badge>
                       )}
                     </div>
-                    <div className="absolute right-5 top-5">
-                      <span className="tabular font-mono text-[10.5px] uppercase tracking-[0.18em] text-white/60">
-                        {project.year}
-                      </span>
-                    </div>
-                    <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3">
-                      <div>
-                        <h3 className="text-[20px] font-semibold leading-tight tracking-[-0.015em] text-white sm:text-[22px]">
-                          {project.title}
-                        </h3>
-                      </div>
-                      <span className="flex h-10 w-10 shrink-0 -rotate-12 items-center justify-center rounded-full bg-white text-black opacity-0 shadow-[0_10px_24px_-10px_rgba(255,255,255,0.5)] transition-all duration-500 group-hover:rotate-0 group-hover:opacity-100">
-                        <ArrowUpRight className="h-4 w-4" />
-                      </span>
+                    <div className="absolute bottom-5 left-5 right-5">
+                      <h3 className="text-[20px] font-semibold leading-tight tracking-[-0.015em] text-white sm:text-[22px]">
+                        {project.title}
+                      </h3>
                     </div>
                   </div>
                   <div className="relative p-6 sm:p-7">
                     <p className="text-[15px] leading-relaxed text-foreground-muted">
                       {project.tagline}
                     </p>
-                    <div className="mt-6 grid grid-cols-3 gap-x-4 gap-y-3 border-t border-white/6 pt-6">
-                      {project.metrics.slice(0, 3).map((m) => (
-                        <div key={m.label}>
-                          <div className="tabular text-[18px] font-semibold tracking-[-0.02em] text-white">
-                            {m.value}
-                          </div>
-                          <div className="mt-0.5 text-[10px] uppercase tracking-[0.14em] text-foreground-subtle">
-                            {m.label}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
                     <div className="mt-6 flex flex-wrap gap-1.5">
                       {project.stack.slice(0, 5).map((s) => (
                         <span

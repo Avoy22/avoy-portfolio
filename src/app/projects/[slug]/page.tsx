@@ -7,7 +7,6 @@ import {
   ArrowUpRight,
   CircleCheck,
   ExternalLink,
-  Sparkles,
 } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 import { Container } from "@/components/ui/Container";
@@ -51,19 +50,11 @@ export default async function ProjectCaseStudyPage({
   if (!project) notFound();
 
   const otherProjects = projects.filter((p) => p.slug !== slug).slice(0, 2);
+  const galleryWithImages = project.gallery?.filter((g) => g.src) ?? [];
 
   return (
     <>
-      {/* HERO */}
-      <Section spacing="md" className="overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 grid-bg mask-[radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-25"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-32 right-0 -z-10 h-120 w-120 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.18),transparent_60%)] blur-3xl"
-        />
+      <Section spacing="md">
         <Container>
           <Link
             href="/projects"
@@ -80,11 +71,11 @@ export default async function ProjectCaseStudyPage({
                 <Badge tone="info">{project.year}</Badge>
                 {project.status === "live" && (
                   <Badge tone="success" dot>
-                    Live in production
+                    Live
                   </Badge>
                 )}
               </div>
-              <h1 className="mt-7 text-balance text-[38px] font-semibold leading-[1.02] tracking-[-0.034em] text-gradient sm:text-[54px] lg:text-[68px]">
+              <h1 className="mt-7 text-balance text-[36px] font-semibold leading-[1.04] tracking-[-0.03em] text-gradient sm:text-[48px] lg:text-[60px]">
                 {project.title}
               </h1>
               <p className="mt-6 max-w-2xl text-pretty text-[15.5px] leading-relaxed text-foreground-muted sm:text-[18px]">
@@ -97,27 +88,11 @@ export default async function ProjectCaseStudyPage({
                     href={project.links.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex h-11 items-center gap-2 overflow-hidden rounded-full bg-white px-5 text-[13px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_10px_28px_-10px_rgba(255,255,255,0.45)] transition hover:bg-zinc-100"
+                    className="group inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-[13px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
                   >
-                    <span className="relative z-10 inline-flex items-center gap-2">
-                      Visit live site
-                      <ExternalLink className="h-3.5 w-3.5" />
-                    </span>
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
-                    />
-                  </a>
-                )}
-                {project.links?.live === "#" && (
-                  <span
-                    aria-disabled="true"
-                    title="Placeholder link - live URL pending"
-                    className="inline-flex h-11 cursor-not-allowed items-center gap-2 rounded-full border border-white/15 bg-white/3 px-5 text-[13px] font-medium text-foreground-muted backdrop-blur"
-                  >
-                    Live link pending
+                    Visit live site
                     <ExternalLink className="h-3.5 w-3.5" />
-                  </span>
+                  </a>
                 )}
                 {project.links?.repo && (
                   <a
@@ -151,53 +126,28 @@ export default async function ProjectCaseStudyPage({
         </Container>
       </Section>
 
-      {/* COVER */}
-      <Section spacing="sm">
-        <Container>
-          <div
-            className={cn(
-              "relative aspect-21/9 overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br ring-glow",
-              project.cover
-            )}
-          >
-            <div className="absolute inset-0 grid-bg opacity-30" />
-            <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-3 py-1.5 text-xs text-white backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 text-accent" />
-              Cover preview · {project.title}
+      {project.thumbnail && (
+        <Section spacing="sm">
+          <Container>
+            <div
+              className={cn(
+                "relative aspect-16/9 overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br",
+                project.cover
+              )}
+            >
+              <Image
+                src={project.thumbnail.src}
+                alt={project.thumbnail.alt}
+                fill
+                sizes="(min-width: 1024px) 1024px, 100vw"
+                className="object-cover"
+                priority
+              />
             </div>
-          </div>
-        </Container>
-      </Section>
+          </Container>
+        </Section>
+      )}
 
-      {/* METRICS */}
-      <Section spacing="sm">
-        <Container>
-          <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground-muted">
-            By the numbers
-          </div>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-            {project.metrics.map((m, i) => (
-              <Reveal key={m.label} delay={i * 0.05}>
-                <div className="glass-card group relative overflow-hidden rounded-2xl p-7 transition-all duration-500 hover:-translate-y-0.5 hover:border-white/15">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -top-12 -right-12 h-28 w-28 rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.22),transparent_70%)] blur-2xl transition-opacity duration-500 group-hover:opacity-150"
-                  />
-                  <div className="tabular relative text-[34px] font-semibold tracking-[-0.034em] text-white sm:text-[40px]">
-                    {m.value}
-                  </div>
-                  <div className="relative mt-2 text-[11px] uppercase tracking-[0.16em] text-foreground-muted">
-                    {m.label}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* NARRATIVE + SIDEBAR */}
       <Section spacing="md">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -217,14 +167,14 @@ export default async function ProjectCaseStudyPage({
                   <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
                     Outcomes
                   </div>
-                  <h2 className="mt-3 text-[26px] font-semibold tracking-[-0.02em] text-white sm:text-[32px]">
+                  <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[30px]">
                     What changed for the business
                   </h2>
                   <ul className="mt-7 space-y-3">
                     {project.outcomes.map((o) => (
                       <li
                         key={o}
-                        className="flex items-start gap-3 rounded-xl border border-white/6 bg-white/2 p-4 transition hover:border-white/15 hover:bg-white/4"
+                        className="flex items-start gap-3 rounded-xl border border-white/6 bg-white/2 p-4"
                       >
                         <CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                         <span className="text-[14.5px] leading-relaxed text-foreground-muted">
@@ -277,53 +227,49 @@ export default async function ProjectCaseStudyPage({
         </Container>
       </Section>
 
-      {/* SCREENSHOTS */}
-      {(project.fullPageScreenshot || project.gallery?.some((g) => g.src)) && (
+      {project.fullPageScreenshot && (
         <Section spacing="sm">
           <Container>
             <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
               Screenshots
             </div>
-            <h2 className="mt-3 text-[26px] font-semibold tracking-[-0.02em] text-white sm:text-[32px]">
+            <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[30px]">
               Product in production
             </h2>
 
-            {project.fullPageScreenshot && (
-              <figure className="mt-9 overflow-hidden rounded-3xl border border-white/10 bg-white/3 shadow-[0_30px_90px_-35px_rgba(0,0,0,0.75)]">
-                <div className="max-h-[760px] overflow-y-auto bg-background-soft">
-                  <Image
-                    src={project.fullPageScreenshot.src}
-                    alt={project.fullPageScreenshot.alt}
-                    width={project.fullPageScreenshot.width}
-                    height={project.fullPageScreenshot.height}
-                    sizes="100vw"
-                    className="h-auto w-full"
-                  />
-                </div>
-                <figcaption className="border-t border-white/6 px-5 py-3 text-[12.5px] text-foreground-muted">
-                  {project.fullPageScreenshot.caption}
-                </figcaption>
-              </figure>
-            )}
+            <figure className="mt-9 overflow-hidden rounded-3xl border border-white/10 bg-white/3">
+              <div className="max-h-[760px] overflow-y-auto bg-background-soft">
+                <Image
+                  src={project.fullPageScreenshot.src}
+                  alt={project.fullPageScreenshot.alt}
+                  width={project.fullPageScreenshot.width}
+                  height={project.fullPageScreenshot.height}
+                  sizes="100vw"
+                  className="h-auto w-full"
+                />
+              </div>
+              <figcaption className="border-t border-white/6 px-5 py-3 text-[12.5px] text-foreground-muted">
+                {project.fullPageScreenshot.caption}
+              </figcaption>
+            </figure>
           </Container>
         </Section>
       )}
 
-      {/* GALLERY */}
-      {project.gallery && project.gallery.length > 0 && (
+      {galleryWithImages.length > 0 && (
         <Section spacing="sm">
           <Container>
             <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
-              Visual tour
+              Gallery
             </div>
-            <h2 className="mt-3 text-[26px] font-semibold tracking-[-0.02em] text-white sm:text-[32px]">
+            <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[30px]">
               Inside the build
             </h2>
             <div className="mt-9 grid gap-4 md:grid-cols-3 lg:gap-5">
-              {project.gallery.map((g, i) => (
+              {galleryWithImages.map((g, i) => (
                 <Reveal key={g.caption} delay={i * 0.05}>
-                  <div className="glass-card group overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-white/15">
-                    {g.src && g.alt && g.width && g.height ? (
+                  <div className="glass-card overflow-hidden rounded-2xl">
+                    {g.src && g.alt && g.width && g.height && (
                       <div className="relative aspect-4/3 overflow-hidden bg-background-soft">
                         <Image
                           src={g.src}
@@ -331,24 +277,8 @@ export default async function ProjectCaseStudyPage({
                           width={g.width}
                           height={g.height}
                           sizes="(min-width: 768px) 33vw, 100vw"
-                          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                          className="h-full w-full object-cover"
                         />
-                      </div>
-                    ) : (
-                      <div
-                        className={cn(
-                          "relative aspect-4/3 overflow-hidden bg-linear-to-br",
-                          g.placeholder
-                        )}
-                      >
-                        <div className="absolute inset-0 grid-bg opacity-30" />
-                        <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
-                        <div
-                          aria-hidden
-                          className="pointer-events-none absolute -inset-1 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                        >
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15),transparent_60%)]" />
-                        </div>
                       </div>
                     )}
                     <div className="border-t border-white/6 bg-white/2 px-4 py-3 text-[12.5px] text-foreground-muted">
@@ -362,85 +292,63 @@ export default async function ProjectCaseStudyPage({
         </Section>
       )}
 
-      {/* CTA */}
       <Section spacing="md">
         <Container>
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-white/7 via-white/2 to-transparent p-8 sm:p-12">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -top-32 left-1/2 h-75 w-150 -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.2),transparent_60%)] blur-3xl"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -bottom-24 right-[10%] h-70 w-70 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.14),transparent_60%)] blur-3xl"
-              style={{ animationDelay: "-6s" }}
-            />
-            <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+            <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
                 <div className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-foreground-subtle">
-                  Got a similar problem?
+                  Have a similar project?
                 </div>
-                <h3 className="mt-3 max-w-xl text-balance text-[24px] font-semibold leading-tight tracking-[-0.02em] text-gradient sm:text-[30px]">
-                  Let&apos;s scope your version of this in 30 minutes.
+                <h3 className="mt-3 max-w-xl text-balance text-[22px] font-semibold leading-tight tracking-[-0.02em] text-gradient sm:text-[28px]">
+                  Let&apos;s talk about your version of this.
                 </h3>
               </div>
               <Link
                 href="/contact"
-                className="group relative inline-flex h-12 shrink-0 items-center gap-2 overflow-hidden rounded-full bg-white px-6 text-[13px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_10px_28px_-10px_rgba(255,255,255,0.45)] transition hover:bg-zinc-100"
+                className="group inline-flex h-12 shrink-0 items-center gap-2 rounded-full bg-white px-6 text-[13px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
               >
-                <span className="relative z-10 inline-flex items-center gap-2">
-                  Book a strategy call
-                  <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </span>
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
-                />
+                Contact Me
+                <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* NEXT */}
-      <Section spacing="md">
-        <Container>
-          <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground-muted">
-            Keep reading
-          </div>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:gap-5">
-            {otherProjects.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/projects/${p.slug}`}
-                className="group glass-card relative overflow-hidden rounded-2xl p-7 transition hover:-translate-y-1 hover:border-white/15"
-              >
-                <div
-                  aria-hidden
-                  className={cn(
-                    "absolute inset-x-0 bottom-0 h-24 bg-linear-to-t opacity-30",
-                    p.cover
-                  )}
-                />
-                <div className="relative">
-                  <div className="text-[10.5px] uppercase tracking-[0.18em] text-foreground-subtle">
-                    Next case study
+      {otherProjects.length > 0 && (
+        <Section spacing="md">
+          <Container>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground-muted">
+              Keep reading
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:gap-5">
+              {otherProjects.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/projects/${p.slug}`}
+                  className="group glass-card relative overflow-hidden rounded-2xl p-7 transition hover:-translate-y-0.5 hover:border-white/15"
+                >
+                  <div className="relative">
+                    <div className="text-[10.5px] uppercase tracking-[0.18em] text-foreground-subtle">
+                      Next project
+                    </div>
+                    <div className="mt-3 flex items-center justify-between gap-3">
+                      <h3 className="text-[18px] font-semibold tracking-tight text-white">
+                        {p.title}
+                      </h3>
+                      <ArrowUpRight className="h-4 w-4 text-foreground-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+                    </div>
+                    <p className="mt-2 text-[14px] leading-relaxed text-foreground-muted">
+                      {p.tagline}
+                    </p>
                   </div>
-                  <div className="mt-3 flex items-center justify-between gap-3">
-                    <h3 className="text-[18px] font-semibold tracking-tight text-white">
-                      {p.title}
-                    </h3>
-                    <ArrowUpRight className="h-4 w-4 text-foreground-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
-                  </div>
-                  <p className="mt-2 text-[14px] leading-relaxed text-foreground-muted">
-                    {p.tagline}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </Section>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
     </>
   );
 }
@@ -470,7 +378,7 @@ function CaseSection({
       <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
         {eyebrow}
       </div>
-      <h2 className="mt-3 text-[26px] font-semibold tracking-[-0.02em] text-white sm:text-[32px]">
+      <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[30px]">
         {title}
       </h2>
       <p className="mt-5 text-[15.5px] leading-relaxed text-foreground-muted sm:text-[17px]">

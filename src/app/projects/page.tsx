@@ -12,60 +12,30 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "A selection of production websites, dashboards, lead engines, and AI automations engineered and shipped by Avoy Das.",
+    "Selected projects: websites, dashboards, lead systems, and automation tools.",
   openGraph: {
     title: "Projects · Avoy Das",
     description:
-      "Production websites, dashboards, lead engines, and AI automations.",
+      "Selected projects: websites, dashboards, lead systems, and automation tools.",
   },
 };
 
 export default function ProjectsPage() {
-  const industryCount = new Set(projects.map((project) => project.industry))
-    .size;
-
   return (
     <>
-      <Section spacing="lg" className="overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 grid-bg mask-[radial-gradient(ellipse_50%_40%_at_50%_30%,black,transparent_75%)] opacity-30"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-130 w-130 -translate-x-1/2 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(109,140,255,0.22),transparent_60%)] blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-10 right-[12%] -z-10 h-80 w-80 animate-aurora rounded-full bg-[radial-gradient(circle_at_center,rgba(167,139,250,0.16),transparent_60%)] blur-3xl"
-          style={{ animationDelay: "-6s" }}
-        />
+      <Section spacing="lg">
         <Container>
           <div className="max-w-3xl">
             <Badge tone="brand" size="md" dot>
-              Case studies
+              Projects
             </Badge>
-            <h1 className="mt-6 text-balance text-[40px] font-semibold leading-[1.02] tracking-[-0.034em] text-gradient sm:text-[56px] lg:text-[72px]">
-              Production work,
-              <br />
-              <span className="text-gradient-brand">opinionated outcomes.</span>
+            <h1 className="mt-6 text-balance text-[36px] font-semibold leading-[1.04] tracking-[-0.03em] text-gradient sm:text-[52px] lg:text-[64px]">
+              Selected projects
             </h1>
-            <p className="mt-6 text-pretty text-[15px] leading-relaxed text-foreground-muted sm:text-[18px]">
-              Each of these is a real, deployed system built end-to-end —
-              strategy, design, engineering, deploy, and hand-off. Click any
-              one for the full story.
+            <p className="mt-6 text-pretty text-[15px] leading-relaxed text-foreground-muted sm:text-[17px]">
+              A short list of recent work. Click any project for the full
+              write-up — the problem, the build, and the outcome.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-foreground-muted">
-              <span className="tabular font-mono text-[11px] uppercase tracking-[0.18em] text-foreground-subtle">
-                {projects.length.toString().padStart(2, "0")} projects
-              </span>
-              <span className="h-1 w-1 rounded-full bg-foreground-subtle/60" />
-              <span className="text-foreground-subtle">2024 — 2026</span>
-              <span className="h-1 w-1 rounded-full bg-foreground-subtle/60" />
-              <span className="text-foreground-subtle">
-                {industryCount} {industryCount === 1 ? "industry" : "industries"}
-              </span>
-            </div>
           </div>
         </Container>
       </Section>
@@ -79,11 +49,7 @@ export default function ProjectsPage() {
                   href={`/projects/${project.slug}`}
                   className="group block h-full"
                 >
-                  <article className="glass-card relative h-full overflow-hidden rounded-3xl transition-all duration-500 ease-out hover:-translate-y-1 hover:border-white/15 hover:shadow-[0_30px_80px_-30px_rgba(109,140,255,0.4),0_10px_30px_-10px_rgba(0,0,0,0.5)]">
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute -inset-px rounded-3xl bg-[radial-gradient(120%_60%_at_50%_-10%,rgba(109,140,255,0.22),transparent_55%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    />
+                  <article className="glass-card relative h-full overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15">
                     <div
                       className={cn(
                         "relative aspect-16/10 overflow-hidden bg-linear-to-br",
@@ -96,7 +62,7 @@ export default function ProjectsPage() {
                           alt={project.thumbnail.alt}
                           fill
                           sizes="(min-width: 768px) 50vw, 100vw"
-                          className="object-cover transition duration-700 group-hover:scale-105"
+                          className="object-cover transition duration-500 group-hover:scale-[1.02]"
                         />
                       ) : (
                         <div className="absolute inset-0 grid-bg opacity-30" />
@@ -112,41 +78,19 @@ export default function ProjectsPage() {
                           </Badge>
                         )}
                       </div>
-                      <div className="absolute right-5 top-5">
-                        <span className="tabular font-mono text-[10.5px] uppercase tracking-[0.18em] text-white/60">
-                          {project.year}
-                        </span>
-                      </div>
-                      <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3">
-                        <div>
-                          <div className="text-[10.5px] uppercase tracking-[0.16em] text-white/60">
-                            {project.client}
-                          </div>
-                          <h3 className="mt-1.5 text-[20px] font-semibold leading-tight tracking-[-0.015em] text-white sm:text-[22px]">
-                            {project.title}
-                          </h3>
+                      <div className="absolute bottom-5 left-5 right-5">
+                        <div className="text-[10.5px] uppercase tracking-[0.16em] text-white/60">
+                          {project.client}
                         </div>
-                        <span className="flex h-10 w-10 shrink-0 -rotate-12 items-center justify-center rounded-full bg-white text-black opacity-0 shadow-[0_10px_24px_-10px_rgba(255,255,255,0.5)] transition-all duration-500 group-hover:rotate-0 group-hover:opacity-100">
-                          <ArrowUpRight className="h-4 w-4" />
-                        </span>
+                        <h3 className="mt-1.5 text-[20px] font-semibold leading-tight tracking-[-0.015em] text-white sm:text-[22px]">
+                          {project.title}
+                        </h3>
                       </div>
                     </div>
                     <div className="relative p-6 sm:p-7">
                       <p className="text-[15px] leading-relaxed text-foreground-muted">
                         {project.tagline}
                       </p>
-                      <div className="mt-7 grid grid-cols-2 gap-4 border-t border-white/6 pt-6 sm:grid-cols-4">
-                        {project.metrics.map((m) => (
-                          <div key={m.label}>
-                            <div className="tabular text-[18px] font-semibold tracking-[-0.02em] text-white">
-                              {m.value}
-                            </div>
-                            <div className="mt-0.5 text-[10px] uppercase tracking-[0.14em] text-foreground-subtle">
-                              {m.label}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
                       <div className="mt-6 flex flex-wrap gap-1.5">
                         {project.stack.slice(0, 6).map((s) => (
                           <span
@@ -161,6 +105,10 @@ export default function ProjectsPage() {
                             +{project.stack.length - 6}
                           </span>
                         )}
+                      </div>
+                      <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white">
+                        Read case study
+                        <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </div>
                     </div>
                   </article>

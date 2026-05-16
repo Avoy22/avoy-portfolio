@@ -13,30 +13,25 @@ export function TechStack() {
       <Container>
         <SectionHeader
           eyebrow="Tech stack"
-          title="Modern, opinionated, production-tested."
-          description="A focused stack chosen for shipping speed, type safety, and long-term maintainability — not novelty."
+          title="The tools I work with"
+          description="A focused stack chosen for shipping speed, type safety, and long-term maintainability."
         />
 
         <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {groups.map((group, index) => (
             <Reveal key={group.category} delay={(index % 3) * 0.06}>
-              <div className="glass-card group h-full rounded-2xl p-6 transition-all duration-500 hover:-translate-y-0.5 hover:border-white/15 sm:p-7">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground-muted transition group-hover:text-white">
-                    {group.category}
-                  </h3>
-                  <span className="tabular font-mono text-[11px] text-foreground-subtle">
-                    {group.items.length.toString().padStart(2, "0")}
-                  </span>
-                </div>
+              <div className="glass-card h-full rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 sm:p-7">
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground-muted">
+                  {group.category}
+                </h3>
                 <ul className="mt-5 flex flex-wrap gap-1.5">
                   {group.items.map((item) => (
                     <li
                       key={item.name}
                       className={cn(
-                        "rounded-full border px-3 py-1.5 text-[12.5px] transition hover:-translate-y-px",
+                        "rounded-full border px-3 py-1.5 text-[12.5px]",
                         item.level === "Core" &&
-                          "border-accent/30 bg-accent/10 text-white shadow-[0_0_0_1px_rgba(109,140,255,0.05)_inset]",
+                          "border-accent/30 bg-accent/10 text-white",
                         item.level === "Daily" &&
                           "border-white/10 bg-white/4 text-foreground-muted",
                         item.level === "Familiar" &&

@@ -50,14 +50,6 @@ export type Service = {
   description: string;
   deliverables: string[];
   ideal: string;
-  startingAt?: string;
-};
-
-export type ProcessStep = {
-  step: string;
-  title: string;
-  description: string;
-  icon: string;
 };
 
 export type TechItem = {
@@ -72,27 +64,9 @@ export type TechItem = {
   level: "Core" | "Daily" | "Familiar";
 };
 
-export type LeadStatus = "new" | "contacted" | "qualified" | "won" | "lost";
-
-export type Lead = {
-  id: string;
-  createdAt: string;
-  name: string;
-  email: string;
-  company?: string;
-  budget?: string;
-  service?: string;
-  message: string;
-  status: LeadStatus;
-  source?: string;
-  notes?: string;
-};
-
 export type ContactPayload = {
   name: string;
   email: string;
   company?: string;
-  budget?: string;
-  service?: string;
   message: string;
 };

@@ -1,85 +1,59 @@
-import { CircleCheck, MapPin } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { Badge } from "@/components/ui/Badge";
-import { Reveal } from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { site } from "@/data/site";
-
-const principles = [
-  {
-    title: "Outcomes over output",
-    body: "I optimize for the metric your business actually cares about — leads, revenue, time saved — not lines of code shipped.",
-  },
-  {
-    title: "Production from day one",
-    body: "Everything I build runs on real infrastructure (Vercel, Supabase, Resend) from week one. No staging-forever projects.",
-  },
-  {
-    title: "Founder-friendly architecture",
-    body: "Typed end-to-end, documented, and built so your next hire (or me, six months from now) can extend it without rewriting.",
-  },
-  {
-    title: "Tight feedback loops",
-    body: "Weekly shipped increments, async-friendly Loom updates, and a real URL you can use after week one.",
-  },
-];
 
 export function About() {
   return (
     <Section>
       <Container>
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <Badge tone="brand" size="md" dot>
-              About Avoy
-            </Badge>
-            <h2 className="mt-5 text-balance text-[28px] font-semibold leading-[1.06] tracking-tight text-gradient sm:text-[36px] lg:text-[44px] xl:text-[48px]">
-              An engineer who treats your business like a product.
-            </h2>
-            <p className="mt-6 text-[15px] leading-relaxed text-foreground-muted sm:text-[17px]">
-              I&apos;m {site.name}. I build AI-powered web systems for service
-              businesses, agencies, and founders — the kind of work that ends in
-              a deployed URL, a real database, and a metric the business can
-              point at and say &quot;this moved.&quot;
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-foreground-muted sm:text-[17px]">
-              My background sits at the intersection of full-stack engineering
-              and applied AI. I care about clean architecture, fast iteration,
-              and shipping the smallest correct version first.
-            </p>
+        <SectionHeader eyebrow="About" title="About me" />
 
-            <div className="mt-8 flex flex-col gap-3 text-sm text-foreground-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-3 py-1.5 text-[12.5px]">
+        <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-4">
+            <div className="relative overflow-hidden rounded-3xl border border-white/12 bg-white/5 shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_20px_60px_-20px_rgba(0,0,0,0.7)]">
+              <Image
+                src="/images/avoy-profile.jpg"
+                alt={site.name}
+                width={480}
+                height={600}
+                priority
+                sizes="(max-width: 1024px) 240px, 360px"
+                className="h-auto w-full object-cover"
+              />
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-[12.5px] text-foreground-muted">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-3 py-1.5">
                 <MapPin className="h-3.5 w-3.5 text-foreground-subtle" />
                 {site.location}
-              </div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-success/20 bg-success/6 px-3 py-1.5 text-[12.5px]">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
-                </span>
-                {site.availability}
-              </div>
+              </span>
             </div>
           </div>
 
-          <div className="lg:col-span-7">
-            <div className="grid gap-4 sm:grid-cols-2 lg:gap-5">
-              {principles.map((p, i) => (
-                <Reveal key={p.title} delay={i * 0.06}>
-                  <div className="glass-card group h-full rounded-2xl p-6 transition-all duration-500 hover:-translate-y-0.5 hover:border-white/15 sm:p-7">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/25 bg-accent/10 text-accent transition group-hover:border-accent/40 group-hover:bg-accent/15">
-                      <CircleCheck className="h-5 w-5" />
-                    </div>
-                    <h3 className="mt-5 text-[15.5px] font-semibold tracking-[-0.015em] text-white">
-                      {p.title}
-                    </h3>
-                    <p className="mt-2 text-[14px] leading-relaxed text-foreground-muted">
-                      {p.body}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+          <div className="lg:col-span-8">
+            <h3 className="text-balance text-[26px] font-semibold leading-[1.1] tracking-tight text-white sm:text-[32px] lg:text-[36px]">
+              I&apos;m {site.name}, a web developer focused on building
+              practical business systems.
+            </h3>
+
+            <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-foreground-muted sm:text-[16.5px]">
+              <p>
+                I create websites, dashboards, lead tools, and automation
+                workflows using modern web technologies. My goal is to help
+                businesses replace manual work with simple, clean, and useful
+                digital systems.
+              </p>
+            </div>
+
+            <div className="mt-8">
+              <Button href="/contact" variant="primary" size="md">
+                <Mail className="h-4 w-4" />
+                Contact Me
+              </Button>
             </div>
           </div>
         </div>

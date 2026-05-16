@@ -26,8 +26,6 @@ export function Navbar() {
     if (open) setOpen(false);
   }
 
-  const isAdmin = pathname?.startsWith("/admin");
-
   return (
     <header
       className={cn(
@@ -37,37 +35,21 @@ export function Navbar() {
           : "border-b border-transparent"
       )}
     >
-      <div
-        aria-hidden
-        className={cn(
-          "pointer-events-none absolute inset-x-0 bottom-0 h-px transition-opacity duration-300",
-          scrolled ? "opacity-100" : "opacity-0",
-          "bg-linear-to-r from-transparent via-white/10 to-transparent"
-        )}
-      />
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:h-18 sm:px-8 lg:px-12">
         <Link
           href="/"
           className="group relative flex items-center gap-2.5"
           aria-label={`${site.name} home`}
         >
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-accent via-accent-2 to-accent-3 text-black shadow-[0_8px_24px_-8px_rgba(109,140,255,0.55),0_0_0_1px_rgba(255,255,255,0.08)_inset] transition-transform duration-300 group-hover:scale-105">
+          <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-accent via-accent-2 to-accent-3 text-black shadow-[0_8px_24px_-8px_rgba(109,140,255,0.5)] transition-transform duration-300 group-hover:scale-105">
             <Sparkles className="h-4 w-4" strokeWidth={2.5} />
-            <span
-              aria-hidden
-              className="absolute inset-0 rounded-xl bg-linear-to-tr from-white/30 to-transparent opacity-50"
-            />
-            <span
-              aria-hidden
-              className="absolute -inset-0.5 rounded-xl bg-linear-to-br from-accent/40 via-accent-2/40 to-accent-3/40 opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-100"
-            />
           </span>
           <div className="leading-tight">
             <div className="text-[15px] font-semibold tracking-[-0.01em] text-white">
               {site.name}
             </div>
             <div className="text-[10px] uppercase tracking-[0.18em] text-foreground-subtle">
-              AI · Web · Automation
+              Web · Automation
             </div>
           </div>
         </Link>
@@ -92,7 +74,7 @@ export function Navbar() {
                 {active && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-white/6 border border-white/8 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]"
+                    className="absolute inset-0 -z-10 rounded-full bg-white/6 border border-white/8"
                     transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
                   />
                 )}
@@ -103,28 +85,13 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          {isAdmin ? (
-            <Link
-              href="/"
-              className="text-sm text-foreground-muted hover:text-white transition"
-            >
-              ← Back to site
-            </Link>
-          ) : (
-            <Link
-              href="/contact"
-              className="group relative inline-flex h-10 items-center gap-2 overflow-hidden rounded-full bg-white px-5 text-[13px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-8px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100 hover:shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_12px_30px_-10px_rgba(255,255,255,0.5)]"
-            >
-              <span className="relative z-10 inline-flex items-center gap-2">
-                Book a call
-                <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </span>
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/55 to-transparent opacity-0 transition-all duration-700 ease-out group-hover:translate-x-[260%] group-hover:opacity-100"
-              />
-            </Link>
-          )}
+          <Link
+            href="/contact"
+            className="group inline-flex h-10 items-center gap-2 rounded-full bg-white px-5 text-[13px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-8px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
+          >
+            Contact
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
 
         <button
@@ -168,13 +135,6 @@ export function Navbar() {
                   </Link>
                 );
               })}
-              <Link
-                href="/contact"
-                className="mt-3 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-[15px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-8px_rgba(255,255,255,0.4)]"
-              >
-                Book a call
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
             </div>
           </motion.div>
         )}
