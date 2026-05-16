@@ -5,15 +5,15 @@ export const site = {
   headline: "AI Automation & Full-Stack Web Developer",
   subheadline:
     "I build business websites, dashboards, lead systems, and automation tools for small businesses and service providers.",
-  email: "hello@avoydas.com",
+  email: "dasavoy828@gmail.com",
   location: "Remote · Available worldwide",
   domain: "avoydas.com",
   url: "https://avoydas.com",
   ogImage: "/og.png",
   social: {
-    github: "https://github.com/avoydas",
-    linkedin: "https://www.linkedin.com/in/avoydas",
-    email: "mailto:hello@avoydas.com",
+    github: "https://github.com/Avoy22",
+    linkedin: "https://www.linkedin.com/in/aboy-chandra-das-s22",
+    email: "mailto:dasavoy828@gmail.com",
   },
   nav: [
     { label: "Home", href: "/" },

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Mail, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import { GithubIcon, GmailIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import { site } from "@/data/site";
 
 export function Footer() {
@@ -53,8 +53,8 @@ export function Footer() {
                 <SocialLink href={site.social.linkedin} label="LinkedIn">
                   <LinkedinIcon size={15} />
                 </SocialLink>
-                <SocialLink href={site.social.email} label="Email">
-                  <Mail className="h-4 w-4" />
+                <SocialLink href={site.social.email} label="Email Avoy">
+                  <GmailIcon size={15} />
                 </SocialLink>
               </div>
               <a
