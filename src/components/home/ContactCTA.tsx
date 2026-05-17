@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Gauge, Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { site } from "@/data/site";
@@ -30,14 +30,22 @@ export function ContactCTA() {
                 Contact Me
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <a
-                href={site.social.email}
+              <Link
+                href="/automation-audit"
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-7 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/7"
               >
-                <Mail className="h-4 w-4" />
-                {site.email}
-              </a>
+                <Gauge className="h-4 w-4" />
+                Run Automation Audit
+              </Link>
             </div>
+
+            <a
+              href={site.social.email}
+              className="mt-5 inline-flex items-center gap-2 text-[13.5px] text-foreground-muted transition hover:text-white"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              {site.email}
+            </a>
           </div>
         </div>
       </Container>

@@ -311,7 +311,7 @@ export function AuditForm() {
 
       <div className="mt-8 flex flex-col items-stretch justify-between gap-4 border-t border-white/6 pt-7 sm:flex-row sm:items-center">
         <p className="text-[12px] leading-relaxed text-foreground-subtle">
-          Rule-based audit — runs instantly, no AI tokens billed.
+          Rule-based scoring — runs instantly, no AI tokens billed.
         </p>
         <button
           type="submit"

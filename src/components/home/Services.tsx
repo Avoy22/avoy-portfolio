@@ -5,6 +5,7 @@ import {
   Globe,
   Workflow,
   ArrowUpRight,
+  Gauge,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -54,6 +55,19 @@ export function Services() {
             );
           })}
         </div>
+
+        <Reveal>
+          <div className="mt-10 flex justify-center sm:mt-12">
+            <Link
+              href="/automation-audit"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-5 py-2.5 text-[13.5px] text-foreground-muted backdrop-blur transition hover:border-white/25 hover:bg-white/6 hover:text-white"
+            >
+              <Gauge className="h-4 w-4" />
+              Not sure which fits? Run the Automation Audit
+              <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </Reveal>
       </Container>
     </Section>
   );

@@ -6,13 +6,13 @@ import { Badge } from "@/components/ui/Badge";
 import { AuditForm } from "@/components/audit/AuditForm";
 
 export const metadata: Metadata = {
-  title: "AI Automation Audit",
+  title: "Automation Audit",
   description:
-    "Free rule-based AI automation audit for small businesses. Get an opportunity score, a recommended system, and a complexity read in under two minutes.",
+    "A practical workflow audit tool that analyzes business inputs and suggests automation opportunities. Get an opportunity score, a recommended system, and a complexity read in under two minutes — rule-based and free.",
   openGraph: {
-    title: "AI Automation Audit · Avoy Das",
+    title: "Automation Audit · Avoy Das",
     description:
-      "Free rule-based AI automation audit for small businesses. Score, recommended system, and complexity in under two minutes.",
+      "A practical workflow audit tool that analyzes business inputs and suggests automation opportunities. Score, recommended system, and complexity in under two minutes.",
   },
 };
 
@@ -45,13 +45,17 @@ export default function AutomationAuditPage() {
                 Automation audit
               </Badge>
               <h1 className="mt-6 text-balance text-[36px] font-semibold leading-[1.04] tracking-[-0.03em] text-gradient sm:text-[48px] lg:text-[56px]">
-                Where would AI actually save you time?
+                Find your automation opportunities.
               </h1>
               <p className="mt-6 text-pretty text-[15px] leading-relaxed text-foreground-muted sm:text-[17px]">
-                Answer six questions about how your business runs today. I&apos;ll
-                score the automation opportunity, recommend the right system, and
-                give you an honest read on complexity — instantly, no AI tokens
-                burned.
+                A practical workflow audit that analyzes your business inputs
+                and suggests automation opportunities. Answer six questions
+                about how things run today — you&apos;ll get an opportunity
+                score, a recommended system, and an honest complexity read in
+                under two minutes.
+              </p>
+              <p className="mt-3 text-[12.5px] leading-relaxed text-foreground-subtle">
+                Rule-based scoring, not a language model — instant and free.
               </p>
 
               <div className="mt-9 space-y-3">
