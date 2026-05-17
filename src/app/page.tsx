@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
+import { CaseStudies } from "@/components/home/CaseStudies";
 import { Services } from "@/components/home/Services";
 import { TechStack } from "@/components/home/TechStack";
 import { About } from "@/components/home/About";
@@ -10,6 +11,7 @@ export default function HomePage() {
     <>
       <Hero />
       <FeaturedProjects />
+      <CaseStudies />
       <Services />
       <TechStack />
       <About />

@@ -184,6 +184,78 @@ export default async function ProjectCaseStudyPage({
                     ))}
                   </ul>
                 </div>
+
+                {project.architecture && project.architecture.length > 0 && (
+                  <div>
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                      Architecture
+                    </div>
+                    <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[30px]">
+                      How it&apos;s built
+                    </h2>
+                    <ul className="mt-7 space-y-3">
+                      {project.architecture.map((a) => (
+                        <li
+                          key={a}
+                          className="flex items-start gap-3 rounded-xl border border-white/6 bg-white/2 p-4"
+                        >
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          <span className="text-[14.5px] leading-relaxed text-foreground-muted">
+                            {a}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.businessValue && project.businessValue.length > 0 && (
+                  <div>
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                      Business value
+                    </div>
+                    <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[30px]">
+                      Why it matters
+                    </h2>
+                    <ul className="mt-7 space-y-3">
+                      {project.businessValue.map((v) => (
+                        <li
+                          key={v}
+                          className="flex items-start gap-3 rounded-xl border border-white/6 bg-white/2 p-4"
+                        >
+                          <CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                          <span className="text-[14.5px] leading-relaxed text-foreground-muted">
+                            {v}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.learnings && project.learnings.length > 0 && (
+                  <div>
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                      What I learned
+                    </div>
+                    <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[30px]">
+                      Takeaways from the build
+                    </h2>
+                    <ul className="mt-7 space-y-3">
+                      {project.learnings.map((l) => (
+                        <li
+                          key={l}
+                          className="flex items-start gap-3 rounded-xl border border-white/6 bg-white/2 p-4"
+                        >
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          <span className="text-[14.5px] leading-relaxed text-foreground-muted">
+                            {l}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
 

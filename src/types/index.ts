@@ -16,6 +16,9 @@ export type Project = {
   outcomes: string[];
   metrics: { label: string; value: string }[];
   features: string[];
+  architecture?: string[];
+  businessValue?: string[];
+  learnings?: string[];
   stack: string[];
   role: string;
   duration: string;
