@@ -3,17 +3,47 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
+  Bot,
   Briefcase,
+  ChartBar,
+  CheckCircle2,
   Code2,
+  Cog,
   Download,
+  FileSpreadsheet,
   GraduationCap,
+  LayoutDashboard,
   Layers,
   Mail,
   MapPin,
+  Monitor,
+  Server,
   Sparkles,
+  Terminal,
+  Users,
+  Workflow,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
+import type { IconType } from "react-icons";
+import {
+  SiFirebase,
+  SiGithub,
+  SiGoogleappsscript,
+  SiGooglesheets,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiResend,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+  SiZod,
+} from "react-icons/si";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
@@ -21,69 +51,97 @@ import { Reveal } from "@/components/ui/Reveal";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import { site } from "@/data/site";
 
+type SkillIcon = LucideIcon | IconType;
+
+const RESUME_NAME = "Aboy Chandra Das";
+const RESUME_TITLE = "AI Automation & Full-Stack Web Developer";
+const RESUME_LOCATION = "Dhaka, Bangladesh";
+const RESUME_PDF = "/resume/avoy-das-resume.pdf";
+const GITHUB_URL = "https://github.com/Avoy22";
+const GITHUB_HANDLE = "github.com/Avoy22";
+const LINKEDIN_URL = "https://linkedin.com/in/aboy-chandra-das-s22";
+const LINKEDIN_HANDLE = "linkedin.com/in/aboy-chandra-das-s22";
+const PORTFOLIO_URL = "https://avoy-portfolio.vercel.app";
+const PORTFOLIO_HANDLE = "avoy-portfolio.vercel.app";
+
 export const metadata: Metadata = {
   title: "Resume",
-  description:
-    "Resume of Avoy Das, AI Automation & Full-Stack Web Developer building lead systems, dashboards, CRM tools, and workflow automation.",
+  description: `Resume of ${RESUME_NAME}, ${RESUME_TITLE} building lead systems, dashboards, CRM tools, and workflow automation.`,
   openGraph: {
-    title: `Resume · ${site.name}`,
-    description:
-      "Resume of Avoy Das, AI Automation & Full-Stack Web Developer building lead systems, dashboards, CRM tools, and workflow automation.",
+    title: `Resume · ${RESUME_NAME}`,
+    description: `Resume of ${RESUME_NAME}, ${RESUME_TITLE} building lead systems, dashboards, CRM tools, and workflow automation.`,
   },
 };
 
-const RESUME_PDF = "/resume/avoy-das-resume.pdf";
-const GITHUB_URL = "https://github.com/dasavoy828";
-
-const coreSkills = [
-  "Lead management systems",
-  "Admin dashboards",
-  "Business dashboards",
-  "CRM workflows",
-  "Workflow automation",
-  "Full-stack web application development",
-  "Supabase / Firebase integration",
-  "Google Sheets & Apps Script automation",
-  "Responsive UI development",
-  "Deployment & production workflows",
-];
+type SkillItem = {
+  name: string;
+  icon: SkillIcon;
+};
 
 type SkillGroup = {
   title: string;
   icon: LucideIcon;
-  items: string[];
+  items: SkillItem[];
 };
 
 const technicalSkills: SkillGroup[] = [
   {
+    title: "Languages",
+    icon: Terminal,
+    items: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Python", icon: SiPython },
+    ],
+  },
+  {
     title: "Frontend",
     icon: Layers,
-    items: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    items: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "React", icon: SiReact },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Responsive Design", icon: Monitor },
+    ],
   },
   {
     title: "Backend & Database",
-    icon: Code2,
-    items: ["Supabase", "Firebase", "PostgreSQL basics", "API Routes"],
+    icon: Server,
+    items: [
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Supabase", icon: SiSupabase },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "REST API Routes", icon: Server },
+      { name: "Zod", icon: SiZod },
+    ],
   },
   {
     title: "Automation & Tools",
     icon: Wrench,
     items: [
-      "Google Sheets",
-      "Apps Script",
-      "Resend",
-      "Zod",
-      "GitHub",
-      "Vercel",
-      "AI-assisted development",
+      { name: "Google Sheets", icon: SiGooglesheets },
+      { name: "Google Apps Script", icon: SiGoogleappsscript },
+      { name: "Resend", icon: SiResend },
+      { name: "GitHub", icon: SiGithub },
+      { name: "Vercel", icon: SiVercel },
+      { name: "AI-assisted development", icon: Bot },
     ],
   },
+];
+
+const businessSystems: SkillItem[] = [
+  { name: "Lead Management", icon: Users },
+  { name: "Admin Dashboards", icon: LayoutDashboard },
+  { name: "CRM Workflows", icon: Workflow },
+  { name: "Business Dashboards", icon: ChartBar },
+  { name: "CSV Export", icon: FileSpreadsheet },
+  { name: "Workflow Automation", icon: Cog },
 ];
 
 type ResumeProject = {
   title: string;
   role: string;
-  description: string;
   bullets: string[];
   stack: string[];
 };
@@ -92,64 +150,60 @@ const resumeProjects: ResumeProject[] = [
   {
     title: "ServicePro Lead Engine",
     role: "Full-Stack Developer",
-    description:
-      "Lead management system with contact form, Supabase database, protected admin dashboard, status tracking, notes, and CSV export.",
     bullets: [
-      "Implemented contact form submission flow connected to Supabase.",
-      "Built protected admin workflow for viewing and managing leads.",
-      "Added status updates, notes, and CSV export for business follow-up.",
-      "Deployed the application and documented the business use case.",
+      "Built a lead capture and management system enabling small service businesses to collect, track, and follow up on customer inquiries from one dashboard.",
+      "Implemented Supabase backend with server-side form submission, Zod validation, and a protected admin dashboard featuring lead status workflow, notes, and CSV export.",
+      "Added token-based access control on admin routes to restrict data to authorized users.",
+      "Deployed end-to-end to Vercel with live contact form, admin login, and data pipeline.",
     ],
-    stack: ["Next.js", "Supabase", "Resend", "TypeScript", "Vercel"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
   },
   {
     title: "Business Expense & Sales Dashboard",
     role: "Dashboard Developer",
-    description:
-      "Responsive dashboard for tracking sales, expenses, profit, and overall business performance.",
     bullets: [
-      "Designed dashboard UI for clear business data visibility.",
-      "Organized sales and expense information into summary views.",
-      "Focused on practical reporting and decision support for small businesses.",
+      "Built a responsive financial dashboard aggregating sales, expense, and profit data into clear summary views for quick decision-making.",
+      "Connected API data sources to React components and structured records into filterable monthly and overall reports.",
+      "Deployed to Vercel with a mobile-friendly layout suitable for daily business review.",
     ],
-    stack: ["Next.js", "Supabase", "Tailwind CSS", "Vercel"],
+    stack: ["React", "Tailwind CSS", "API integration", "Vercel"],
   },
   {
     title: "AI Lead Tracker CRM",
     role: "Frontend / CRM Workflow Developer",
-    description:
-      "Lightweight CRM-style dashboard for organizing leads, outreach status, notes, and follow-up workflows.",
     bullets: [
-      "Created lead tracking interface for managing potential clients.",
-      "Added CRM-style workflow structure for status and follow-up organization.",
-      "Designed responsive dashboard UI for everyday business use.",
+      "Built a lightweight CRM dashboard for tracking leads, outreach status, notes, and follow-ups — designed for users who find full CRM platforms too heavy.",
+      "Integrated Google Sheets and Apps Script as a low-cost backend so non-technical users can view and edit lead data in a familiar tool.",
+      "Designed an opportunity tracking interface focused on speed and clarity.",
     ],
     stack: ["React", "Tailwind CSS", "Google Sheets", "Apps Script", "Vercel"],
   },
   {
     title: "Automation Audit Tool",
     role: "Product / Automation Workflow Developer",
-    description:
-      "Interactive workflow audit tool that collects business workflow inputs and suggests practical automation opportunities.",
     bullets: [
-      "Designed a form-driven audit workflow for business users.",
-      "Connected audit submissions to the existing lead/admin workflow.",
-      "Used honest rule-based recommendations without overclaiming AI capability.",
+      "Built an interactive audit tool that captures business workflow inputs and surfaces practical automation opportunities based on the responses.",
+      "Connected audit submissions to the lead/admin workflow so incoming requests can be reviewed and followed up from one dashboard.",
+      "Used Zod schema validation to maintain data integrity from form submission through database storage.",
     ],
-    stack: ["Next.js", "TypeScript", "Zod", "Supabase", "Tailwind CSS"],
+    stack: ["Next.js", "TypeScript", "Supabase", "Zod"],
   },
+];
+
+const technicalProof = [
+  "Live portfolio deployed on Vercel with a working Supabase-backed contact form and protected admin leads dashboard.",
+  "Implemented end-to-end CSV export workflow for clean lead data handoff and client follow-up.",
+  "Built responsive case study pages, technology stack section, and service positioning aimed at freelance and small-business clients.",
 ];
 
 const availability = [
   "Freelance projects",
   "Remote junior developer roles",
-  "Business automation projects",
-  "Dashboard and lead system development",
+  "Contract work on dashboards & lead systems",
+  "CRM tools & workflow automation builds",
 ];
 
 export default function ResumePage() {
-  const portfolioHost = site.url.replace(/^https?:\/\//, "");
-
   return (
     <>
       {/* Header */}
@@ -162,10 +216,10 @@ export default function ResumePage() {
 
             <div className="mt-6 max-w-3xl">
               <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.03em] text-gradient sm:text-[56px] lg:text-[64px]">
-                {site.name}
+                {RESUME_NAME}
               </h1>
               <p className="mt-4 text-pretty text-[16px] font-medium leading-relaxed text-white sm:text-[18px]">
-                AI Automation &amp; Full-Stack Web Developer
+                {RESUME_TITLE}
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13.5px] text-foreground-muted">
@@ -177,35 +231,35 @@ export default function ResumePage() {
                   {site.email}
                 </a>
                 <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 transition hover:text-white"
+                >
+                  <LinkedinIcon size={13} />
+                  {LINKEDIN_HANDLE}
+                </a>
+                <a
                   href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 transition hover:text-white"
                 >
                   <GithubIcon size={13} />
-                  github.com/dasavoy828
+                  {GITHUB_HANDLE}
                 </a>
                 <a
-                  href={site.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-white"
-                >
-                  <LinkedinIcon size={13} />
-                  LinkedIn
-                </a>
-                <a
-                  href={site.url}
+                  href={PORTFOLIO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 transition hover:text-white"
                 >
                   <ArrowUpRight className="h-3.5 w-3.5" />
-                  {portfolioHost}
+                  {PORTFOLIO_HANDLE}
                 </a>
                 <span className="inline-flex items-center gap-1.5">
                   <MapPin className="h-3.5 w-3.5" />
-                  {site.location}
+                  {RESUME_LOCATION}
                 </span>
               </div>
             </div>
@@ -238,7 +292,7 @@ export default function ResumePage() {
                 <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
-                href={site.social.linkedin}
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
@@ -260,12 +314,13 @@ export default function ResumePage() {
               <article className="glass-card h-full rounded-3xl p-7 sm:p-8">
                 <SectionTitle icon={Sparkles}>Professional Summary</SectionTitle>
                 <p className="mt-5 text-[14.5px] leading-relaxed text-foreground-muted sm:text-[15px]">
-                  AI Automation &amp; Full-Stack Web Developer focused on
-                  building practical business systems, dashboards, lead
-                  management tools, CRM workflows, and automation solutions.
-                  I build deployed web applications that help businesses
-                  collect leads, manage data, reduce manual work, and improve
-                  workflow visibility.
+                  Full-stack web developer specializing in business automation,
+                  lead management systems, and admin dashboards. Builds and
+                  deploys production web applications using Next.js, TypeScript,
+                  Node.js, and Supabase that help small businesses capture
+                  leads, track operations, and reduce manual workflows.
+                  Comfortable with end-to-end delivery from frontend UI through
+                  backend data flow to production deployment on Vercel.
                 </p>
               </article>
             </Reveal>
@@ -275,11 +330,15 @@ export default function ResumePage() {
                 <SectionTitle icon={GraduationCap}>Education</SectionTitle>
                 <div className="mt-5">
                   <div className="text-[15px] font-semibold tracking-[-0.01em] text-white">
-                    Student
+                    Student — Software Development
                   </div>
                   <p className="mt-2 text-[13.5px] leading-relaxed text-foreground-muted">
-                    Focused on software development, AI-assisted engineering,
-                    data dashboards, and business automation systems.
+                    Focused on AI-assisted engineering, data dashboards, and
+                    business automation systems.
+                  </p>
+                  <p className="mt-3 inline-flex items-center gap-1.5 text-[12.5px] text-foreground-subtle">
+                    <MapPin className="h-3 w-3" />
+                    Dhaka, Bangladesh
                   </p>
                 </div>
               </article>
@@ -288,24 +347,17 @@ export default function ResumePage() {
         </Container>
       </Section>
 
-      {/* Core Skills + Technical Skills */}
+      {/* Business Systems + Technical Skills */}
       <Section spacing="sm">
         <Container size="lg">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <Reveal>
               <article className="glass-card h-full rounded-3xl p-7 sm:p-8">
-                <SectionTitle icon={Briefcase}>Core Skills</SectionTitle>
-                <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
-                  {coreSkills.map((skill) => (
-                    <li
-                      key={skill}
-                      className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-foreground-muted"
-                    >
-                      <span
-                        aria-hidden
-                        className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-                      />
-                      {skill}
+                <SectionTitle icon={Briefcase}>Business Systems</SectionTitle>
+                <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+                  {businessSystems.map((skill) => (
+                    <li key={skill.name}>
+                      <SkillBadge item={skill} />
                     </li>
                   ))}
                 </ul>
@@ -326,12 +378,7 @@ export default function ResumePage() {
                         </div>
                         <div className="mt-3 flex flex-wrap gap-2">
                           {group.items.map((item) => (
-                            <span
-                              key={item}
-                              className="inline-flex items-center rounded-full border border-white/10 bg-white/4 px-3 py-1 text-[12.5px] text-foreground-muted backdrop-blur"
-                            >
-                              {item}
-                            </span>
+                            <SkillBadge key={item.name} item={item} />
                           ))}
                         </div>
                       </div>
@@ -374,9 +421,6 @@ export default function ResumePage() {
                       {project.role}
                     </div>
                   </div>
-                  <p className="mt-3 text-[13.5px] leading-relaxed text-foreground-muted sm:text-[14px]">
-                    {project.description}
-                  </p>
                   <ul className="mt-4 space-y-1.5">
                     {project.bullets.map((bullet) => (
                       <li
@@ -401,10 +445,53 @@ export default function ResumePage() {
                       </span>
                     ))}
                   </div>
+                  <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/6 pt-4 text-[12px] text-foreground-subtle">
+                    <Link
+                      href="/projects"
+                      className="inline-flex items-center gap-1.5 transition hover:text-white"
+                    >
+                      <ArrowUpRight className="h-3 w-3" />
+                      Demo
+                    </Link>
+                    <a
+                      href={GITHUB_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 transition hover:text-white"
+                    >
+                      <GithubIcon size={12} />
+                      {GITHUB_HANDLE}
+                    </a>
+                  </div>
                 </article>
               </Reveal>
             ))}
           </div>
+        </Container>
+      </Section>
+
+      {/* Technical Proof */}
+      <Section spacing="sm">
+        <Container size="lg">
+          <Reveal>
+            <article className="glass-card rounded-3xl p-7 sm:p-8">
+              <SectionTitle icon={CheckCircle2}>Technical Proof</SectionTitle>
+              <ul className="mt-6 grid gap-2.5">
+                {technicalProof.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-foreground-muted sm:text-[14px]"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
         </Container>
       </Section>
 
@@ -415,9 +502,12 @@ export default function ResumePage() {
             <article className="glass-card rounded-3xl p-7 sm:p-8">
               <SectionTitle icon={MapPin}>Availability</SectionTitle>
               <p className="mt-5 text-[14px] leading-relaxed text-foreground-muted">
-                Open to:
+                Open to freelance projects, remote junior developer roles, and
+                contract work on dashboards, lead systems, CRM tools, and
+                workflow automation — available worldwide for remote
+                engagements.
               </p>
-              <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
+              <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
                 {availability.map((item) => (
                   <li
                     key={item}
@@ -432,7 +522,7 @@ export default function ResumePage() {
                 ))}
               </ul>
               <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/6 pt-5 text-[12px] text-foreground-subtle">
-                <span>Last updated: 2026</span>
+                <span>Based in {RESUME_LOCATION}</span>
                 <span aria-hidden className="text-foreground-subtle">·</span>
                 <span>Available for remote work worldwide</span>
               </div>
@@ -502,5 +592,18 @@ function SectionTitle({
         {children}
       </h2>
     </div>
+  );
+}
+
+function SkillBadge({ item }: { item: SkillItem }) {
+  const Icon = item.icon;
+  return (
+    <span className="group inline-flex w-full items-center gap-2 rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-[12.5px] text-foreground-muted backdrop-blur transition hover:border-white/20 hover:bg-white/8 hover:text-white sm:w-auto">
+      <Icon
+        aria-hidden
+        className="h-3.5 w-3.5 shrink-0 text-foreground-subtle transition group-hover:text-white"
+      />
+      <span className="truncate">{item.name}</span>
+    </span>
   );
 }
