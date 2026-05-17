@@ -1,32 +1,64 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { auditSchema } from "@/lib/validations/audit";
+import {
+  auditSchema,
+  businessTypeOptions,
+  bottleneckOptions,
+  outcomeOptions,
+  volumeOptions,
+  type AuditInput,
+} from "@/lib/validations/audit";
 import { scoreAudit, type AuditResult } from "@/lib/audit/score";
 import { getSupabaseAdmin } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-type AuditInsert = {
+type LeadInsert = {
   name: string;
   email: string;
-  business_type: string;
-  current_workflow: string;
-  main_bottleneck: string;
-  current_tools: string;
-  monthly_volume: string;
-  desired_outcome: string;
-  score: number;
-  recommended_system: string;
-  complexity: string;
-  features: string[];
+  company: string | null;
+  service: string;
+  budget: string | null;
+  message: string;
+  status: string;
   source: string;
 };
 
-// Postgres error codes that mean "table missing" or "schema cache stale".
-// In those cases the audit still returns a result to the visitor — the row
-// just doesn't get persisted, and we log it loudly so it can be backfilled.
-const MISSING_TABLE_CODES = new Set(["42P01", "PGRST205", "PGRST204"]);
+function labelFor<T extends readonly { value: string; label: string }[]>(
+  opts: T,
+  value: string
+): string {
+  return opts.find((o) => o.value === value)?.label ?? value;
+}
+
+function buildMessage(input: AuditInput, result: AuditResult): string {
+  const lines = [
+    "=== Automation Audit Submission ===",
+    "",
+    `Business type: ${labelFor(businessTypeOptions, input.business_type)}`,
+    `Main bottleneck: ${labelFor(bottleneckOptions, input.main_bottleneck)}`,
+    `Monthly volume: ${labelFor(volumeOptions, input.monthly_volume)}`,
+    `Desired outcome: ${labelFor(outcomeOptions, input.desired_outcome)}`,
+    "",
+    "Current workflow:",
+    input.current_workflow.trim(),
+    "",
+    `Current tools: ${input.current_tools.trim()}`,
+    "",
+    "=== Recommendation ===",
+    `Score: ${result.score} (${result.band})`,
+    `Recommended system: ${result.recommendedSystem}`,
+    `Complexity: ${result.complexity}`,
+    "",
+    "Summary:",
+    result.summary,
+    "",
+    "Suggested features:",
+    ...result.features.map((f) => `• ${f}`),
+  ];
+  return lines.join("\n");
+}
 
 export async function POST(request: Request) {
   let raw: unknown;
@@ -66,35 +98,22 @@ export async function POST(request: Request) {
 
   const result = scoreAudit(data);
 
-  const payload: AuditInsert = {
+  const payload: LeadInsert = {
     name: data.name.trim(),
     email: data.email.trim().toLowerCase(),
-    business_type: data.business_type,
-    current_workflow: data.current_workflow.trim(),
-    main_bottleneck: data.main_bottleneck,
-    current_tools: data.current_tools.trim(),
-    monthly_volume: data.monthly_volume,
-    desired_outcome: data.desired_outcome,
-    score: result.score,
-    recommended_system: result.recommendedSystem,
-    complexity: result.complexity,
-    features: result.features,
-    source: "portfolio-audit",
+    company: null,
+    service: "Automation Audit",
+    budget: null,
+    message: buildMessage(data, result),
+    status: "new",
+    source: "automation-audit",
   };
 
   try {
     const supabase = getSupabaseAdmin();
-    const { error } = await supabase.from("automation_audits").insert(payload);
+    const { error } = await supabase.from("leads").insert(payload);
 
     if (error) {
-      const code = (error as { code?: string }).code ?? "";
-      if (MISSING_TABLE_CODES.has(code)) {
-        console.error(
-          "[audit] automation_audits table missing — returning result without persistence:",
-          error.message
-        );
-        return NextResponse.json({ ok: true, result }, { status: 200 });
-      }
       console.error("[audit] supabase insert failed:", error.message);
       return NextResponse.json(
         { ok: false, error: "Could not save your audit. Please try again." },

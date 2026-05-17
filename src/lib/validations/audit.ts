@@ -1,25 +1,8 @@
 import { z } from "zod";
 
-// Supabase table this writes to. Create it with:
-//
-//   create table if not exists public.automation_audits (
-//     id uuid primary key default gen_random_uuid(),
-//     name text not null,
-//     email text not null,
-//     business_type text not null,
-//     current_workflow text not null,
-//     main_bottleneck text not null,
-//     current_tools text not null,
-//     monthly_volume text not null,
-//     desired_outcome text not null,
-//     score int not null,
-//     recommended_system text not null,
-//     complexity text not null,
-//     features jsonb not null default '[]'::jsonb,
-//     source text not null default 'portfolio',
-//     created_at timestamptz not null default now()
-//   );
-//   alter table public.automation_audits enable row level security;
+// Audit submissions are persisted into the shared `leads` table — see
+// src/app/api/audit/route.ts. service is set to "Automation Audit" and
+// source to "automation-audit" so they're filterable in the admin dashboard.
 
 export const businessTypeOptions = [
   { value: "ecommerce", label: "E-commerce / online store" },
