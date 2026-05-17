@@ -14,7 +14,7 @@ export function ContactCTA() {
             className="pointer-events-none absolute inset-0 grid-bg mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent_75%)] opacity-30"
           />
           <div className="relative flex flex-col items-center text-center">
-            <h2 className="max-w-3xl text-balance text-[28px] font-semibold leading-[1.08] tracking-[-0.025em] text-gradient sm:text-[40px] lg:text-[48px]">
+            <h2 className="max-w-3xl text-balance text-[28px] font-semibold leading-[1.08] tracking-tight text-gradient sm:text-[40px] lg:text-[48px]">
               Have a project in mind?
             </h2>
             <p className="mt-5 max-w-xl text-pretty text-[15px] leading-relaxed text-foreground-muted sm:text-[17px]">
