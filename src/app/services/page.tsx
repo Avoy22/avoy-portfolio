@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   CircleCheck,
+  Gauge,
   Magnet,
   LayoutDashboard,
   Globe,
@@ -50,6 +52,15 @@ export default function ServicesPage() {
               providers. Each one comes with strategy, working software, and a
               clean handoff.
             </p>
+
+            <Link
+              href="/automation-audit"
+              className="group mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[13px] text-foreground-muted backdrop-blur transition hover:border-white/25 hover:bg-white/6 hover:text-white"
+            >
+              <Gauge className="h-3.5 w-3.5" />
+              Not sure which fits? Run the 2-minute audit
+              <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
           </div>
         </Container>
       </Section>

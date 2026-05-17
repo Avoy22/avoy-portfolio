@@ -19,6 +19,7 @@ export const site = {
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
     { label: "Services", href: "/services" },
+    { label: "Audit", href: "/automation-audit" },
     { label: "Contact", href: "/contact" },
   ],
 };
