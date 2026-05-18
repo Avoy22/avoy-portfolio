@@ -36,7 +36,8 @@ export function Hero() {
             className="max-w-4xl text-balance text-[38px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[56px] lg:text-[68px]"
           >
             <span className="text-gradient">
-              Practical web apps for lead capture, dashboards, and automation
+              Full-stack web apps for lead management, dashboards, CRM
+              workflows, and automation.
             </span>
           </motion.h1>
 
@@ -46,8 +47,9 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.08 }}
             className="mt-6 max-w-2xl text-pretty text-[15.5px] leading-relaxed text-foreground-muted sm:mt-7 sm:text-[18px]"
           >
-            I&apos;m a full-stack developer building clean business systems with
-            Next.js, TypeScript, Supabase, and automation-friendly workflows.
+            I design and build deployed business systems with Next.js, React,
+            TypeScript, Supabase, admin dashboards, CSV export, and clean user
+            workflows.
           </motion.p>
 
           <motion.div
@@ -102,8 +104,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.22 }}
             className="mt-6 max-w-xl text-[12.5px] leading-relaxed text-foreground-subtle"
           >
-            No inflated metrics, no fake testimonials, just deployed work,
-            readable case studies, and working contact/admin flows.
+            Explore real project workflows with database integration, protected
+            admin routes, API handling, and deployed user interfaces.
           </motion.p>
         </div>
       </Container>
