@@ -36,19 +36,19 @@ const credibility: Credibility[] = [
     icon: Rocket,
     title: "Live deployed projects",
     description:
-      "Every featured project ships to production on Vercel — not a slide deck, not a Figma mockup.",
+      "Every featured project is deployed on Vercel and can be inspected beyond a screenshot.",
   },
   {
     icon: Database,
     title: "Supabase database integration",
     description:
-      "Real Postgres tables behind the lead and dashboard projects, with row-level security and typed access.",
+      "Postgres-backed lead and dashboard projects with row-level security and typed access.",
   },
   {
     icon: ShieldCheck,
     title: "Protected admin dashboard",
     description:
-      "Server-gated admin routes for managing leads — auth checked before any data is fetched.",
+      "Server-gated admin routes for managing leads, checked before private data is fetched.",
   },
   {
     icon: Inbox,
@@ -60,13 +60,13 @@ const credibility: Credibility[] = [
     icon: FileSpreadsheet,
     title: "CSV export workflow",
     description:
-      "Admin dashboards expose a CSV export so the data plays nicely with spreadsheets, CRMs, and accountants.",
+      "Admin dashboards include CSV export for spreadsheets, CRMs, and accountant handoff.",
   },
   {
     icon: Smartphone,
     title: "Responsive UI",
     description:
-      "Mobile-first layouts tested on real devices — admin views, dashboards, and marketing pages all hold up.",
+      "Mobile-first layouts for admin views, dashboards, and marketing pages.",
   },
   {
     icon: GithubGlyph,
@@ -89,7 +89,7 @@ export function CaseStudies() {
         <SectionHeader
           eyebrow="Case studies"
           title="Proof, not promises"
-          description="Real projects built to solve business problems with dashboards, lead workflows, automation, and deployed full-stack systems."
+          description="Deployed work with business context, implementation notes, and clear tradeoffs."
         />
 
         <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
@@ -104,7 +104,7 @@ export function CaseStudies() {
                   <h3 className="mt-6 text-[16px] font-semibold tracking-[-0.015em] text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-foreground-muted">
+                  <p className="mt-2 text-[13.5px] leading-relaxed text-foreground-muted">
                     {item.description}
                   </p>
                 </div>

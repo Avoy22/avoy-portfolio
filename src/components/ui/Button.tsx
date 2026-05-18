@@ -33,11 +33,11 @@ const variants: Record<Variant, string> = {
     "active:translate-y-[0.5px]"
   ),
   secondary:
-    "bg-white/5 text-white border border-white/10 hover:bg-white/9 hover:border-white/20 backdrop-blur shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]",
+    "bg-white/5 text-white border border-white/12 hover:bg-white/8 hover:border-white/24 backdrop-blur shadow-[0_1px_0_rgba(255,255,255,0.04)_inset]",
   ghost:
     "bg-transparent text-foreground-muted hover:text-white hover:bg-white/5",
   outline:
-    "border border-white/15 text-white bg-white/2 hover:border-white/30 hover:bg-white/5 backdrop-blur",
+    "border border-white/15 text-white bg-white/3 hover:border-white/30 hover:bg-white/7 backdrop-blur",
   gradient: cn(
     "text-white border border-white/10",
     "bg-[linear-gradient(135deg,rgba(109,140,255,0.95)_0%,rgba(167,139,250,0.95)_55%,rgba(34,211,238,0.95)_100%)]",

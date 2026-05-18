@@ -8,7 +8,7 @@ export function ContactCTA() {
   return (
     <Section spacing="md">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-white/8 via-white/3 to-transparent p-10 sm:p-14 lg:p-16">
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-white/8 via-white/3 to-transparent p-10 sm:p-14 lg:p-16">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 grid-bg mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent_75%)] opacity-30"

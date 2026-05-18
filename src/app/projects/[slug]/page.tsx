@@ -126,12 +126,41 @@ export default async function ProjectCaseStudyPage({
         </Container>
       </Section>
 
+      <Section spacing="sm" className="pt-0">
+        <Container>
+          <nav
+            aria-label="Case study sections"
+            className="glass-card flex flex-wrap gap-2 rounded-2xl p-3"
+          >
+            {[
+              ["#overview", "Overview"],
+              ["#problem", "Problem"],
+              ["#solution", "Solution"],
+              ["#features", "Core features"],
+              ["#architecture", "Architecture"],
+              ["#tech-stack", "Tech stack"],
+              ["#screenshots", "Screenshots"],
+              ["#business-value", "Business value"],
+              ["#learnings", "What I learned"],
+            ].map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                className="rounded-full border border-white/8 bg-white/3 px-3 py-1.5 text-[12.5px] text-foreground-muted transition hover:border-white/20 hover:bg-white/6 hover:text-white"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </Container>
+      </Section>
+
       {project.thumbnail && (
-        <Section spacing="sm">
+        <Section spacing="sm" className="pt-0">
           <Container>
             <div
               className={cn(
-                "relative aspect-video overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br shadow-[0_24px_70px_-32px_rgba(0,0,0,0.75)]",
+                "relative aspect-video overflow-hidden rounded-2xl border border-white/8 bg-linear-to-br shadow-[0_24px_70px_-32px_rgba(0,0,0,0.75)]",
                 project.cover
               )}
             >
@@ -153,15 +182,37 @@ export default async function ProjectCaseStudyPage({
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <div className="space-y-14">
-                <CaseSection eyebrow="Overview" title="Project summary">
+                <CaseSection id="overview" eyebrow="Overview" title="Project summary">
                   {project.summary}
                 </CaseSection>
-                <CaseSection eyebrow="The problem" title="What was broken">
+                <CaseSection id="problem" eyebrow="Problem" title="What was broken">
                   {project.problem}
                 </CaseSection>
-                <CaseSection eyebrow="The solution" title="What I built">
+                <CaseSection id="solution" eyebrow="Solution" title="What I built">
                   {project.solution}
                 </CaseSection>
+
+                <div id="features" className="scroll-mt-28">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                    Core features
+                  </div>
+                  <h2 className="mt-3 text-[24px] font-semibold tracking-[-0.02em] text-white sm:text-[30px]">
+                    What shipped
+                  </h2>
+                  <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+                    {project.features.map((f) => (
+                      <li
+                        key={f}
+                        className="flex items-start gap-3 rounded-xl border border-white/6 bg-white/2 p-4"
+                      >
+                        <CircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                        <span className="text-[14px] leading-relaxed text-foreground-muted">
+                          {f}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 <div>
                   <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
@@ -186,7 +237,7 @@ export default async function ProjectCaseStudyPage({
                 </div>
 
                 {project.architecture && project.architecture.length > 0 && (
-                  <div>
+                  <div id="architecture" className="scroll-mt-28">
                     <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
                       Architecture
                     </div>
@@ -210,7 +261,7 @@ export default async function ProjectCaseStudyPage({
                 )}
 
                 {project.businessValue && project.businessValue.length > 0 && (
-                  <div>
+                  <div id="business-value" className="scroll-mt-28">
                     <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
                       Business value
                     </div>
@@ -234,7 +285,7 @@ export default async function ProjectCaseStudyPage({
                 )}
 
                 {project.learnings && project.learnings.length > 0 && (
-                  <div>
+                  <div id="learnings" className="scroll-mt-28">
                     <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
                       What I learned
                     </div>
@@ -278,7 +329,7 @@ export default async function ProjectCaseStudyPage({
                   </ul>
                 </div>
 
-                <div className="glass-card rounded-2xl p-7">
+                <div id="tech-stack" className="glass-card scroll-mt-28 rounded-2xl p-7">
                   <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground-muted">
                     Stack
                   </h3>
@@ -300,7 +351,7 @@ export default async function ProjectCaseStudyPage({
       </Section>
 
       {project.fullPageScreenshot && (
-        <Section spacing="sm">
+        <Section id="screenshots" spacing="sm">
           <Container>
             <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
               Screenshots
@@ -309,7 +360,7 @@ export default async function ProjectCaseStudyPage({
               Product in production
             </h2>
 
-            <figure className="mt-9 overflow-hidden rounded-3xl border border-white/10 bg-white/3 shadow-[0_24px_70px_-32px_rgba(0,0,0,0.75)]">
+            <figure className="mt-9 overflow-hidden rounded-2xl border border-white/10 bg-white/3 shadow-[0_24px_70px_-32px_rgba(0,0,0,0.75)]">
               <div className="max-h-[760px] overflow-y-auto bg-background-soft">
                 <Image
                   src={project.fullPageScreenshot.src}
@@ -366,7 +417,7 @@ export default async function ProjectCaseStudyPage({
 
       <Section spacing="md">
         <Container>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-white/7 via-white/2 to-transparent p-8 sm:p-12">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-white/7 via-white/2 to-transparent p-8 sm:p-12">
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
                 <div className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-foreground-subtle">
@@ -437,16 +488,18 @@ function DetailRow({ label, value }: { label: string; value: string }) {
 }
 
 function CaseSection({
+  id,
   eyebrow,
   title,
   children,
 }: {
+  id?: string;
   eyebrow: string;
   title: string;
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div id={id} className="scroll-mt-28">
       <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
         {eyebrow}
       </div>

@@ -14,7 +14,7 @@ export function About() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-4">
-            <div className="relative overflow-hidden rounded-3xl border border-white/12 bg-white/5 shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_20px_60px_-20px_rgba(0,0,0,0.7)]">
+            <div className="relative overflow-hidden rounded-2xl border border-white/12 bg-white/5 shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_20px_60px_-20px_rgba(0,0,0,0.7)]">
               <Image
                 src="/images/avoy-profile.jpg"
                 alt={site.name}

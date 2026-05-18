@@ -59,7 +59,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-[10.5px] uppercase tracking-[0.16em] text-foreground-subtle">
-                    Location
+                    Work setup
                   </div>
                   <div className="mt-0.5 text-sm font-medium text-white">
                     {site.location}

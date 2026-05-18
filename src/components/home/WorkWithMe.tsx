@@ -63,7 +63,7 @@ export function WorkWithMe() {
           align="center"
           eyebrow="Work with me"
           title="Systems that turn manual work into clean software"
-          description="I help small businesses, founders, and service teams replace spreadsheets and inbox chaos with dashboards, lead workflows, and lightweight automation that actually ships."
+          description="I help small businesses, founders, and service teams replace scattered workflows with dashboards, lead systems, and lightweight automation."
         />
 
         <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:gap-5">
@@ -78,7 +78,7 @@ export function WorkWithMe() {
                   <h3 className="mt-6 text-[17px] font-semibold tracking-[-0.015em] text-white">
                     {offer.title}
                   </h3>
-                  <p className="mt-2 text-[14.5px] leading-relaxed text-foreground-muted">
+                  <p className="mt-2 text-[14px] leading-relaxed text-foreground-muted">
                     {offer.description}
                   </p>
                 </article>

@@ -27,7 +27,7 @@ export function Services() {
         <SectionHeader
           eyebrow="Services"
           title="What I build"
-          description="Focused engagements for small businesses and service providers."
+          description="Focused builds for teams that need working software, not extra process."
         />
 
         <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:gap-5">
@@ -46,7 +46,7 @@ export function Services() {
                     <h3 className="mt-6 text-[17px] font-semibold tracking-[-0.015em] text-white">
                       {service.title}
                     </h3>
-                    <p className="mt-2 text-[14.5px] leading-relaxed text-foreground-muted">
+                    <p className="mt-2 text-[14px] leading-relaxed text-foreground-muted">
                       {service.tagline}
                     </p>
                   </article>

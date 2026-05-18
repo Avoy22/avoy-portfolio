@@ -42,14 +42,14 @@ export default function ProjectsPage() {
 
       <Section spacing="sm">
         <Container>
-          <div className="grid gap-5 md:grid-cols-2 lg:gap-6">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {projects.map((project, index) => (
               <Reveal key={project.slug} delay={(index % 2) * 0.06}>
                 <Link
                   href={`/projects/${project.slug}`}
                   className="group block h-full"
                 >
-                  <article className="glass-card relative h-full overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15">
+                  <article className="glass-card relative h-full overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5">
                     <div
                       className={cn(
                         "relative aspect-16/10 overflow-hidden bg-linear-to-br",
@@ -87,11 +87,11 @@ export default function ProjectsPage() {
                         </h3>
                       </div>
                     </div>
-                    <div className="relative p-6 sm:p-7">
-                      <p className="text-[15px] leading-relaxed text-foreground-muted">
+                    <div className="relative flex min-h-64 flex-col p-6 sm:p-7">
+                      <p className="text-[14.5px] leading-relaxed text-foreground-muted">
                         {project.tagline}
                       </p>
-                      <div className="mt-6 flex flex-wrap gap-1.5">
+                      <div className="mt-auto flex flex-wrap gap-1.5 pt-6">
                         {project.stack.slice(0, 6).map((s) => (
                           <span
                             key={s}

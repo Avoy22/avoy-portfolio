@@ -82,7 +82,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="glass-card rounded-3xl p-10 text-center sm:p-12">
+      <div className="glass-card rounded-2xl p-10 text-center sm:p-12" role="status" aria-live="polite">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-success/30 bg-success/10 text-success">
           <CircleCheck className="h-7 w-7" />
         </div>
@@ -94,6 +94,7 @@ export function ContactForm() {
         </p>
         <button
           onClick={() => setSubmitted(false)}
+          type="button"
           className="mt-7 text-[13.5px] text-foreground-muted underline-offset-4 transition hover:text-white hover:underline"
         >
           Send another →
@@ -106,7 +107,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="glass-card rounded-3xl p-6 sm:p-8 lg:p-10"
+      className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10"
     >
       {/* Honeypot — hidden from real users */}
       <input
@@ -117,6 +118,16 @@ export function ContactForm() {
         className="hidden"
         {...register("website")}
       />
+
+      <div className="mb-7 border-b border-white/6 pb-6">
+        <h2 className="text-[22px] font-semibold tracking-[-0.02em] text-white">
+          Project inquiry
+        </h2>
+        <p className="mt-2 text-[13.5px] leading-relaxed text-foreground-muted">
+          Share the goal, current tools, and where the workflow is getting
+          stuck.
+        </p>
+      </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
@@ -213,6 +224,7 @@ export function ContactForm() {
       {submitError && (
         <div
           role="alert"
+          aria-live="polite"
           className="mt-6 flex items-start gap-3 rounded-2xl border border-danger/30 bg-danger/10 p-4 text-[13.5px] text-danger"
         >
           <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" />
@@ -227,6 +239,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
+          aria-label="Send project inquiry"
           className={cn(
             "group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100 sm:w-auto",
             isSubmitting && "opacity-70"

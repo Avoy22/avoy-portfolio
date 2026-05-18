@@ -30,14 +30,14 @@ export function FeaturedProjects() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:mt-14 md:grid-cols-2 lg:gap-6">
+        <div className="mt-12 grid gap-5 sm:mt-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {projects.map((project, index) => (
             <Reveal key={project.slug} delay={index * 0.06}>
               <Link
                 href={`/projects/${project.slug}`}
                 className="group block h-full"
               >
-                <article className="glass-card relative h-full overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15">
+                  <article className="glass-card relative h-full overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5">
                   <div
                     className={cn(
                       "relative aspect-16/10 overflow-hidden bg-linear-to-br",
@@ -72,11 +72,11 @@ export function FeaturedProjects() {
                       </h3>
                     </div>
                   </div>
-                  <div className="relative p-6 sm:p-7">
-                    <p className="text-[15px] leading-relaxed text-foreground-muted">
-                      {project.tagline}
-                    </p>
-                    <div className="mt-6 flex flex-wrap gap-1.5">
+                    <div className="relative flex min-h-52 flex-col p-6 sm:p-7">
+                      <p className="text-[14.5px] leading-relaxed text-foreground-muted">
+                        {project.tagline}
+                      </p>
+                      <div className="mt-auto flex flex-wrap gap-1.5 pt-6">
                       {project.stack.slice(0, 5).map((s) => (
                         <span
                           key={s}

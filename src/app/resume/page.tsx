@@ -265,18 +265,18 @@ export default function ResumePage() {
                   </span>
                 </div>
 
-                <div className="mt-9 flex flex-wrap items-center gap-3">
+                <div className="mt-9 grid gap-3 sm:flex sm:flex-wrap sm:items-center">
                   <a
                     href={RESUME_PDF}
                     download
-                    className="group inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
+                    className="group inline-flex h-11 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
                   >
                     <Download className="h-4 w-4" />
                     Download PDF
                   </a>
                   <Link
                     href="/contact"
-                    className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
+                    className="group inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
                   >
                     <Mail className="h-4 w-4" />
                     Contact Me
@@ -286,7 +286,7 @@ export default function ResumePage() {
                     href={GITHUB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
+                    className="group inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
                   >
                     <GithubIcon size={15} />
                     GitHub
@@ -296,7 +296,7 @@ export default function ResumePage() {
                     href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
+                    className="group inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
                   >
                     <LinkedinIcon size={15} />
                     LinkedIn
@@ -316,7 +316,7 @@ export default function ResumePage() {
         <Container size="lg">
           <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
             <Reveal className="lg:col-span-2">
-              <article className="glass-card h-full rounded-3xl p-7 sm:p-8">
+                <article className="glass-card h-full rounded-2xl p-7 sm:p-8">
                 <SectionTitle icon={Sparkles}>Professional Summary</SectionTitle>
                 <p className="mt-5 text-[14.5px] leading-relaxed text-foreground-muted sm:text-[15px]">
                   Full-stack web developer specializing in business automation,
@@ -331,7 +331,7 @@ export default function ResumePage() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <article className="glass-card h-full rounded-3xl p-7 sm:p-8">
+              <article className="glass-card h-full rounded-2xl p-7 sm:p-8">
                 <SectionTitle icon={GraduationCap}>Education</SectionTitle>
                 <div className="mt-5">
                   <div className="text-[15px] font-semibold tracking-[-0.01em] text-white">
@@ -357,7 +357,7 @@ export default function ResumePage() {
         <Container size="lg">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <Reveal>
-              <article className="glass-card h-full rounded-3xl p-7 sm:p-8">
+              <article className="glass-card h-full rounded-2xl p-7 sm:p-8">
                 <SectionTitle icon={Briefcase}>Business Systems</SectionTitle>
                 <ul className="mt-6 grid gap-2 sm:grid-cols-2">
                   {businessSystems.map((skill) => (
@@ -370,7 +370,7 @@ export default function ResumePage() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <article className="glass-card h-full rounded-3xl p-7 sm:p-8">
+              <article className="glass-card h-full rounded-2xl p-7 sm:p-8">
                 <SectionTitle icon={Code2}>Technical Skills</SectionTitle>
                 <div className="mt-6 flex flex-col gap-6">
                   {technicalSkills.map((group) => {
@@ -417,7 +417,7 @@ export default function ResumePage() {
           <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:gap-6">
             {resumeProjects.map((project, i) => (
               <Reveal key={project.title} delay={(i % 2) * 0.05}>
-                <article className="glass-card h-full rounded-3xl p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 sm:p-8">
+                <article className="glass-card h-full rounded-2xl p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 sm:p-8">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                     <h3 className="text-[18px] font-semibold tracking-[-0.01em] text-white sm:text-[20px]">
                       {project.title}
@@ -479,7 +479,7 @@ export default function ResumePage() {
       <Section spacing="sm">
         <Container size="lg">
           <Reveal>
-            <article className="glass-card rounded-3xl p-7 sm:p-8">
+            <article className="glass-card rounded-2xl p-7 sm:p-8">
               <SectionTitle icon={CheckCircle2}>Technical Proof</SectionTitle>
               <ul className="mt-6 grid gap-2.5">
                 {technicalProof.map((item) => (
@@ -504,7 +504,7 @@ export default function ResumePage() {
       <Section spacing="sm">
         <Container size="lg">
           <Reveal>
-            <article className="glass-card rounded-3xl p-7 sm:p-8">
+            <article className="glass-card rounded-2xl p-7 sm:p-8">
               <SectionTitle icon={MapPin}>Availability</SectionTitle>
               <p className="mt-5 text-[14px] leading-relaxed text-foreground-muted">
                 Open to freelance projects, remote junior developer roles, and
@@ -520,7 +520,7 @@ export default function ResumePage() {
                   >
                     <span
                       aria-hidden
-                      className="mt-1.75 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-3"
+                    className="mt-1.75 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-3"
                     />
                     {item}
                   </li>
@@ -540,7 +540,7 @@ export default function ResumePage() {
       <Section spacing="md">
         <Container size="lg">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-white/8 via-white/3 to-transparent p-8 sm:p-12">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-white/8 via-white/3 to-transparent p-8 sm:p-12">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 grid-bg mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent_75%)] opacity-25"

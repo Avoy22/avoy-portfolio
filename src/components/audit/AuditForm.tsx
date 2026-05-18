@@ -131,7 +131,7 @@ export function AuditForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="glass-card rounded-3xl p-6 sm:p-8 lg:p-10"
+      className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10"
     >
       {/* Honeypot */}
       <input
@@ -142,6 +142,16 @@ export function AuditForm() {
         className="hidden"
         {...register("website")}
       />
+
+      <div className="mb-7 border-b border-white/6 pb-6">
+        <h2 className="text-[22px] font-semibold tracking-[-0.02em] text-white">
+          Tell me how the workflow works today
+        </h2>
+        <p className="mt-2 text-[13.5px] leading-relaxed text-foreground-muted">
+          The result is generated from your answers using a transparent
+          rule-based score.
+        </p>
+      </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
@@ -302,6 +312,7 @@ export function AuditForm() {
       {submitError && (
         <div
           role="alert"
+          aria-live="polite"
           className="mt-6 flex items-start gap-3 rounded-2xl border border-danger/30 bg-danger/10 p-4 text-[13.5px] text-danger"
         >
           <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0" />
@@ -316,6 +327,7 @@ export function AuditForm() {
         <button
           type="submit"
           disabled={isSubmitting}
+          aria-label="Run automation audit"
           className={cn(
             "group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100 sm:w-auto",
             isSubmitting && "opacity-70"
@@ -349,7 +361,7 @@ function AuditResultCard({
 }) {
   const pct = Math.max(0, Math.min(100, result.score));
   return (
-    <div className="glass-card rounded-3xl p-6 sm:p-8 lg:p-10">
+    <div className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10" role="status" aria-live="polite">
       <div className="flex flex-wrap items-center gap-2">
         <Badge tone={bandTone[result.band]} size="md" dot>
           {result.band} opportunity
@@ -436,6 +448,7 @@ function AuditResultCard({
           <button
             type="button"
             onClick={onReset}
+            aria-label="Run another automation audit"
             className="inline-flex h-11 items-center justify-center rounded-full border border-white/10 bg-white/4 px-5 text-[13px] font-medium text-white backdrop-blur transition hover:border-white/20 hover:bg-white/8"
           >
             Run another

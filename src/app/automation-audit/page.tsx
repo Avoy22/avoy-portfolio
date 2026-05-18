@@ -50,12 +50,11 @@ export default function AutomationAuditPage() {
               <p className="mt-6 text-pretty text-[15px] leading-relaxed text-foreground-muted sm:text-[17px]">
                 A practical workflow audit that analyzes your business inputs
                 and suggests automation opportunities. Answer six questions
-                about how things run today — you&apos;ll get an opportunity
-                score, a recommended system, and an honest complexity read in
-                under two minutes.
+                about how things run today. You&apos;ll get an opportunity
+                score, a recommended system, and an honest complexity read.
               </p>
               <p className="mt-3 text-[12.5px] leading-relaxed text-foreground-subtle">
-                Rule-based scoring, not a language model — instant and free.
+                Rule-based scoring, not a language model. Instant and free.
               </p>
 
               <div className="mt-9 space-y-3">
