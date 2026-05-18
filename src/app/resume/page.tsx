@@ -49,6 +49,7 @@ import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import { PortfolioQrCard } from "@/components/ui/PortfolioQrCard";
 import { site } from "@/data/site";
 
 type SkillIcon = LucideIcon | IconType;
@@ -214,93 +215,97 @@ export default function ResumePage() {
               Resume
             </Badge>
 
-            <div className="mt-6 max-w-3xl">
-              <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.03em] text-gradient sm:text-[56px] lg:text-[64px]">
-                {RESUME_NAME}
-              </h1>
-              <p className="mt-4 text-pretty text-[16px] font-medium leading-relaxed text-white sm:text-[18px]">
-                {RESUME_TITLE}
-              </p>
+            <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+              <div className="max-w-3xl">
+                <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.03em] text-gradient sm:text-[56px] lg:text-[64px]">
+                  {RESUME_NAME}
+                </h1>
+                <p className="mt-4 text-pretty text-[16px] font-medium leading-relaxed text-white sm:text-[18px]">
+                  {RESUME_TITLE}
+                </p>
 
-              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13.5px] text-foreground-muted">
-                <a
-                  href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-1.5 transition hover:text-white"
-                >
-                  <Mail className="h-3.5 w-3.5" />
-                  {site.email}
-                </a>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-white"
-                >
-                  <LinkedinIcon size={13} />
-                  {LINKEDIN_HANDLE}
-                </a>
-                <a
-                  href={GITHUB_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-white"
-                >
-                  <GithubIcon size={13} />
-                  {GITHUB_HANDLE}
-                </a>
-                <a
-                  href={PORTFOLIO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-white"
-                >
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                  {PORTFOLIO_HANDLE}
-                </a>
-                <span className="inline-flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5" />
-                  {RESUME_LOCATION}
-                </span>
+                <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13.5px] text-foreground-muted">
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="inline-flex items-center gap-1.5 transition hover:text-white"
+                  >
+                    <Mail className="h-3.5 w-3.5" />
+                    {site.email}
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 transition hover:text-white"
+                  >
+                    <LinkedinIcon size={13} />
+                    {LINKEDIN_HANDLE}
+                  </a>
+                  <a
+                    href={GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 transition hover:text-white"
+                  >
+                    <GithubIcon size={13} />
+                    {GITHUB_HANDLE}
+                  </a>
+                  <a
+                    href={PORTFOLIO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 transition hover:text-white"
+                  >
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                    {PORTFOLIO_HANDLE}
+                  </a>
+                  <span className="inline-flex items-center gap-1.5">
+                    <MapPin className="h-3.5 w-3.5" />
+                    {RESUME_LOCATION}
+                  </span>
+                </div>
+
+                <div className="mt-9 flex flex-wrap items-center gap-3">
+                  <a
+                    href={RESUME_PDF}
+                    download
+                    className="group inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download PDF
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Contact Me
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                  <a
+                    href={GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
+                  >
+                    <GithubIcon size={15} />
+                    GitHub
+                    <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
+                  >
+                    <LinkedinIcon size={15} />
+                    LinkedIn
+                    <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a
-                href={RESUME_PDF}
-                download
-                className="group inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
-              >
-                <Download className="h-4 w-4" />
-                Download PDF
-              </a>
-              <Link
-                href="/contact"
-                className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
-              >
-                <Mail className="h-4 w-4" />
-                Contact Me
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
-              >
-                <GithubIcon size={15} />
-                GitHub
-                <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
-              >
-                <LinkedinIcon size={15} />
-                LinkedIn
-                <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
+              <PortfolioQrCard className="max-w-sm lg:w-72" />
             </div>
           </Reveal>
         </Container>

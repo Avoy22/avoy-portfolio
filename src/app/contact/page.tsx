@@ -3,6 +3,7 @@ import { Calendar, Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
+import { PortfolioQrCard } from "@/components/ui/PortfolioQrCard";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { site } from "@/data/site";
 
@@ -65,6 +66,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+              <PortfolioQrCard />
             </div>
           </div>
 
