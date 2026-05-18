@@ -1,8 +1,8 @@
-# Avoy Das Portfolio
+# Avoy Chandra Das Portfolio
 
-Professional portfolio for **Avoy Das**, an AI Automation and Full-Stack Web Developer focused on business websites, lead systems, admin dashboards, and practical automation tools.
+Professional portfolio for **Avoy Chandra Das**, an AI Automation and Full-Stack Web Developer focused on business websites, lead systems, admin dashboards, and practical automation tools.
 
-Live demo: [https://avoydas.com](https://avoydas.com)
+[View Live Portfolio](https://avoy-portfolio.vercel.app/)
 
 This project is more than a static portfolio. It is built as a production-style Next.js application that demonstrates frontend quality, backend integration, lead capture, protected internal tooling, and client-facing case studies.
 
@@ -97,7 +97,7 @@ Optional email and monitoring variables are also supported:
 
 ```env
 RESEND_API_KEY=
-RESEND_FROM="Avoy Das <hello@avoydas.com>"
+RESEND_FROM="Avoy Chandra Das <hello@avoydas.com>"
 RESEND_REPLY_TO=hello@avoydas.com
 RESEND_NOTIFY_TO=hello@avoydas.com
 NEXT_PUBLIC_SENTRY_DSN=
