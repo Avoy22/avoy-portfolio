@@ -65,7 +65,7 @@ export function Button(props: ButtonProps) {
       {(variant === "primary" || variant === "gradient") && (
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-0 overflow-hidden rounded-full"
+          className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-full"
         >
           <span className="absolute inset-y-0 left-0 w-[40%] -translate-x-full bg-linear-to-r from-transparent via-white/35 to-transparent opacity-0 transition-all duration-700 ease-out group-hover/btn:translate-x-[260%] group-hover/btn:opacity-100" />
         </span>

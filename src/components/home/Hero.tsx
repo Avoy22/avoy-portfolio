@@ -54,6 +54,13 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <Link
+              href="/resume"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/3 px-7 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/6"
+            >
+              View Resume
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <Link
               href="/contact"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/3 px-7 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/6"
             >

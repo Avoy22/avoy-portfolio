@@ -131,7 +131,7 @@ export default async function ProjectCaseStudyPage({
           <Container>
             <div
               className={cn(
-                "relative aspect-16/9 overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br shadow-[0_24px_70px_-32px_rgba(0,0,0,0.75)]",
+                "relative aspect-video overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br shadow-[0_24px_70px_-32px_rgba(0,0,0,0.75)]",
                 project.cover
               )}
             >
