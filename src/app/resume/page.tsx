@@ -429,7 +429,7 @@ export default function ResumePage() {
                       >
                         <span
                           aria-hidden
-                          className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent-2"
+                          className="mt-1.75 h-1 w-1 shrink-0 rounded-full bg-accent-2"
                         />
                         {bullet}
                       </li>
@@ -484,7 +484,7 @@ export default function ResumePage() {
                   >
                     <span
                       aria-hidden
-                      className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                      className="mt-1.75 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
                     />
                     {item}
                   </li>
@@ -515,7 +515,7 @@ export default function ResumePage() {
                   >
                     <span
                       aria-hidden
-                      className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent-3"
+                      className="mt-1.75 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-3"
                     />
                     {item}
                   </li>
