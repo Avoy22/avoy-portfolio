@@ -1,165 +1,189 @@
-# Avoy Das — Portfolio
+# Avoy Das Portfolio
 
-Premium engineering portfolio and business landing site for **Avoy Das**, AI Automation & Full-Stack Web Engineer.
+Professional portfolio for **Avoy Das**, an AI Automation and Full-Stack Web Developer focused on business websites, lead systems, admin dashboards, and practical automation tools.
 
-Built as a production-grade frontend that doubles as proof-of-work: it ships with a real lead engine architecture (Supabase-ready, Resend-ready, admin dashboard) so the same patterns power the live site **and** every client project.
+Live demo: [https://avoydas.com](https://avoydas.com)
 
----
+This project is more than a static portfolio. It is built as a production-style Next.js application that demonstrates frontend quality, backend integration, lead capture, protected internal tooling, and client-facing case studies.
 
-## Stack
+## Overview
 
-- **Next.js 16** (App Router, React 19, TypeScript)
-- **Tailwind CSS v4** with a custom dark design system
-- **Framer Motion** for subtle, purposeful animation
-- **Lucide React** for iconography
-- **Zod** + **React Hook Form** + `@hookform/resolvers`
-- **Supabase** (`@supabase/ssr`, `@supabase/supabase-js`) — server- and browser-safe clients
-- **Resend** + `react-email` — transactional email
-- **Vercel** Analytics + Speed Insights, **Sentry** ready
-- **Deploy**: Vercel
+The portfolio presents services, project case studies, technical skills, resume details, and contact paths in one cohesive site. It also includes working product features that show how similar systems can be built for small businesses and service providers:
 
----
+- Lead capture through a Supabase-backed contact form.
+- A protected admin dashboard for reviewing and managing leads.
+- CSV export for handoff to spreadsheets, CRMs, or client workflows.
+- A rule-based Automation Audit tool that turns business inputs into practical automation recommendations.
 
-## Pages
+## Main Features
 
-| Route                       | Purpose                                                   |
-| --------------------------- | --------------------------------------------------------- |
-| `/`                         | Premium home: hero, featured projects, services, tech, process, about, CTA |
-| `/projects`                 | Listing of all case studies                               |
-| `/projects/[slug]`          | Individual project case study (problem, solution, outcomes, metrics, gallery) |
-| `/services`                 | Six engagement types with deliverables and pricing anchors |
-| `/contact`                  | Contact page with validated, accessible form              |
-| `/admin/leads`              | Internal leads dashboard (search, filter, status, notes, CSV export) |
+- **Next.js portfolio** with App Router, TypeScript, responsive pages, SEO metadata, sitemap, and robots configuration.
+- **3 case study projects** covering lead management, business dashboards, and CRM-style workflows.
+- **Supabase contact form** with server-side validation and database insertion.
+- **Protected admin leads dashboard** for viewing, searching, filtering, updating status, and adding notes.
+- **CSV export** for lead data and downstream business workflows.
+- **Automation Audit tool** that scores workflow inputs and stores qualified audit submissions.
+- **Resume page with PDF download** at `/resume`.
+- **Tech stack icons** rendered through reusable UI/data structures for a scannable skills section.
 
-`/sitemap.xml` and `/robots.txt` are generated from `src/app/sitemap.ts` and `src/app/robots.ts`.
+## Tech Stack
 
----
+| Area | Tools |
+| --- | --- |
+| Framework | Next.js 16, React 19, TypeScript |
+| Styling | Tailwind CSS v4, custom design tokens |
+| UI and motion | Framer Motion, Lucide React, React Icons |
+| Forms and validation | React Hook Form, Zod, `@hookform/resolvers` |
+| Database and backend | Supabase, Supabase SSR, Supabase JS |
+| Email-ready workflow | Resend, React Email |
+| Analytics and monitoring | Vercel Analytics, Vercel Speed Insights, Sentry-ready configuration |
+| Deployment | Vercel |
 
-## Project structure
+## Architecture Overview
 
-```
+```text
 src/
-├── app/
-│   ├── layout.tsx            # Root layout, metadata, OG, navbar + footer
-│   ├── page.tsx              # Home
-│   ├── globals.css           # Design tokens & utilities (glass, grid-bg, gradients)
-│   ├── not-found.tsx
-│   ├── sitemap.ts
-│   ├── robots.ts
-│   ├── projects/
-│   │   ├── page.tsx
-│   │   └── [slug]/page.tsx   # Dynamic case study
-│   ├── services/page.tsx
-│   ├── contact/page.tsx
-│   └── admin/
-│       ├── layout.tsx
-│       ├── page.tsx          # Redirects to /admin/leads
-│       └── leads/page.tsx
-│
-├── components/
-│   ├── layout/               # Navbar, Footer
-│   ├── ui/                   # Button, Container, Section, GlassCard, Badge,
-│   │                         # SectionHeader, Input, Reveal
-│   ├── home/                 # Hero, FeaturedProjects, Services, TechStack,
-│   │                         # Process, About, ContactCTA
-│   ├── contact/              # ContactForm
-│   └── admin/                # LeadStats, LeadsTable (with drawer + CSV export)
-│
-├── data/
-│   ├── site.ts               # Site identity, nav, social, stats
-│   ├── projects.ts           # Case study data
-│   ├── services.ts           # Engagements & deliverables
-│   ├── techStack.ts          # Categorized tech stack
-│   ├── process.ts            # 4-stage engagement process
-│   └── leads.ts              # Mock leads (swap for Supabase query)
-│
-├── lib/
-│   ├── utils.ts              # cn(), date helpers
-│   ├── supabase/
-│   │   ├── client.ts         # Browser client
-│   │   ├── server.ts         # Server client (App Router-safe)
-│   │   └── schema.sql        # Initial leads table + RLS policies
-│   ├── email/
-│   │   ├── resend.ts         # Lazy-init Resend client
-│   │   └── templates.ts      # Plain-text templates (team + auto-reply)
-│   └── validations/
-│       ├── contact.ts        # Zod schema for contact form
-│       └── lead.ts           # Zod schema for stored leads
-│
-└── types/
-    └── index.ts              # Project, Service, Lead, ProcessStep, etc.
+  app/
+    page.tsx                  Home page
+    projects/                 Case study listing and dynamic project pages
+    services/                 Service positioning
+    contact/                  Public contact page
+    automation-audit/         Workflow audit tool
+    resume/                   Resume page with PDF download
+    admin/                    Protected admin UI
+    api/
+      contact/                Contact form submission API
+      audit/                  Automation audit API
+      admin/leads/            Protected lead read/update/export APIs
+
+  components/
+    home/                     Homepage sections
+    contact/                  Contact form
+    audit/                    Audit form experience
+    admin/                    Admin dashboard UI
+    layout/                   Navbar and footer
+    ui/                       Reusable UI primitives
+
+  data/                       Site, project, service, process, and tech stack content
+  lib/
+    admin/                    Admin auth and CSV helpers
+    audit/                    Audit scoring logic
+    email/                    Resend setup and email templates
+    supabase/                 Browser, server, admin clients, and schema
+    validations/              Zod schemas
+  types/                      Shared TypeScript types
 ```
 
----
+### Data Flow
 
-## Design system
+1. Visitors submit the contact form or Automation Audit form.
+2. API routes validate the payload with Zod.
+3. Server-only Supabase admin access writes submissions to the database.
+4. Admin API routes verify an access token before returning or updating leads.
+5. The admin dashboard consumes those protected routes and can export leads as CSV.
 
-The visual language is intentionally premium-SaaS: deep neutral background, layered glass cards, restrained gradients, strong typographic hierarchy, and motion that supports rather than distracts.
+## Environment Variables
 
-Custom Tailwind v4 utilities defined in `globals.css`:
+Create `.env.local` in the project root. Do not commit it.
 
-- `glass` / `glass-strong` — layered translucent cards
-- `text-gradient` / `text-gradient-brand` — heading treatments
-- `grid-bg` — subtle technical grid background
-- `ring-glow` — premium card glow
-- `animate-shine` / `animate-float` — restrained motion accents
-
----
-
-## Local development
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-Other scripts:
-
-```bash
-npm run build   # Production build
-npm run start   # Run production build locally
-npm run lint    # ESLint
-```
-
----
-
-## Environment variables
-
-Copy `.env.example` to `.env.local` and fill in:
-
-```
+```env
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
+ADMIN_ACCESS_TOKEN=
+```
 
+Optional email and monitoring variables are also supported:
+
+```env
 RESEND_API_KEY=
 RESEND_FROM="Avoy Das <hello@avoydas.com>"
 RESEND_REPLY_TO=hello@avoydas.com
 RESEND_NOTIFY_TO=hello@avoydas.com
-
 NEXT_PUBLIC_SENTRY_DSN=
 ```
 
-The frontend builds and runs without these set — the contact form falls back to a simulated submit, and the admin dashboard uses `src/data/leads.ts`.
+Supabase schema reference: `src/lib/supabase/schema.sql`.
 
----
+## Local Setup
 
-## Roadmap (post-frontend)
+1. Install dependencies:
 
-This first version ships a complete, production-ready frontend. The next phases (additive, no rewrites required):
+```bash
+npm install
+```
 
-1. **Wire `/api/contact`** → validate with Zod → insert into Supabase `leads` → send via Resend (team + auto-reply).
-2. **Connect admin to Supabase** → replace `mockLeads` with `await supabase.from('leads').select(...)`.
-3. **Add Supabase auth** → gate `/admin/*` behind a session.
-4. **Real-time admin** → Supabase Realtime subscription for new leads.
-5. **React-Email templates** → swap plain-text templates for branded React-Email components.
+2. Create local environment variables:
 
-The schema, clients, validators, and types are already in place — each step above is a focused, isolated change.
+```bash
+cp .env.example .env.local
+```
 
----
+Then add the required Supabase and admin token values listed above.
 
-## Deploying
+3. Run the development server:
 
-Built for Vercel with zero config. Push to a Vercel-connected repo and the App Router build will pick up automatically. Set the environment variables above in the Vercel dashboard before the first deploy with backend features enabled.
+```bash
+npm run dev
+```
+
+4. Open the app:
+
+```text
+http://localhost:3000
+```
+
+Useful scripts:
+
+```bash
+npm run build
+npm run start
+npm run lint
+```
+
+## Deployment on Vercel
+
+1. Push the repository to GitHub, GitLab, or Bitbucket.
+2. Import the project in Vercel.
+3. Set the production environment variables in the Vercel project settings:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `ADMIN_ACCESS_TOKEN`
+4. Add optional Resend and monitoring variables if those services are enabled.
+5. Deploy with the default Vercel Next.js settings.
+
+After deployment, test the public contact flow, Automation Audit flow, admin login, lead update actions, and CSV export.
+
+## Security Notes
+
+- `SUPABASE_SERVICE_ROLE_KEY` must stay server-only. Never expose it through client components, public variables, or browser code.
+- Admin API routes are protected with `ADMIN_ACCESS_TOKEN`.
+- `.env.local` must not be committed.
+- Public Supabase values use the `NEXT_PUBLIC_` prefix; private keys do not.
+- Rotate `ADMIN_ACCESS_TOKEN` and Supabase keys if they are ever exposed.
+
+## Screenshots
+
+Add current production screenshots here as the UI evolves.
+
+| Page | Screenshot |
+| --- | --- |
+| Home | `public/screenshots/home.png` |
+| Case Studies | `public/screenshots/projects.png` |
+| Automation Audit | `public/screenshots/automation-audit.png` |
+| Admin Leads Dashboard | `public/screenshots/admin-leads.png` |
+| Resume | `public/screenshots/resume.png` |
+
+## Future Improvements
+
+- Add real production screenshots to this README.
+- Add automated tests for form validation, audit scoring, and protected admin API behavior.
+- Add Supabase Auth or another session-based admin authentication layer if the dashboard grows beyond a single-owner workflow.
+- Add richer email templates for contact and audit follow-up.
+- Add lead notifications through email, Slack, or another client-preferred channel.
+- Add more case studies as production client work becomes available.
+
+## License
+
+This is a personal portfolio project. Reuse of the code, branding, written content, or visual design should be discussed with the author.
