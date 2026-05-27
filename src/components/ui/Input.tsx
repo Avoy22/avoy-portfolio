@@ -1,14 +1,23 @@
 import { forwardRef } from "react";
+import { ChevronDown } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 const baseField =
-  "w-full rounded-xl bg-white/3 border border-white/10 px-4 py-3 text-[14.5px] text-foreground placeholder:text-foreground-subtle outline-none transition-all duration-200 hover:border-white/20 hover:bg-white/4 focus:border-accent/60 focus:bg-white/5 focus:ring-4 focus:ring-accent/15 focus:shadow-[0_0_0_1px_rgba(109,140,255,0.12)_inset] disabled:opacity-50 disabled:cursor-not-allowed";
+  "w-full rounded-xl border border-white/10 bg-white/3 px-4 py-3 text-[14.5px] text-foreground placeholder:text-foreground-subtle shadow-xs outline-none transition-all duration-200 hover:border-white/20 hover:bg-white/4 focus:border-accent/60 focus:bg-white/5 focus:ring-4 focus:ring-accent/15 focus:shadow-[0_0_0_1px_rgba(109,140,255,0.12)_inset] disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-danger/60 aria-invalid:ring-danger/20";
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   function Input({ className, ...props }, ref) {
-    return <input ref={ref} className={cn(baseField, className)} {...props} />;
+    return (
+      <input
+        ref={ref}
+        data-slot="input"
+        className={cn(baseField, className)}
+        {...props}
+      />
+    );
   }
 );
 
@@ -19,6 +28,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <textarea
         ref={ref}
+        data-slot="textarea"
         className={cn(baseField, "min-h-32 resize-y leading-relaxed", className)}
         {...props}
       />
@@ -34,6 +44,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       <div className="relative">
         <select
           ref={ref}
+          data-slot="select"
           className={cn(
             baseField,
             "appearance-none pr-10 [&>option]:bg-background [&>option]:text-foreground",
@@ -43,20 +54,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         >
           {children}
         </select>
-        <svg
+        <ChevronDown
           aria-hidden
-          viewBox="0 0 20 20"
-          fill="none"
           className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground-subtle"
-        >
-          <path
-            d="M5 8l5 5 5-5"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        />
       </div>
     );
   }

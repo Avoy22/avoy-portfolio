@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
+import { Card } from "@/components/ui/Card";
 import { projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -49,7 +50,8 @@ export default function ProjectsPage() {
                   href={`/projects/${project.slug}`}
                   className="group block h-full"
                 >
-                  <article className="glass-card relative h-full overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5">
+                  <Card asChild className="glass-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5">
+                    <article>
                     <div
                       className={cn(
                         "relative aspect-16/10 overflow-hidden bg-linear-to-br",
@@ -111,7 +113,8 @@ export default function ProjectsPage() {
                         <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </div>
                     </div>
-                  </article>
+                    </article>
+                  </Card>
                 </Link>
               </Reveal>
             ))}

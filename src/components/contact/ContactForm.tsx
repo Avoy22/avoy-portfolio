@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, CircleCheck, LoaderCircle, TriangleAlert } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { Field, Input, Select, Textarea } from "@/components/ui/Input";
 import {
   budgetOptions,
@@ -11,7 +13,6 @@ import {
   serviceOptions,
   type ContactInput,
 } from "@/lib/validations/contact";
-import { cn } from "@/lib/utils";
 
 type ApiResponse = {
   ok: boolean;
@@ -82,7 +83,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="glass-card rounded-2xl p-10 text-center sm:p-12" role="status" aria-live="polite">
+      <Card className="glass-card rounded-2xl border-white/8 bg-transparent p-10 text-center sm:p-12" role="status" aria-live="polite">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-success/30 bg-success/10 text-success">
           <CircleCheck className="h-7 w-7" />
         </div>
@@ -92,23 +93,24 @@ export function ContactForm() {
         <p className="mx-auto mt-3 max-w-md text-[14.5px] leading-relaxed text-foreground-muted">
           I read every inbound personally. I&apos;ll get back to you soon.
         </p>
-        <button
+        <Button
           onClick={() => setSubmitted(false)}
           type="button"
-          className="mt-7 text-[13.5px] text-foreground-muted underline-offset-4 transition hover:text-white hover:underline"
+          variant="link"
+          className="mx-auto mt-7 text-[13.5px]"
         >
           Send another →
-        </button>
-      </div>
+        </Button>
+      </Card>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      noValidate
-      className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10"
+    <Card
+      asChild
+      className="glass-card rounded-2xl border-white/8 bg-transparent p-6 sm:p-8 lg:p-10"
     >
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
       {/* Honeypot — hidden from real users */}
       <input
         type="text"
@@ -236,14 +238,12 @@ export function ContactForm() {
         <p className="text-[12px] leading-relaxed text-foreground-subtle">
           By submitting, you agree to be contacted about your inquiry.
         </p>
-        <button
+        <Button
           type="submit"
           disabled={isSubmitting}
           aria-label="Send project inquiry"
-          className={cn(
-            "group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100 sm:w-auto",
-            isSubmitting && "opacity-70"
-          )}
+          size="lg"
+          className="w-full sm:w-auto"
         >
           {isSubmitting ? (
             <>
@@ -256,8 +256,9 @@ export function ContactForm() {
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </>
           )}
-        </button>
+        </Button>
       </div>
-    </form>
+      </form>
+    </Card>
   );
 }

@@ -15,6 +15,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
+import { Card } from "@/components/ui/Card";
 import { services } from "@/data/services";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -72,7 +73,8 @@ export default function ServicesPage() {
               const Icon = iconMap[service.icon] ?? Globe;
               return (
                 <Reveal key={service.slug} delay={(i % 2) * 0.06}>
-                  <article className="glass-card relative h-full overflow-hidden rounded-2xl p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5 sm:p-8">
+                  <Card asChild className="glass-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5 sm:p-8">
+                    <article>
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/4 text-white">
                       <Icon className="h-5 w-5" />
                     </div>
@@ -116,7 +118,8 @@ export default function ServicesPage() {
                       Start a conversation
                       <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                     </Link>
-                  </article>
+                    </article>
+                  </Card>
                 </Reveal>
               );
             })}

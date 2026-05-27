@@ -11,7 +11,10 @@ import {
   TriangleAlert,
 } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { Input, Select, Textarea } from "@/components/ui/Input";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/Table";
 import { cn, formatRelative } from "@/lib/utils";
 import {
   leadStatuses,
@@ -215,26 +218,22 @@ export function LeadsAdmin({ token, onSignOut }: Props) {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <button
+          <Button
             onClick={refresh}
             disabled={refreshing}
-            className={cn(
-              "inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 text-[13px] font-medium text-white transition hover:border-white/20 hover:bg-white/6",
-              refreshing && "opacity-60"
-            )}
+            variant="outline"
+            size="sm"
           >
             <RefreshCcw
               className={cn("h-3.5 w-3.5", refreshing && "animate-spin")}
             />
             Refresh
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={exportCsv}
             disabled={exporting}
-            className={cn(
-              "inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 text-[13px] font-medium text-white transition hover:border-white/20 hover:bg-white/6",
-              exporting && "opacity-60"
-            )}
+            variant="outline"
+            size="sm"
           >
             {exporting ? (
               <LoaderCircle className="h-3.5 w-3.5 animate-spin" />
@@ -242,14 +241,15 @@ export function LeadsAdmin({ token, onSignOut }: Props) {
               <Download className="h-3.5 w-3.5" />
             )}
             Export CSV
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={onSignOut}
-            className="inline-flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 text-[13px] font-medium text-foreground-muted transition hover:border-white/20 hover:bg-white/6 hover:text-white"
+            variant="ghost"
+            size="sm"
           >
             <LogOut className="h-3.5 w-3.5" />
             Sign out
-          </button>
+          </Button>
         </div>
       </header>
 
@@ -290,16 +290,16 @@ export function LeadsAdmin({ token, onSignOut }: Props) {
 
       <div className="mt-6 space-y-4">
         {loading ? (
-          <div className="glass-card flex items-center justify-center rounded-2xl p-10 text-[13.5px] text-foreground-muted">
+          <Card className="glass-card flex items-center justify-center rounded-2xl border-white/8 bg-transparent p-10 text-[13.5px] text-foreground-muted">
             <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
             Loading leads…
-          </div>
+          </Card>
         ) : filtered.length === 0 ? (
-          <div className="glass-card rounded-2xl p-10 text-center text-[13.5px] text-foreground-muted">
+          <Card className="glass-card rounded-2xl border-white/8 bg-transparent p-10 text-center text-[13.5px] text-foreground-muted">
             {leads.length === 0
               ? "No leads yet."
               : "No leads match the current filters."}
-          </div>
+          </Card>
         ) : (
           filtered.map((lead) => (
             <LeadCard key={lead.id} lead={lead} onUpdate={updateLead} />
@@ -370,7 +370,8 @@ function LeadCard({ lead, onUpdate }: LeadCardProps) {
       : lead.message;
 
   return (
-    <article className="glass-card rounded-2xl p-5 sm:p-6">
+    <Card asChild className="glass-card rounded-2xl border-white/8 bg-transparent p-5 sm:p-6">
+      <article>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
@@ -398,21 +399,31 @@ function LeadCard({ lead, onUpdate }: LeadCardProps) {
         </div>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2 text-[11.5px]">
-        <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/4 px-2.5 py-1 text-foreground-muted">
-          <span className="text-foreground-subtle">Service</span>
-          <span className="text-white">{lead.service}</span>
-        </span>
-        {lead.budget && (
-          <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/4 px-2.5 py-1 text-foreground-muted">
-            <span className="text-foreground-subtle">Budget</span>
-            <span className="text-white">{lead.budget}</span>
-          </span>
-        )}
-        <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/4 px-2.5 py-1 text-foreground-muted">
-          <span className="text-foreground-subtle">Source</span>
-          <span className="text-white">{lead.source}</span>
-        </span>
+      <div className="mt-4 overflow-hidden rounded-xl border border-white/8 bg-white/2">
+        <Table>
+          <TableBody>
+            <TableRow className="border-white/6 hover:bg-white/4">
+              <TableCell className="w-24 py-2 text-[11px] uppercase tracking-[0.14em] text-foreground-subtle">
+                Service
+              </TableCell>
+              <TableCell className="py-2 text-white">{lead.service}</TableCell>
+            </TableRow>
+            {lead.budget && (
+              <TableRow className="border-white/6 hover:bg-white/4">
+                <TableCell className="w-24 py-2 text-[11px] uppercase tracking-[0.14em] text-foreground-subtle">
+                  Budget
+                </TableCell>
+                <TableCell className="py-2 text-white">{lead.budget}</TableCell>
+              </TableRow>
+            )}
+            <TableRow className="border-white/6 hover:bg-white/4">
+              <TableCell className="w-24 py-2 text-[11px] uppercase tracking-[0.14em] text-foreground-subtle">
+                Source
+              </TableCell>
+              <TableCell className="py-2 text-white">{lead.source}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
       </div>
 
       <div className="mt-4">
@@ -423,12 +434,14 @@ function LeadCard({ lead, onUpdate }: LeadCardProps) {
           {messagePreview}
         </p>
         {lead.message.length > 220 && (
-          <button
+          <Button
             onClick={() => setExpanded((v) => !v)}
-            className="mt-2 text-[12px] text-foreground-muted underline-offset-4 hover:text-white hover:underline"
+            type="button"
+            variant="link"
+            className="mt-2 text-[12px]"
           >
             {expanded ? "Show less" : "Show full message"}
-          </button>
+          </Button>
         )}
       </div>
 
@@ -471,19 +484,17 @@ function LeadCard({ lead, onUpdate }: LeadCardProps) {
             onChange={(e) => setNotes(e.target.value)}
           />
           <div className="mt-2 flex justify-end">
-            <button
+            <Button
               onClick={saveNotes}
               disabled={!notesDirty || savingNotes}
-              className={cn(
-                "inline-flex h-9 items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 text-[12.5px] font-medium text-white transition hover:border-white/20 hover:bg-white/6",
-                (!notesDirty || savingNotes) && "opacity-60"
-              )}
+              variant="outline"
+              size="sm"
             >
               {savingNotes && (
                 <LoaderCircle className="h-3.5 w-3.5 animate-spin" />
               )}
               Save notes
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -491,6 +502,7 @@ function LeadCard({ lead, onUpdate }: LeadCardProps) {
       {rowError && (
         <div className="mt-3 text-[12.5px] text-danger">{rowError}</div>
       )}
-    </article>
+      </article>
+    </Card>
   );
 }

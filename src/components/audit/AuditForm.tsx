@@ -13,6 +13,8 @@ import {
   TriangleAlert,
   Wand2,
 } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { Field, Input, Select, Textarea } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import {
@@ -24,7 +26,6 @@ import {
   type AuditInput,
 } from "@/lib/validations/audit";
 import type { AuditResult } from "@/lib/audit/score";
-import { cn } from "@/lib/utils";
 
 type ApiResponse = {
   ok: boolean;
@@ -128,11 +129,11 @@ export function AuditForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      noValidate
-      className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10"
+    <Card
+      asChild
+      className="glass-card rounded-2xl border-white/8 bg-transparent p-6 sm:p-8 lg:p-10"
     >
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
       {/* Honeypot */}
       <input
         type="text"
@@ -324,14 +325,12 @@ export function AuditForm() {
         <p className="text-[12px] leading-relaxed text-foreground-subtle">
           Rule-based scoring — runs instantly, no AI tokens billed.
         </p>
-        <button
+        <Button
           type="submit"
           disabled={isSubmitting}
           aria-label="Run automation audit"
-          className={cn(
-            "group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100 sm:w-auto",
-            isSubmitting && "opacity-70"
-          )}
+          size="lg"
+          className="w-full sm:w-auto"
         >
           {isSubmitting ? (
             <>
@@ -344,9 +343,10 @@ export function AuditForm() {
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </>
           )}
-        </button>
+        </Button>
       </div>
-    </form>
+      </form>
+    </Card>
   );
 }
 
@@ -361,7 +361,7 @@ function AuditResultCard({
 }) {
   const pct = Math.max(0, Math.min(100, result.score));
   return (
-    <div className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10" role="status" aria-live="polite">
+    <Card className="glass-card rounded-2xl border-white/8 bg-transparent p-6 sm:p-8 lg:p-10" role="status" aria-live="polite">
       <div className="flex flex-wrap items-center gap-2">
         <Badge tone={bandTone[result.band]} size="md" dot>
           {result.band} opportunity
@@ -445,23 +445,23 @@ function AuditResultCard({
           </p>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-          <button
+          <Button
             type="button"
             onClick={onReset}
             aria-label="Run another automation audit"
-            className="inline-flex h-11 items-center justify-center rounded-full border border-white/10 bg-white/4 px-5 text-[13px] font-medium text-white backdrop-blur transition hover:border-white/20 hover:bg-white/8"
+            variant="outline"
+            size="md"
           >
             Run another
-          </button>
-          <Link
-            href="/contact"
-            className="group inline-flex h-11 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
-          >
-            Contact me
-            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-          </Link>
+          </Button>
+          <Button asChild size="md">
+            <Link href="/contact">
+              Contact me
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+            </Link>
+          </Button>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }

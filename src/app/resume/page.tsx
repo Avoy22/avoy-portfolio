@@ -47,6 +47,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import { PortfolioQrCard } from "@/components/ui/PortfolioQrCard";
@@ -266,42 +267,33 @@ export default function ResumePage() {
                 </div>
 
                 <div className="mt-9 grid gap-3 sm:flex sm:flex-wrap sm:items-center">
-                  <a
-                    href={RESUME_PDF}
-                    download
-                    className="group inline-flex h-11 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download PDF
-                  </a>
-                  <Link
-                    href="/contact"
-                    className="group inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
-                  >
-                    <Mail className="h-4 w-4" />
-                    Contact Me
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
-                  <a
-                    href={GITHUB_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
-                  >
-                    <GithubIcon size={15} />
-                    GitHub
-                    <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </a>
-                  <a
-                    href={LINKEDIN_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
-                  >
-                    <LinkedinIcon size={15} />
-                    LinkedIn
-                    <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </a>
+                  <Button asChild size="md">
+                    <a href={RESUME_PDF} download>
+                      <Download className="h-4 w-4" />
+                      Download PDF
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline" size="md">
+                    <Link href="/contact">
+                      <Mail className="h-4 w-4" />
+                      Contact Me
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" size="md">
+                    <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+                      <GithubIcon size={15} />
+                      GitHub
+                      <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline" size="md">
+                    <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+                      <LinkedinIcon size={15} />
+                      LinkedIn
+                      <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  </Button>
                 </div>
               </div>
 
@@ -556,21 +548,18 @@ export default function ResumePage() {
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <a
-                    href={RESUME_PDF}
-                    download
-                    className="group inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download PDF
-                  </a>
-                  <Link
-                    href="/contact"
-                    className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/4 px-5 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/8"
-                  >
-                    Contact Me
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
+                  <Button asChild size="md">
+                    <a href={RESUME_PDF} download>
+                      <Download className="h-4 w-4" />
+                      Download PDF
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline" size="md">
+                    <Link href="/contact">
+                      Contact Me
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
             </div>

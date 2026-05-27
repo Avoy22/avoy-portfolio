@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { ArrowRight, LoaderCircle, Lock, TriangleAlert } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { Field, Input } from "@/components/ui/Input";
-import { cn } from "@/lib/utils";
 
 type Props = {
   onUnlock: (token: string) => Promise<void> | void;
@@ -45,11 +46,11 @@ export function AdminGate({ onUnlock }: Props) {
 
   return (
     <div className="mx-auto w-full max-w-md">
-      <form
-        onSubmit={handleSubmit}
-        noValidate
-        className="glass-card rounded-3xl p-6 sm:p-8"
+      <Card
+        asChild
+        className="glass-card rounded-3xl border-white/8 bg-transparent p-6 sm:p-8"
       >
+        <form onSubmit={handleSubmit} noValidate>
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/4 text-white">
           <Lock className="h-4 w-4" />
         </div>
@@ -85,13 +86,11 @@ export function AdminGate({ onUnlock }: Props) {
           </div>
         )}
 
-        <button
+        <Button
           type="submit"
           disabled={busy || token.trim().length === 0}
-          className={cn(
-            "group mt-6 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition hover:bg-zinc-100",
-            (busy || token.trim().length === 0) && "opacity-60"
-          )}
+          size="md"
+          className="mt-6 w-full"
         >
           {busy ? (
             <>
@@ -104,8 +103,9 @@ export function AdminGate({ onUnlock }: Props) {
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </>
           )}
-        </button>
-      </form>
+        </Button>
+        </form>
+      </Card>
     </div>
   );
 }

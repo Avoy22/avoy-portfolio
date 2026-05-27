@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
+import { Card } from "@/components/ui/Card";
 import { services } from "@/data/services";
 
 const iconMap = {
@@ -36,7 +37,8 @@ export function Services() {
             return (
               <Reveal key={service.slug} delay={(index % 2) * 0.06}>
                 <Link href="/services" className="group block h-full">
-                  <article className="glass-card relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5 sm:p-7">
+                  <Card asChild className="glass-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5 sm:p-7">
+                    <article>
                     <div className="relative flex items-start justify-between">
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-white transition group-hover:border-accent/30 group-hover:bg-accent/10 group-hover:text-accent">
                         <Icon className="h-5 w-5" />
@@ -49,7 +51,8 @@ export function Services() {
                     <p className="mt-2 text-[14px] leading-relaxed text-foreground-muted">
                       {service.tagline}
                     </p>
-                  </article>
+                    </article>
+                  </Card>
                 </Link>
               </Reveal>
             );
