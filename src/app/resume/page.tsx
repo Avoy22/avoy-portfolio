@@ -308,7 +308,7 @@ export default function ResumePage() {
         <Container size="lg">
           <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
             <Reveal className="lg:col-span-2">
-                <article className="glass-card h-full rounded-2xl p-7 sm:p-8">
+                <article className="glass-card interactive-card h-full rounded-2xl p-7 sm:p-8">
                 <SectionTitle icon={Sparkles}>Professional Summary</SectionTitle>
                 <p className="mt-5 text-[14.5px] leading-relaxed text-foreground-muted sm:text-[15px]">
                   Full-stack web developer specializing in business automation,
@@ -323,7 +323,7 @@ export default function ResumePage() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <article className="glass-card h-full rounded-2xl p-7 sm:p-8">
+              <article className="glass-card interactive-card h-full rounded-2xl p-7 sm:p-8">
                 <SectionTitle icon={GraduationCap}>Education</SectionTitle>
                 <div className="mt-5">
                   <div className="text-[15px] font-semibold tracking-[-0.01em] text-white">
@@ -349,7 +349,7 @@ export default function ResumePage() {
         <Container size="lg">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <Reveal>
-              <article className="glass-card h-full rounded-2xl p-7 sm:p-8">
+              <article className="glass-card interactive-card h-full rounded-2xl p-7 sm:p-8">
                 <SectionTitle icon={Briefcase}>Business Systems</SectionTitle>
                 <ul className="mt-6 grid gap-2 sm:grid-cols-2">
                   {businessSystems.map((skill) => (
@@ -362,7 +362,7 @@ export default function ResumePage() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <article className="glass-card h-full rounded-2xl p-7 sm:p-8">
+              <article className="glass-card interactive-card h-full rounded-2xl p-7 sm:p-8">
                 <SectionTitle icon={Code2}>Technical Skills</SectionTitle>
                 <div className="mt-6 flex flex-col gap-6">
                   {technicalSkills.map((group) => {
@@ -409,7 +409,7 @@ export default function ResumePage() {
           <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:gap-6">
             {resumeProjects.map((project, i) => (
               <Reveal key={project.title} delay={(i % 2) * 0.05}>
-                <article className="glass-card h-full rounded-2xl p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 sm:p-8">
+                <article className="glass-card interactive-card h-full rounded-2xl p-7 sm:p-8">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                     <h3 className="text-[18px] font-semibold tracking-[-0.01em] text-white sm:text-[20px]">
                       {project.title}
@@ -471,7 +471,7 @@ export default function ResumePage() {
       <Section spacing="sm">
         <Container size="lg">
           <Reveal>
-            <article className="glass-card rounded-2xl p-7 sm:p-8">
+            <article className="glass-card interactive-card rounded-2xl p-7 sm:p-8">
               <SectionTitle icon={CheckCircle2}>Technical Proof</SectionTitle>
               <ul className="mt-6 grid gap-2.5">
                 {technicalProof.map((item) => (
@@ -496,7 +496,7 @@ export default function ResumePage() {
       <Section spacing="sm">
         <Container size="lg">
           <Reveal>
-            <article className="glass-card rounded-2xl p-7 sm:p-8">
+            <article className="glass-card interactive-card rounded-2xl p-7 sm:p-8">
               <SectionTitle icon={MapPin}>Availability</SectionTitle>
               <p className="mt-5 text-[14px] leading-relaxed text-foreground-muted">
                 Open to freelance projects, remote junior developer roles, and
@@ -547,7 +547,7 @@ export default function ResumePage() {
                     directly if you&apos;d like to discuss a project.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
                   <Button asChild size="md">
                     <a href={RESUME_PDF} download>
                       <Download className="h-4 w-4" />

@@ -71,7 +71,7 @@ export function WorkWithMe() {
             const Icon = offer.icon;
             return (
               <Reveal key={offer.title} delay={(index % 2) * 0.06}>
-                <article className="glass-card group relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5 sm:p-7">
+                <article className="glass-card interactive-card group relative h-full overflow-hidden rounded-2xl p-6 sm:p-7">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-white transition group-hover:border-accent/30 group-hover:bg-accent/10 group-hover:text-accent">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
@@ -91,7 +91,7 @@ export function WorkWithMe() {
           <div className="mt-10 flex w-full flex-col items-stretch gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
             <Link
               href="/automation-audit"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
+              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] transition hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-[0_1px_0_rgba(255,255,255,0.85)_inset,0_14px_34px_-16px_rgba(255,255,255,0.65)] motion-reduce:hover:translate-y-0"
             >
               <Gauge className="h-4 w-4" />
               Run Automation Audit
@@ -99,7 +99,7 @@ export function WorkWithMe() {
             </Link>
             <Link
               href="/contact"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-7 text-sm font-medium text-white backdrop-blur transition hover:border-white/30 hover:bg-white/7"
+              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4 px-7 py-3 text-sm font-medium text-white backdrop-blur transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/7 motion-reduce:hover:translate-y-0"
             >
               <Mail className="h-4 w-4" />
               Contact Me
@@ -107,7 +107,7 @@ export function WorkWithMe() {
             </Link>
             <Link
               href="/#case-studies"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/3 px-7 text-sm font-medium text-foreground-muted backdrop-blur transition hover:border-white/25 hover:bg-white/6 hover:text-white"
+              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/3 px-7 py-3 text-sm font-medium text-foreground-muted backdrop-blur transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/6 hover:text-white motion-reduce:hover:translate-y-0"
             >
               <FileText className="h-4 w-4" />
               View Case Studies

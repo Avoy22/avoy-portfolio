@@ -131,7 +131,7 @@ export function AuditForm() {
   return (
     <Card
       asChild
-      className="glass-card rounded-2xl border-white/8 bg-transparent p-6 sm:p-8 lg:p-10"
+      className="glass-card rounded-2xl border-white/8 bg-transparent p-6 transition-colors duration-300 focus-within:border-accent/30 sm:p-8 lg:p-10"
     >
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
       {/* Honeypot */}
@@ -165,6 +165,7 @@ export function AuditForm() {
             id="name"
             placeholder="Your full name"
             autoComplete="name"
+            aria-invalid={!!errors.name}
             {...register("name")}
           />
         </Field>
@@ -179,6 +180,7 @@ export function AuditForm() {
             type="email"
             placeholder="you@company.com"
             autoComplete="email"
+            aria-invalid={!!errors.email}
             {...register("email")}
           />
         </Field>
@@ -193,6 +195,7 @@ export function AuditForm() {
             <Select
               id="business_type"
               defaultValue=""
+              aria-invalid={!!errors.business_type}
               {...register("business_type")}
             >
               <option value="" disabled>
@@ -218,6 +221,7 @@ export function AuditForm() {
             <Textarea
               id="current_workflow"
               rows={5}
+              aria-invalid={!!errors.current_workflow}
               placeholder="e.g. leads come in via Instagram DMs, we copy them into a Google Sheet, then send a quote email manually…"
               {...register("current_workflow")}
             />
@@ -233,6 +237,7 @@ export function AuditForm() {
           <Select
             id="main_bottleneck"
             defaultValue=""
+            aria-invalid={!!errors.main_bottleneck}
             {...register("main_bottleneck")}
           >
             <option value="" disabled>
@@ -256,6 +261,7 @@ export function AuditForm() {
           <Select
             id="monthly_volume"
             defaultValue=""
+            aria-invalid={!!errors.monthly_volume}
             {...register("monthly_volume")}
           >
             <option value="" disabled>
@@ -279,6 +285,7 @@ export function AuditForm() {
           >
             <Input
               id="current_tools"
+              aria-invalid={!!errors.current_tools}
               placeholder="Google Sheets, Gmail, Stripe, WhatsApp…"
               {...register("current_tools")}
             />
@@ -295,6 +302,7 @@ export function AuditForm() {
             <Select
               id="desired_outcome"
               defaultValue=""
+              aria-invalid={!!errors.desired_outcome}
               {...register("desired_outcome")}
             >
               <option value="" disabled>
@@ -328,6 +336,7 @@ export function AuditForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
+          aria-busy={isSubmitting}
           aria-label="Run automation audit"
           size="lg"
           className="w-full sm:w-auto"
@@ -361,7 +370,7 @@ function AuditResultCard({
 }) {
   const pct = Math.max(0, Math.min(100, result.score));
   return (
-    <Card className="glass-card rounded-2xl border-white/8 bg-transparent p-6 sm:p-8 lg:p-10" role="status" aria-live="polite">
+    <Card className="glass-card rounded-2xl border-white/8 bg-transparent p-6 shadow-[0_24px_70px_-45px_rgba(109,140,255,0.45)] sm:p-8 lg:p-10" role="status" aria-live="polite">
       <div className="flex flex-wrap items-center gap-2">
         <Badge tone={bandTone[result.band]} size="md" dot>
           {result.band} opportunity

@@ -50,7 +50,7 @@ export default function ProjectsPage() {
                   href={`/projects/${project.slug}`}
                   className="group block h-full"
                 >
-                  <Card asChild className="glass-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5">
+                  <Card asChild className="glass-card interactive-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent">
                     <article>
                     <div
                       className={cn(

@@ -6,18 +6,18 @@ import { Slot } from "radix-ui"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all duration-300 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
-          "bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] hover:bg-zinc-100",
+          "bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] hover:bg-zinc-100 hover:shadow-[0_1px_0_rgba(255,255,255,0.85)_inset,0_14px_34px_-16px_rgba(255,255,255,0.65)]",
         primary:
-          "bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] hover:bg-zinc-100",
+          "bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-10px_rgba(255,255,255,0.4)] hover:bg-zinc-100 hover:shadow-[0_1px_0_rgba(255,255,255,0.85)_inset,0_14px_34px_-16px_rgba(255,255,255,0.65)]",
         outline:
-          "border-white/15 bg-white/4 text-white backdrop-blur hover:border-white/30 hover:bg-white/8 aria-expanded:border-white/25 aria-expanded:bg-white/8",
+          "border-white/15 bg-white/4 text-white backdrop-blur hover:border-white/30 hover:bg-white/8 hover:shadow-[0_16px_40px_-24px_rgba(109,140,255,0.55)] aria-expanded:border-white/25 aria-expanded:bg-white/8",
         secondary:
-          "border-white/10 bg-white/8 text-white backdrop-blur hover:border-accent/30 hover:bg-accent/10 hover:text-white aria-expanded:bg-white/8",
+          "border-white/10 bg-white/8 text-white backdrop-blur hover:border-accent/35 hover:bg-accent/10 hover:text-white hover:shadow-[0_16px_40px_-24px_rgba(109,140,255,0.55)] aria-expanded:bg-white/8",
         ghost:
           "text-foreground-muted hover:bg-white/6 hover:text-white aria-expanded:bg-white/8 aria-expanded:text-white",
         destructive:

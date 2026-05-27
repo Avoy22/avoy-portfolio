@@ -97,7 +97,7 @@ export function CaseStudies() {
             const Icon = item.icon;
             return (
               <Reveal key={item.title} delay={(index % 4) * 0.05}>
-                <div className="glass-card group relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5">
+                <div className="glass-card interactive-card group relative h-full overflow-hidden rounded-2xl p-6">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-white transition group-hover:border-accent/30 group-hover:bg-accent/10 group-hover:text-accent">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>

@@ -56,7 +56,7 @@ export default function ServicesPage() {
 
             <Link
               href="/automation-audit"
-              className="group mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[13px] text-foreground-muted backdrop-blur transition hover:border-white/25 hover:bg-white/6 hover:text-white"
+              className="group mt-6 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-[13px] text-foreground-muted backdrop-blur transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/6 hover:text-white motion-reduce:hover:translate-y-0"
             >
               <Gauge className="h-3.5 w-3.5" />
               Not sure which fits? Run the 2-minute audit
@@ -73,7 +73,7 @@ export default function ServicesPage() {
               const Icon = iconMap[service.icon] ?? Globe;
               return (
                 <Reveal key={service.slug} delay={(i % 2) * 0.06}>
-                  <Card asChild className="glass-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5 sm:p-8">
+                  <Card asChild className="glass-card interactive-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent p-7 sm:p-8">
                     <article>
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/4 text-white">
                       <Icon className="h-5 w-5" />

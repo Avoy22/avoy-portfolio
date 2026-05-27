@@ -450,7 +450,7 @@ export default async function ProjectCaseStudyPage({
                 <Link
                   key={p.slug}
                   href={`/projects/${p.slug}`}
-                  className="group glass-card relative overflow-hidden rounded-2xl p-7 transition hover:-translate-y-0.5 hover:border-white/15"
+                  className="group glass-card interactive-card relative overflow-hidden rounded-2xl p-7"
                 >
                   <div className="relative">
                     <div className="text-[10.5px] uppercase tracking-[0.18em] text-foreground-subtle">

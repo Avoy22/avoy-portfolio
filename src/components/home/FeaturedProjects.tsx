@@ -38,7 +38,7 @@ export function FeaturedProjects() {
                 href={`/projects/${project.slug}`}
                 className="group block h-full"
               >
-                  <Card asChild className="glass-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/5">
+                  <Card asChild className="glass-card interactive-card relative h-full overflow-hidden rounded-2xl border-white/8 bg-transparent">
                     <article>
                   <div
                     className={cn(
@@ -104,7 +104,7 @@ export function FeaturedProjects() {
         <div className="mt-10 flex justify-center sm:hidden">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-5 py-2.5 text-sm text-white transition hover:border-white/25 hover:bg-white/6"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-5 py-2.5 text-sm text-white transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/6 motion-reduce:hover:translate-y-0"
           >
             View all projects
             <ArrowUpRight className="h-4 w-4" />

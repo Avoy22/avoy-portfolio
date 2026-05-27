@@ -21,12 +21,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const [prevPath, setPrevPath] = useState(pathname);
-  if (prevPath !== pathname) {
-    setPrevPath(pathname);
-    if (open) setOpen(false);
-  }
-
   return (
     <header
       className={cn(
@@ -72,8 +66,9 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                  "relative rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:ring-0",
                   active
                     ? "text-white"
                     : "text-foreground-muted hover:text-white"
@@ -82,7 +77,7 @@ export function Navbar() {
                 {active && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-white/6 border border-white/8"
+                    className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-white/7 shadow-[0_12px_30px_-20px_rgba(109,140,255,0.65)]"
                     transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
                   />
                 )}
@@ -95,7 +90,8 @@ export function Navbar() {
         <div className="hidden items-center gap-2 md:flex">
           <Link
             href="/contact"
-            className="group inline-flex h-10 items-center gap-2 rounded-full bg-white px-5 text-[13px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-8px_rgba(255,255,255,0.4)] transition hover:bg-zinc-100"
+            aria-current={pathname === "/contact" ? "page" : undefined}
+            className="group inline-flex h-10 items-center gap-2 rounded-full bg-white px-5 text-[13px] font-medium text-black shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_24px_-8px_rgba(255,255,255,0.4)] transition hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-[0_1px_0_rgba(255,255,255,0.85)_inset,0_14px_34px_-16px_rgba(255,255,255,0.65)] motion-reduce:hover:translate-y-0"
           >
             Contact
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -131,10 +127,12 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    onClick={() => setOpen(false)}
                     className={cn(
                       "flex items-center justify-between rounded-xl px-4 py-3.5 text-[15px] font-medium transition",
                       active
-                        ? "bg-white/6 text-white border border-white/8"
+                        ? "border border-white/10 bg-white/7 text-white shadow-[0_14px_40px_-28px_rgba(109,140,255,0.7)]"
                         : "text-foreground-muted hover:bg-white/4 hover:text-white"
                     )}
                   >

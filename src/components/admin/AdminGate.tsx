@@ -48,7 +48,7 @@ export function AdminGate({ onUnlock }: Props) {
     <div className="mx-auto w-full max-w-md">
       <Card
         asChild
-        className="glass-card rounded-3xl border-white/8 bg-transparent p-6 sm:p-8"
+        className="glass-card rounded-3xl border-white/8 bg-transparent p-6 transition-colors duration-300 focus-within:border-accent/30 sm:p-8"
       >
         <form onSubmit={handleSubmit} noValidate>
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/4 text-white">
@@ -71,6 +71,7 @@ export function AdminGate({ onUnlock }: Props) {
               autoFocus
               placeholder="••••••••••••"
               value={token}
+              aria-invalid={!!error}
               onChange={(e) => setToken(e.target.value)}
             />
           </Field>
@@ -89,6 +90,7 @@ export function AdminGate({ onUnlock }: Props) {
         <Button
           type="submit"
           disabled={busy || token.trim().length === 0}
+          aria-busy={busy}
           size="md"
           className="mt-6 w-full"
         >

@@ -132,6 +132,20 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 72%);
+  opacity: 0.34;
+  animation: grid-drift 34s linear infinite;
+}
+
 ::selection {
   background: rgba(109, 140, 255, 0.32);
   color: #fff;
@@ -181,6 +195,18 @@ textarea:focus-visible {
   box-shadow: 0 0 0 2px var(--background), 0 0 0 4px rgba(109, 140, 255, 0.55);
 }
 
+[data-slot="button"]:not([data-variant="link"]) {
+  will-change: transform;
+}
+
+[data-slot="button"]:not([data-variant="link"]):not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+[data-slot="button"] svg {
+  transition: transform 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+
 /* Reduced motion respect */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -192,6 +218,13 @@ textarea:focus-visible {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-slot="button"]:not([data-variant="link"]):not(:disabled):hover {
+    transform: none;
   }
 }
 
@@ -225,6 +258,70 @@ textarea:focus-visible {
     border-color 0.4s ease,
     background 0.4s ease,
     box-shadow 0.4s ease;
+}
+
+.glass-card {
+  isolation: isolate;
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(520px circle at var(--glow-x, 50%) var(--glow-y, 0%), rgba(109, 140, 255, 0.14), transparent 42%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 36%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.glass-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card:hover::after,
+.glass-card:focus-within::after {
+  opacity: 1;
+}
+
+.interactive-card {
+  transition:
+    transform 0.4s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.interactive-card:hover,
+.interactive-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background-color: rgba(255, 255, 255, 0.055);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 24px 70px -40px rgba(109, 140, 255, 0.42),
+    0 18px 42px -28px rgba(0, 0, 0, 0.75);
+}
+
+.interactive-card:focus-within {
+  box-shadow:
+    0 0 0 1px rgba(109, 140, 255, 0.34),
+    0 24px 70px -40px rgba(109, 140, 255, 0.42),
+    0 18px 42px -28px rgba(0, 0, 0, 0.75);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-card,
+  .interactive-card:hover,
+  .interactive-card:focus-within {
+    transform: none;
+    will-change: auto;
+  }
 }
 
 @utility text-gradient {
@@ -378,6 +475,26 @@ textarea:focus-visible {
 }
 @utility animate-shimmer-x {
   animation: shimmer-x 2.4s ease-in-out infinite;
+}
+
+@keyframes grid-drift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 72px 72px, 72px 72px; }
+}
+
+@keyframes hero-glow {
+  0%, 100% {
+    transform: translate3d(-2%, 0, 0) scale(1);
+    opacity: 0.58;
+  }
+  50% {
+    transform: translate3d(2%, -1.5%, 0) scale(1.035);
+    opacity: 0.78;
+  }
+}
+
+.hero-ambient {
+  animation: hero-glow 18s ease-in-out infinite;
 }
 
 .dark {

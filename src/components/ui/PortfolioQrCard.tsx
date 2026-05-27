@@ -16,7 +16,7 @@ export function PortfolioQrCard({ className }: PortfolioQrCardProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "glass-card group flex flex-col items-start gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 sm:flex-row sm:items-center",
+        "glass-card interactive-card group flex flex-col items-start gap-4 rounded-2xl p-5 sm:flex-row sm:items-center",
         className
       )}
       aria-label="Open Aboy Chandra Das portfolio"

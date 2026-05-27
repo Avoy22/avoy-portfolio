@@ -52,7 +52,7 @@ export function TechStack() {
         <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {groups.map((group, index) => (
             <Reveal key={group.category} delay={(index % 3) * 0.06}>
-              <div className="glass-card h-full rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/15 sm:p-7">
+              <div className="glass-card interactive-card h-full rounded-2xl p-6 sm:p-7">
                 <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground-muted">
                   {group.category}
                 </h3>
@@ -65,7 +65,7 @@ export function TechStack() {
                         key={item.name}
                         aria-label={`${item.name}, ${group.category}`}
                         className={cn(
-                          "flex min-h-14 items-center gap-3 rounded-xl border px-3.5 py-3 text-left transition-colors duration-200",
+                          "flex min-h-14 items-center gap-3 rounded-xl border px-3.5 py-3 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 motion-reduce:hover:translate-y-0",
                           item.level === "Core" &&
                             "border-accent/30 bg-accent/10 text-white",
                           item.level === "Daily" &&

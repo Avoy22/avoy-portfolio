@@ -61,7 +61,7 @@ export default function AutomationAuditPage() {
                 {signals.map((s) => (
                   <div
                     key={s.label}
-                    className="glass-card flex items-start gap-4 rounded-2xl p-5"
+                    className="glass-card interactive-card flex items-start gap-4 rounded-2xl p-5"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-white">
                       <s.icon className="h-4 w-4" />

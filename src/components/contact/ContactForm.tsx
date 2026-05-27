@@ -83,7 +83,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <Card className="glass-card rounded-2xl border-white/8 bg-transparent p-10 text-center sm:p-12" role="status" aria-live="polite">
+      <Card className="glass-card rounded-2xl border-white/8 bg-transparent p-10 text-center shadow-[0_24px_70px_-45px_rgba(52,211,153,0.45)] sm:p-12" role="status" aria-live="polite">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-success/30 bg-success/10 text-success">
           <CircleCheck className="h-7 w-7" />
         </div>
@@ -108,7 +108,7 @@ export function ContactForm() {
   return (
     <Card
       asChild
-      className="glass-card rounded-2xl border-white/8 bg-transparent p-6 sm:p-8 lg:p-10"
+      className="glass-card rounded-2xl border-white/8 bg-transparent p-6 transition-colors duration-300 focus-within:border-accent/30 sm:p-8 lg:p-10"
     >
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
       {/* Honeypot — hidden from real users */}
@@ -142,6 +142,7 @@ export function ContactForm() {
             id="name"
             placeholder="Your full name"
             autoComplete="name"
+            aria-invalid={!!errors.name}
             {...register("name")}
           />
         </Field>
@@ -156,6 +157,7 @@ export function ContactForm() {
             type="email"
             placeholder="you@company.com"
             autoComplete="email"
+            aria-invalid={!!errors.email}
             {...register("email")}
           />
         </Field>
@@ -168,6 +170,7 @@ export function ContactForm() {
             id="company"
             placeholder="Optional"
             autoComplete="organization"
+            aria-invalid={!!errors.company}
             {...register("company")}
           />
         </Field>
@@ -177,7 +180,12 @@ export function ContactForm() {
           htmlFor="service"
           error={errors.service?.message}
         >
-          <Select id="service" defaultValue="" {...register("service")}>
+          <Select
+            id="service"
+            defaultValue=""
+            aria-invalid={!!errors.service}
+            {...register("service")}
+          >
             <option value="" disabled>
               Pick one…
             </option>
@@ -195,7 +203,12 @@ export function ContactForm() {
             error={errors.budget?.message}
             hint="Optional — helps me scope the right approach."
           >
-            <Select id="budget" defaultValue="" {...register("budget")}>
+            <Select
+              id="budget"
+              defaultValue=""
+              aria-invalid={!!errors.budget}
+              {...register("budget")}
+            >
               <option value="">No preference</option>
               {budgetOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -217,6 +230,7 @@ export function ContactForm() {
               id="message"
               rows={6}
               placeholder="I'm building a small business website / lead system / dashboard and need help with…"
+              aria-invalid={!!errors.message}
               {...register("message")}
             />
           </Field>
@@ -241,6 +255,7 @@ export function ContactForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
+          aria-busy={isSubmitting}
           aria-label="Send project inquiry"
           size="lg"
           className="w-full sm:w-auto"

@@ -217,12 +217,13 @@ export function LeadsAdmin({ token, onSignOut }: Props) {
             {counts.qualified} qualified
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="grid w-full grid-cols-1 gap-2 sm:w-auto sm:flex sm:flex-wrap sm:items-center">
           <Button
             onClick={refresh}
             disabled={refreshing}
             variant="outline"
             size="sm"
+            className="w-full sm:w-auto"
           >
             <RefreshCcw
               className={cn("h-3.5 w-3.5", refreshing && "animate-spin")}
@@ -234,6 +235,7 @@ export function LeadsAdmin({ token, onSignOut }: Props) {
             disabled={exporting}
             variant="outline"
             size="sm"
+            className="w-full sm:w-auto"
           >
             {exporting ? (
               <LoaderCircle className="h-3.5 w-3.5 animate-spin" />
@@ -246,6 +248,7 @@ export function LeadsAdmin({ token, onSignOut }: Props) {
             onClick={onSignOut}
             variant="ghost"
             size="sm"
+            className="w-full sm:w-auto"
           >
             <LogOut className="h-3.5 w-3.5" />
             Sign out
@@ -370,7 +373,7 @@ function LeadCard({ lead, onUpdate }: LeadCardProps) {
       : lead.message;
 
   return (
-    <Card asChild className="glass-card rounded-2xl border-white/8 bg-transparent p-5 sm:p-6">
+    <Card asChild className="glass-card interactive-card rounded-2xl border-white/8 bg-transparent p-5 sm:p-6">
       <article>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">

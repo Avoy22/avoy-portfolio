@@ -39,7 +39,7 @@ export default function ContactPage() {
             <div className="mt-9 space-y-3">
               <a
                 href={site.social.email}
-                className="glass-card group flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20"
+                className="glass-card interactive-card group flex items-center gap-4 rounded-2xl p-5"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-white transition group-hover:border-accent/30 group-hover:bg-accent/10 group-hover:text-accent">
                   <Mail className="h-4 w-4" />
@@ -53,7 +53,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </a>
-              <div className="glass-card flex items-center gap-4 rounded-2xl p-5">
+              <div className="glass-card flex items-center gap-4 rounded-2xl p-5 transition-colors duration-300 hover:border-white/15">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/4 text-white">
                   <Calendar className="h-4 w-4" />
                 </div>
