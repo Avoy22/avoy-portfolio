@@ -53,7 +53,7 @@ export function Footer() {
                 <SocialLink href={site.social.linkedin} label="LinkedIn">
                   <LinkedinIcon size={15} />
                 </SocialLink>
-                <SocialLink href={site.social.email} label="Email Avoy">
+                <SocialLink href={site.social.email} label="Email Aboy">
                   <GmailIcon size={15} />
                 </SocialLink>
               </div>

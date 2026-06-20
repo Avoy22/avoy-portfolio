@@ -34,12 +34,12 @@ export function Navbar() {
         <Link
           href="/"
           className="group relative flex min-w-0 items-center gap-2.5"
-          aria-label="Avoy Systems home"
+          aria-label="Aboy Systems home"
         >
           <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl shadow-[0_10px_28px_-10px_rgba(34,211,238,0.7)] transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10">
             <Image
               src="/brand/automation-flow-icon.svg"
-              alt="Avoy Systems automation flow icon"
+              alt="Aboy Systems automation flow icon"
               width={40}
               height={40}
               priority
@@ -48,7 +48,7 @@ export function Navbar() {
           </span>
           <div className="min-w-0 leading-tight">
             <div className="text-[15px] font-semibold tracking-[-0.01em] text-white">
-              Avoy Systems
+              Aboy Systems
             </div>
             <div className="text-[10px] uppercase tracking-[0.18em] text-foreground-subtle">
               AI Automation &amp; Web Apps

@@ -27,7 +27,7 @@ export function customerAutoReplyEmail(input: ContactInput) {
       "",
       "If it's urgent, just reply to this email.",
       "",
-      "— Avoy",
+      "— Aboy Chandra Das",
     ].join("\n"),
   };
 }

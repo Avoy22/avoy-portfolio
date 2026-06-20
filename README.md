@@ -1,12 +1,12 @@
-# Avoy Chandra Das Portfolio
+# Aboy Chandra Das Portfolio
 
-Professional portfolio for **Avoy Chandra Das**, focused on full-stack web development, business automation, lead systems, dashboards, and practical AI-assisted workflows.
+Professional portfolio for **Aboy Chandra Das**, focused on full-stack web development, business automation, lead systems, dashboards, and practical AI-assisted workflows.
 
 [View Live Portfolio](https://avoy-portfolio.vercel.app/)
 
 ## Project Overview
 
-Avoy Chandra Das Portfolio is a full-stack portfolio website built to showcase case studies, business systems, automation tools, and contact workflows in one production-style application.
+Aboy Chandra Das Portfolio is a full-stack portfolio website built to showcase case studies, business systems, automation tools, and contact workflows in one production-style application.
 
 The site is designed for recruiters, clients, senior engineers, and technology companies who want to evaluate both frontend presentation and backend implementation. It includes public portfolio pages, working lead capture flows, a protected admin dashboard, CSV export, and an Automation Audit tool that demonstrates how business inputs can be turned into structured automation recommendations.
 
