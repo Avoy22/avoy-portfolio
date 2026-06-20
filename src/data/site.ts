@@ -1,5 +1,5 @@
 export const site = {
-  name: "Avoy Das",
+  name: "Aboy Chandra Das",
   shortName: "Avoy",
   role: "AI Automation & Full-Stack Web Developer",
   headline: "AI Automation & Full-Stack Web Developer",

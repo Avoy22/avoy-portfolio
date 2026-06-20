@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   description:
     "A practical look at the systems, workflows, architecture, and deployed features behind this portfolio — including a safe public demo of the lead management workflow.",
   openGraph: {
-    title: "Proof of Work · Avoy Das",
+    title: "Proof of Work · Aboy Chandra Das",
     description:
       "A practical look at the systems, workflows, architecture, and deployed features behind this portfolio.",
   },

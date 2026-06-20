@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "A practical workflow audit tool that analyzes business inputs and suggests automation opportunities. Get an opportunity score, a recommended system, and a complexity read in under two minutes — rule-based and free.",
   openGraph: {
-    title: "Automation Audit · Avoy Das",
+    title: "Automation Audit · Aboy Chandra Das",
     description:
       "A practical workflow audit tool that analyzes business inputs and suggests automation opportunities. Score, recommended system, and complexity in under two minutes.",
   },

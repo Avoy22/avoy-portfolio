@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Tell me about your project. I read every inbound personally and reply within a day or two.",
   openGraph: {
-    title: "Contact · Avoy Das",
+    title: "Contact · Aboy Chandra Das",
     description:
       "Tell me about your project. I read every inbound personally.",
   },

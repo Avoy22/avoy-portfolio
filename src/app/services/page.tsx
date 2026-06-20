@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description:
     "Websites, lead management systems, dashboards, and workflow automation for small businesses and service providers.",
   openGraph: {
-    title: "Services · Avoy Das",
+    title: "Services · Aboy Chandra Das",
     description:
       "Websites, lead management systems, dashboards, and workflow automation.",
   },

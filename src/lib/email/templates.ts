@@ -19,7 +19,7 @@ export function teamNotificationEmail(input: ContactInput) {
 
 export function customerAutoReplyEmail(input: ContactInput) {
   return {
-    subject: "Got your message — Avoy Das",
+    subject: "Got your message — Aboy Chandra Das",
     text: [
       `Hi ${input.name.split(" ")[0]},`,
       "",

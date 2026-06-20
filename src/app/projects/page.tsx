@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Selected projects: websites, dashboards, lead systems, and automation tools.",
   openGraph: {
-    title: "Projects · Avoy Das",
+    title: "Projects · Aboy Chandra Das",
     description:
       "Selected projects: websites, dashboards, lead systems, and automation tools.",
   },

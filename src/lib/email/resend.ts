@@ -17,7 +17,7 @@ export function getResend(): Resend {
 }
 
 export const emailConfig = {
-  from: process.env.RESEND_FROM ?? "Avoy Das <hello@avoydas.com>",
+  from: process.env.RESEND_FROM ?? "Aboy Chandra Das <hello@avoydas.com>",
   replyTo: process.env.RESEND_REPLY_TO ?? "hello@avoydas.com",
   to: {
     notifications:

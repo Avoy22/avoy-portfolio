@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Business dashboards",
     "Supabase",
     "TypeScript",
-    "Avoy Das",
+    "Aboy Chandra Das",
   ],
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
