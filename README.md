@@ -99,6 +99,10 @@ The local development app usually runs at:
 http://localhost:3000
 ```
 
+## Home Screen App Icon / PWA Metadata
+
+The portfolio includes a Next.js web app manifest at `src/app/manifest.ts` and app icon assets for Add to Home Screen behavior in mobile browsers. The installable app metadata uses the "Aboy Systems Portfolio" name with dark, app-style icons stored under `public/icons`, plus `public/apple-touch-icon.png` for Apple touch icon support.
+
 ## Deployment
 
 This portfolio is deployed on Vercel. To deploy a new instance, connect the repository to Vercel, keep the default Next.js build settings, and add the required environment variables in the Vercel project settings.
